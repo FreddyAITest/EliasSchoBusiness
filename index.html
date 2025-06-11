@@ -1,14 +1,302 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Elias Scho - SEO-Websites für Dienstleister</title>
-    <meta name="description" content="Professionelle SEO-Websites für kleine und mittlere Dienstleistungsunternehmen. Moderne Webentwicklung und gezielte Suchmaschinenoptimierung für mehr Reichweite." />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elias Scho - Webentwicklung für Kleinunternehmer | Professionelle Websites</title>
+    <meta name="description" content="Professionelle Webentwicklung für Kleinunternehmer. Moderne, responsive Websites die Kunden überzeugen und Umsatz steigern. Kostenloses Beratungsgespräch.">
+    <meta name="keywords" content="Webentwicklung, Website erstellen, Kleinunternehmer, Responsive Design, SEO, Online Marketing, Webdesign">
+    <meta name="author" content="Elias Scho">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://eliasscho.de/">
+    <meta property="og:title" content="Elias Scho - Webentwicklung für Kleinunternehmer">
+    <meta property="og:description" content="Professionelle Webentwicklung für Kleinunternehmer. Moderne, responsive Websites die Kunden überzeugen und Umsatz steigern.">
+    <meta property="og:image" content="https://eliasscho.de/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://eliasscho.de/">
+    <meta property="twitter:title" content="Elias Scho - Webentwicklung für Kleinunternehmer">
+    <meta property="twitter:description" content="Professionelle Webentwicklung für Kleinunternehmer. Moderne, responsive Websites die Kunden überzeugen und Umsatz steigern.">
+    <meta property="twitter:image" content="https://eliasscho.de/og-image.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Elias Scho Webentwicklung",
+        "description": "Professionelle Webentwicklung für Kleinunternehmer",
+        "url": "https://eliasscho.de",
+        "telephone": "+49 123 456 7890",
+        "email": "kontakt@eliasscho.de",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "DE"
+        },
+        "serviceType": "Webentwicklung",
+        "areaServed": "Deutschland"
+    }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Elias Scho</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">Über mich</a></li>
+                <li><a href="#portfolio" class="nav-link">Referenzen</a></li>
+                <li><a href="#contact" class="nav-link">Kontakt</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Professionelle Webentwicklung für Kleinunternehmer</h1>
+            <p>Ich bringe Ihr Unternehmen ins digitale Zeitalter mit modernen, benutzerfreundlichen Websites, die Kunden überzeugen und Umsatz steigern.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">Kostenloses Beratungsgespräch</a>
+                <a href="#portfolio" class="btn-secondary">Referenzen ansehen</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="hero-visual">
+                <i class="fas fa-code"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Über mich</h2>
+                    <p>Hallo, ich bin Elias Scho, ein leidenschaftlicher Webentwickler mit Fokus auf Kleinunternehmer und Startups. Mit mehrjähriger Erfahrung in der Entwicklung von modernen, responsiven Websites helfe ich Ihnen dabei, online erfolgreich zu sein.</p>
+                    
+                    <div class="services">
+                        <h3>Meine Leistungen:</h3>
+                        <div class="service-grid">
+                            <div class="service-item">
+                                <i class="fas fa-laptop-code"></i>
+                                <h4>Responsive Webdesign</h4>
+                                <p>Websites, die auf allen Geräten perfekt aussehen</p>
+                            </div>
+                            <div class="service-item">
+                                <i class="fas fa-search"></i>
+                                <h4>SEO-Optimierung</h4>
+                                <p>Bessere Sichtbarkeit in Suchmaschinen</p>
+                            </div>
+                            <div class="service-item">
+                                <i class="fas fa-rocket"></i>
+                                <h4>Performance</h4>
+                                <p>Schnelle Ladezeiten für bessere Nutzererfahrung</p>
+                            </div>
+                            <div class="service-item">
+                                <i class="fas fa-headset"></i>
+                                <h4>Support</h4>
+                                <p>Kontinuierliche Betreuung und Wartung</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2>Meine Referenzen</h2>
+            <p class="section-subtitle">Hier sind einige Projekte, die ich für meine Kunden realisiert habe</p>
+            
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-slide active">
+                        <div class="project-card">
+                            <div class="project-image">
+                                <div class="project-placeholder">
+                                    <i class="fas fa-store"></i>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Müller Bäckerei</h3>
+                                <p>Moderne Website für eine traditionelle Bäckerei mit Online-Bestellsystem und Produktkatalog. Die Website steigerte die Online-Bestellungen um 150%.</p>
+                                <div class="project-tech">
+                                    <span>HTML5</span>
+                                    <span>CSS3</span>
+                                    <span>JavaScript</span>
+                                    <span>PHP</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-slide">
+                        <div class="project-card">
+                            <div class="project-image">
+                                <div class="project-placeholder">
+                                    <i class="fas fa-car"></i>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Schmidt Autowerkstatt</h3>
+                                <p>Professionelle Präsenz für eine Autowerkstatt mit Terminbuchungssystem und Serviceinformationen. Kundenanfragen stiegen um 80%.</p>
+                                <div class="project-tech">
+                                    <span>React</span>
+                                    <span>Node.js</span>
+                                    <span>MongoDB</span>
+                                    <span>CSS3</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-slide">
+                        <div class="project-card">
+                            <div class="project-image">
+                                <div class="project-placeholder">
+                                    <i class="fas fa-cut"></i>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Bella Hairstudio</h3>
+                                <p>Elegante Website für einen Friseursalon mit Online-Terminbuchung und Galerie. Die Online-Buchungen machten 60% aller Termine aus.</p>
+                                <div class="project-tech">
+                                    <span>Vue.js</span>
+                                    <span>Firebase</span>
+                                    <span>SCSS</span>
+                                    <span>PWA</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="carousel-btn prev" onclick="changeSlide(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn next" onclick="changeSlide(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Kontakt aufnehmen</h2>
+            <p class="section-subtitle">Lassen Sie uns über Ihr Projekt sprechen</p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Bereit für Ihr nächstes Projekt?</h3>
+                    <p>Ich freue mich darauf, von Ihrem Projekt zu hören und gemeinsam eine Lösung zu entwickeln, die Ihre Geschäftsziele unterstützt.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>kontakt@eliasscho.de</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+49 123 456 7890</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Mo-Fr: 9:00 - 18:00 Uhr</span>
+                        </div>
+                    </div>
+                </div>
+                  <form class="contact-form" name="contact" method="POST" data-netlify="true" action="/thank-you.html">
+                    <input type="hidden" name="form-name" value="contact">
+                    
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" required>
+                        <label for="name">Ihr Name</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required>
+                        <label for="email">E-Mail Adresse</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" id="company" name="company">
+                        <label for="company">Unternehmen (optional)</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select id="service" name="service" required>
+                            <option value="">Gewünschte Dienstleistung wählen</option>
+                            <option value="neue-website">Neue Website erstellen</option>
+                            <option value="redesign">Website Redesign</option>
+                            <option value="wartung">Website Wartung</option>
+                            <option value="seo">SEO Optimierung</option>
+                            <option value="beratung">Beratung</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <label for="message">Ihre Nachricht</label>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Nachricht senden</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Elias Scho</h3>
+                    <p>Webentwicklung für Kleinunternehmer</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">Über mich</a>
+                    <a href="#portfolio">Referenzen</a>
+                    <a href="#contact">Kontakt</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Elias Scho. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
