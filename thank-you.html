@@ -86,9 +86,7 @@
                 <p>&copy; 2025 Elias Scho. Alle Rechte vorbehalten.</p>
             </div>
         </div>
-    </footer>
-
-    <style>
+    </footer>    <style>
         .thank-you {
             padding: 150px 0 100px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -96,12 +94,16 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
+            width: 100%;
+            overflow: hidden;
         }
 
         .thank-you-content {
             text-align: center;
             max-width: 800px;
             margin: 0 auto;
+            width: 100%;
+            padding: 0 20px;
         }
 
         .thank-you-icon {
@@ -114,12 +116,14 @@
             font-size: 3rem;
             margin-bottom: 1.5rem;
             font-weight: 700;
+            word-wrap: break-word;
         }
 
         .thank-you > .container > .thank-you-content > p {
             font-size: 1.2rem;
             margin-bottom: 3rem;
             opacity: 0.9;
+            word-wrap: break-word;
         }
 
         .thank-you-info {
@@ -128,6 +132,9 @@
             border-radius: 20px;
             margin-bottom: 3rem;
             backdrop-filter: blur(10px);
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
         }
 
         .thank-you-info h3 {
@@ -139,12 +146,14 @@
             display: grid;
             gap: 2rem;
             text-align: left;
+            width: 100%;
         }
 
         .step {
             display: flex;
             align-items: flex-start;
             gap: 1.5rem;
+            width: 100%;
         }
 
         .step-number {
@@ -161,14 +170,21 @@
             flex-shrink: 0;
         }
 
+        .step-content {
+            flex: 1;
+            min-width: 0;
+        }
+
         .step-content h4 {
             font-size: 1.3rem;
             margin-bottom: 0.5rem;
+            word-wrap: break-word;
         }
 
         .step-content p {
             opacity: 0.9;
             margin: 0;
+            word-wrap: break-word;
         }
 
         .thank-you-actions {
@@ -176,9 +192,18 @@
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
+            width: 100%;
         }
 
         @media (max-width: 768px) {
+            .thank-you {
+                padding: 120px 0 80px;
+            }
+            
+            .thank-you-content {
+                padding: 0 15px;
+            }
+            
             .thank-you h1 {
                 font-size: 2.5rem;
             }
@@ -194,6 +219,44 @@
             .thank-you-actions {
                 flex-direction: column;
                 align-items: center;
+                gap: 0.8rem;
+            }
+            
+            .thank-you-actions .btn-primary,
+            .thank-you-actions .btn-secondary {
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .thank-you {
+                padding: 100px 0 60px;
+            }
+            
+            .thank-you-content {
+                padding: 0 10px;
+            }
+            
+            .thank-you h1 {
+                font-size: 2rem;
+                line-height: 1.3;
+            }
+            
+            .thank-you > .container > .thank-you-content > p {
+                font-size: 1rem;
+            }
+            
+            .thank-you-info h3 {
+                font-size: 1.5rem;
+            }
+            
+            .step-content h4 {
+                font-size: 1.1rem;
+            }
+            
+            .thank-you-info {
+                padding: 1.2rem;
             }
         }
     </style>
