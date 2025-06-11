@@ -139,7 +139,7 @@
       <h2 class="text-3xl font-bold mb-10 text-center">Leistungen</h2>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Firmenwebsite -->
-        <div class="card text-center">
+        <div class="card text-center transition-all duration-700 opacity-0 translate-y-8" data-animate="fade-in-up" style="transition-delay:0ms">
           <div class="mb-4">
             <i class="fas fa-building fa-2x text-blue-600"></i>
           </div>
@@ -152,7 +152,7 @@
           </ul>
         </div>
         <!-- SEO-Optimierung -->
-        <div class="card text-center">
+        <div class="card text-center transition-all duration-700 opacity-0 translate-y-8" data-animate="fade-in-up" style="transition-delay:100ms">
           <div class="mb-4">
             <i class="fas fa-search fa-2x text-blue-600"></i>
           </div>
@@ -165,7 +165,7 @@
           </ul>
         </div>
         <!-- Responsive Design -->
-        <div class="card text-center">
+        <div class="card text-center transition-all duration-700 opacity-0 translate-y-8" data-animate="fade-in-up" style="transition-delay:200ms">
           <div class="mb-4">
             <i class="fas fa-mobile-alt fa-2x text-blue-600"></i>
           </div>
@@ -178,7 +178,7 @@
           </ul>
         </div>
         <!-- Beratung & Strategie -->
-        <div class="card text-center">
+        <div class="card text-center transition-all duration-700 opacity-0 translate-y-8" data-animate="fade-in-up" style="transition-delay:300ms">
           <div class="mb-4">
             <i class="fas fa-comments fa-2x text-blue-600"></i>
           </div>
@@ -191,7 +191,7 @@
           </ul>
         </div>
         <!-- Wartung & Support -->
-        <div class="card text-center">
+        <div class="card text-center transition-all duration-700 opacity-0 translate-y-8" data-animate="fade-in-up" style="transition-delay:400ms">
           <div class="mb-4">
             <i class="fas fa-tools fa-2x text-blue-600"></i>
           </div>
@@ -204,7 +204,7 @@
           </ul>
         </div>
         <!-- Content-Erstellung -->
-        <div class="card text-center">
+        <div class="card text-center transition-all duration-700 opacity-0 translate-y-8" data-animate="fade-in-up" style="transition-delay:500ms">
           <div class="mb-4">
             <i class="fas fa-pen-nib fa-2x text-blue-600"></i>
           </div>
@@ -219,6 +219,24 @@
       </div>
     </div>
   </section>
+  <script>
+  // Fancy Einfliegen für Leistungen (Tailwind-like, Vanilla JS)
+  document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('[data-animate="fade-in-up"]');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+          entry.target.classList.remove('opacity-0', 'translate-y-8');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    cards.forEach((card, i) => {
+      setTimeout(() => observer.observe(card), i * 100);
+    });
+  });
+  </script>
   <section id="referenzen" class="py-20 bg-gray-50 text-gray-900">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl font-bold mb-6">Referenzen</h2>
@@ -234,7 +252,44 @@
   <section id="kontakt" class="py-20 bg-gray-50 text-gray-900">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl font-bold mb-6">Kontakt</h2>
-      <p>Hier steht das Kontaktformular oder Kontaktinformationen (Inhalte aus der alten Kontakt-Seite).</p>
+      <div class="max-w-xl mx-auto bg-white rounded-lg shadow-lg p-8">
+        <!-- Stepper Platzhalter -->
+        <div id="kontakt-stepper" class="mb-6">
+          <div class="flex items-center justify-between mb-8">
+            <div class="flex-1 text-center">
+              <div class="w-8 h-8 mx-auto rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">1</div>
+              <div class="mt-2 text-xs font-medium">Ihre Daten</div>
+            </div>
+            <div class="flex-1 border-t-2 border-blue-200 mx-2"></div>
+            <div class="flex-1 text-center">
+              <div class="w-8 h-8 mx-auto rounded-full bg-blue-200 text-blue-600 flex items-center justify-center font-bold">2</div>
+              <div class="mt-2 text-xs font-medium">Projekt</div>
+            </div>
+            <div class="flex-1 border-t-2 border-blue-200 mx-2"></div>
+            <div class="flex-1 text-center">
+              <div class="w-8 h-8 mx-auto rounded-full bg-blue-200 text-blue-600 flex items-center justify-center font-bold">3</div>
+              <div class="mt-2 text-xs font-medium">Absenden</div>
+            </div>
+          </div>
+          <div class="text-center text-gray-500 text-xs mb-4">(Interaktiver Stepper mit Framer Motion möglich – <b>npm i framer-motion</b> für React/JSX)</div>
+        </div>
+        <!-- Kontaktformular Platzhalter -->
+        <form>
+          <div class="mb-4">
+            <label class="block mb-1 font-medium" for="name">Name</label>
+            <input class="w-full border border-gray-300 rounded px-3 py-2" type="text" id="name" name="name" required>
+          </div>
+          <div class="mb-4">
+            <label class="block mb-1 font-medium" for="email">E-Mail</label>
+            <input class="w-full border border-gray-300 rounded px-3 py-2" type="email" id="email" name="email" required>
+          </div>
+          <div class="mb-4">
+            <label class="block mb-1 font-medium" for="message">Nachricht</label>
+            <textarea class="w-full border border-gray-300 rounded px-3 py-2" id="message" name="message" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary w-full">Absenden</button>
+        </form>
+      </div>
     </div>
   </section>
   <!-- CTA Section -->
