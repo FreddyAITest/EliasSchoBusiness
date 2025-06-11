@@ -1,24 +1,32 @@
-# Elias Schöneberger - Modern Portfolio Website
+# Elias Scho - SEO-Websites für Unternehmen
 
-Eine moderne, responsive Portfolio-Website erstellt mit Tailwind CSS und modernen Web-Technologien.
+Eine moderne, mobile-optimierte Unternehmenswebsite spezialisiert auf SEO-optimierte Business-Websites.
 
 ## 🚀 Features
 
-- **Moderne UI/UX**: Glassmorphism-Design mit Gradient-Hintergründen
-- **Responsive Design**: Optimiert für alle Bildschirmgrößen
-- **Animationen**: Smooth Scrolling, AOS (Animate On Scroll), CSS-Animationen
-- **Interaktive Elemente**: Particles.js Hintergrund, dynamische Skill-Bars
-- **Performance**: Optimiert für schnelle Ladezeiten
-- **Accessibility**: WCAG-konform und screenreader-freundlich
-- **PWA-bereit**: Service Worker Integration möglich
+- **Mobile-First Design**: Vollständig responsive und für mobile Geräte optimiert
+- **SEO-Optimiert**: Strukturierte Daten, Meta-Tags und suchmaschinenfreundliche URLs
+- **Moderne Navigation**: Animierte Mobile-Navigation mit Hamburger-Menü
+- **Business-Fokus**: Spezialisiert auf Unternehmenswebsites ohne E-Commerce
+- **DSGVO-Konform**: Vollständige Impressum- und Datenschutzseiten
+- **Performance**: Schnelle Ladezeiten und optimierte Bilder
+- **Accessibility**: Barrierefreie Bedienung und screenreader-freundlich
+
+## 📱 Mobile Optimierung
+
+- **Responsive Navigation**: Hamburger-Menü mit Slide-Animation
+- **Touch-Optimiert**: Große Buttons und Touch-Targets (min. 44px)
+- **Mobile Typography**: Optimierte Schriftgrößen für kleine Bildschirme
+- **Viewport Meta-Tag**: Korrekte Darstellung auf allen Geräten
+- **Mobile Performance**: Optimierte Bilder und CSS für mobile Verbindungen
 
 ## 🛠️ Technologien
 
 - **Frontend**: HTML5, CSS3, JavaScript (ES6+)
-- **Styling**: Tailwind CSS, Custom CSS
-- **Animationen**: AOS (Animate On Scroll)
-- **Effekte**: Particles.js
-- **Icons**: Font Awesome
+- **Styling**: Tailwind CSS, Custom Mobile-First CSS
+- **Responsive**: Mobile-First Approach mit Breakpoints
+- **SEO**: Schema.org Structured Data, OpenGraph
+- **Performance**: Optimierte Assets und Lazy Loading
 - **Fonts**: Google Fonts (Inter)
 
 ## 📁 Projektstruktur
