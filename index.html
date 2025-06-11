@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elias Scho - Modern Web Developer</title>
+  <meta name="description" content="Portfolio von Elias Scho - Moderner Webentwickler mit Fokus auf React, Node.js und moderne Webtechnologien">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'sans': ['Inter', 'sans-serif'],
+          },
+          colors: {
+            primary: {
+              50: '#eff6ff',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              900: '#1e3a8a',
+            }
+          },
+          animation: {
+            'fade-in-up': 'fadeInUp 0.5s ease-out',
+            'bounce-slow': 'bounce 2s infinite',
+            'pulse-slow': 'pulse 3s infinite',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white font-sans overflow-x-hidden">
+  <!-- Background Particles -->
+  <div id="particles-js" class="fixed inset-0 z-0"></div>
+  
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full z-50 bg-black/20 backdrop-blur-md border-b border-white/10" data-aos="fade-down">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <a href="index.html" class="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+            Elias Scho.
+          </a>
+        </div>
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-4">
+            <a href="index.html" class="text-blue-400 transition-colors duration-300 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+            <a href="about.html" class="hover:text-blue-400 transition-colors duration-300 px-3 py-2 rounded-md text-sm font-medium">Über mich</a>
+            <a href="skills.html" class="hover:text-blue-400 transition-colors duration-300 px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+            <a href="projects.html" class="hover:text-blue-400 transition-colors duration-300 px-3 py-2 rounded-md text-sm font-medium">Projekte</a>
+            <a href="contact.html" class="hover:text-blue-400 transition-colors duration-300 px-3 py-2 rounded-md text-sm font-medium">Kontakt</a>
+          </div>
+        </div>
+        <!-- Mobile menu button -->
+        <div class="md:hidden">
+          <button id="mobile-menu-btn" class="text-white hover:text-blue-400 focus:outline-none">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden hidden bg-black/90 backdrop-blur-md">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="index.html" class="block text-blue-400 transition-colors duration-300 px-3 py-2 rounded-md text-base font-medium">Home</a>
+        <a href="about.html" class="block hover:text-blue-400 transition-colors duration-300 px-3 py-2 rounded-md text-base font-medium">Über mich</a>
+        <a href="skills.html" class="block hover:text-blue-400 transition-colors duration-300 px-3 py-2 rounded-md text-base font-medium">Skills</a>
+        <a href="projects.html" class="block hover:text-blue-400 transition-colors duration-300 px-3 py-2 rounded-md text-base font-medium">Projekte</a>
+        <a href="contact.html" class="block hover:text-blue-400 transition-colors duration-300 px-3 py-2 rounded-md text-base font-medium">Kontakt</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="relative min-h-screen flex items-center justify-center px-4">
+    <div class="text-center z-10" data-aos="fade-up" data-aos-duration="1000">
+      <div class="mb-8">
+        <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center text-6xl mb-6 animate-pulse-slow">
+          👨‍💻
+        </div>
+      </div>
+      <h1 class="text-5xl md:text-7xl font-bold mb-6">
+        <span class="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+          Elias Scho
+        </span>
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+        Moderner <span class="text-blue-400 font-semibold">Full-Stack Developer</span> 
+        mit Leidenschaft für innovative Weblösungen und benutzerfreundliche Interfaces
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="projects.html" class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+          Meine Projekte ansehen
+        </a>
+        <a href="contact.html" class="border-2 border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105">
+          Kontakt aufnehmen
+        </a>
+      </div>
+      <div class="mt-12">
+        <a href="about.html" class="inline-block animate-bounce-slow">
+          <i class="fas fa-chevron-down text-2xl text-blue-400"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview Section -->
+  <section class="py-20 px-4 relative z-10">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+          Willkommen
+        </h2>
+        <p class="text-gray-300 text-lg max-w-3xl mx-auto">
+          Entdecken Sie meine Welt der modernen Webentwicklung
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 text-center" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-16 h-16 mx-auto bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mb-6">
+            <i class="fas fa-user text-2xl text-white"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-blue-400 mb-4">Über mich</h3>
+          <p class="text-gray-300 mb-6">Erfahren Sie mehr über meinen Werdegang und meine Leidenschaft für Webentwicklung</p>
+          <a href="about.html" class="inline-block bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 px-6 py-2 rounded-full font-medium transition-all duration-300">
+            Mehr erfahren
+          </a>
+        </div>
+
+        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 text-center" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-16 h-16 mx-auto bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mb-6">
+            <i class="fas fa-code text-2xl text-white"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-purple-400 mb-4">Skills</h3>
+          <p class="text-gray-300 mb-6">Moderne Technologien und Tools für innovative Weblösungen</p>
+          <a href="skills.html" class="inline-block bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 px-6 py-2 rounded-full font-medium transition-all duration-300">
+            Skills ansehen
+          </a>
+        </div>
+
+        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 text-center" data-aos="fade-up" data-aos-delay="300">
+          <div class="w-16 h-16 mx-auto bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center mb-6">
+            <i class="fas fa-laptop-code text-2xl text-white"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-green-400 mb-4">Projekte</h3>
+          <p class="text-gray-300 mb-6">Entdecken Sie meine neuesten Arbeiten und Projekte</p>
+          <a href="projects.html" class="inline-block bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700 px-6 py-2 rounded-full font-medium transition-all duration-300">
+            Projekte entdecken
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 px-4 border-t border-white/10 relative z-10">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+            Elias Scho.
+          </h3>
+          <p class="text-gray-400 text-sm">
+            Moderner Full-Stack Developer mit Leidenschaft für innovative Weblösungen.
+          </p>
+        </div>
+        
+        <div>
+          <h4 class="font-semibold mb-4 text-blue-400">Services</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li><a href="#" class="hover:text-blue-400 transition-colors">Web Development</a></li>
+            <li><a href="#" class="hover:text-blue-400 transition-colors">Mobile Apps</a></li>
+            <li><a href="#" class="hover:text-blue-400 transition-colors">UI/UX Design</a></li>
+            <li><a href="#" class="hover:text-blue-400 transition-colors">Consulting</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-semibold mb-4 text-blue-400">Technologies</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li><a href="#" class="hover:text-blue-400 transition-colors">React & Next.js</a></li>
+            <li><a href="#" class="hover:text-blue-400 transition-colors">Node.js</a></li>
+            <li><a href="#" class="hover:text-blue-400 transition-colors">TypeScript</a></li>
+            <li><a href="#" class="hover:text-blue-400 transition-colors">Tailwind CSS</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-semibold mb-4 text-blue-400">Kontakt</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li>elias@scho.de</li>
+            <li>+49 123 456 7890</li>
+            <li>Deutschland</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-400 text-sm">
+          © 2025 Elias Scho. Alle Rechte vorbehalten.
+        </p>
+        <div class="flex space-x-6 mt-4 md:mt-0">
+          <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors text-sm">Datenschutz</a>
+          <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors text-sm">Impressum</a>
+          <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors text-sm">AGB</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="scripts.js"></script>
+</body>
+</html>
