@@ -239,8 +239,69 @@
   </script>
   <section id="referenzen" class="py-20 bg-gray-50 text-gray-900">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-6">Referenzen</h2>
-      <p>Hier stehen Referenzen/Portfolio (Inhalte aus der alten Referenzen-Seite).</p>
+      <h2 class="text-3xl font-bold mb-10 text-center">Referenzen</h2>
+      <!-- Carousel Start -->
+      <div id="carousel" class="relative max-w-2xl mx-auto">
+        <div class="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-lg">
+          <div class="flex transition-transform duration-700" id="carousel-track">
+            <div class="carousel-item min-w-full flex flex-col items-center justify-center p-8">
+              <div class="mb-4"><i class="fas fa-laptop-code fa-2x text-blue-600"></i></div>
+              <div class="font-bold text-lg mb-2">SEO-Website für Steuerberater</div>
+              <p class="text-gray-600 text-center">Modernes Redesign, Top Google-Rankings, 2024</p>
+            </div>
+            <div class="carousel-item min-w-full flex flex-col items-center justify-center p-8">
+              <div class="mb-4"><i class="fas fa-store fa-2x text-blue-600"></i></div>
+              <div class="font-bold text-lg mb-2">Firmenpräsenz für Einzelhandel</div>
+              <p class="text-gray-600 text-center">Mobile-First, Conversion-Optimierung, 2023</p>
+            </div>
+            <div class="carousel-item min-w-full flex flex-col items-center justify-center p-8">
+              <div class="mb-4"><i class="fas fa-briefcase fa-2x text-blue-600"></i></div>
+              <div class="font-bold text-lg mb-2">Business-Website für Berater</div>
+              <p class="text-gray-600 text-center">Schnelle Ladezeiten, Beratung, 2022</p>
+            </div>
+          </div>
+        </div>
+        <!-- Controls -->
+        <button id="carousel-prev" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white border border-gray-200 rounded-full shadow p-2 hover:bg-blue-50 transition-colors"><i class="fas fa-chevron-left text-blue-600"></i></button>
+        <button id="carousel-next" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white border border-gray-200 rounded-full shadow p-2 hover:bg-blue-50 transition-colors"><i class="fas fa-chevron-right text-blue-600"></i></button>
+        <!-- Dots -->
+        <div class="flex justify-center mt-4 gap-2">
+          <button class="carousel-dot w-3 h-3 rounded-full bg-blue-200" data-index="0"></button>
+          <button class="carousel-dot w-3 h-3 rounded-full bg-gray-200" data-index="1"></button>
+          <button class="carousel-dot w-3 h-3 rounded-full bg-gray-200" data-index="2"></button>
+        </div>
+      </div>
+      <script>
+        (function() {
+          const track = document.getElementById('carousel-track');
+          const items = document.querySelectorAll('.carousel-item');
+          const dots = document.querySelectorAll('.carousel-dot');
+          let current = 0;
+          function updateCarousel(idx) {
+            track.style.transform = `translateX(-${idx * 100}%)`;
+            dots.forEach((dot, i) => {
+              dot.classList.toggle('bg-blue-200', i === idx);
+              dot.classList.toggle('bg-gray-200', i !== idx);
+            });
+          }
+          document.getElementById('carousel-prev').onclick = function() {
+            current = (current - 1 + items.length) % items.length;
+            updateCarousel(current);
+          };
+          document.getElementById('carousel-next').onclick = function() {
+            current = (current + 1) % items.length;
+            updateCarousel(current);
+          };
+          dots.forEach((dot, i) => {
+            dot.onclick = function() {
+              current = i;
+              updateCarousel(current);
+            };
+          });
+          updateCarousel(0);
+        })();
+      </script>
+      <!-- Carousel End -->
     </div>
   </section>
   <section id="ueber-mich" class="py-20 bg-white text-gray-900">
@@ -257,21 +318,21 @@
         <div id="kontakt-stepper" class="mb-6">
           <div class="flex items-center justify-between mb-8">
             <div class="flex-1 text-center">
-              <div class="w-8 h-8 mx-auto rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">1</div>
+              <div class="w-8 h-8 mx-auto rounded-full bg-blue-600 text-white flex items-center justify-center font-bold border-2 border-blue-600">1</div>
               <div class="mt-2 text-xs font-medium">Ihre Daten</div>
             </div>
             <div class="flex-1 border-t-2 border-blue-200 mx-2"></div>
             <div class="flex-1 text-center">
-              <div class="w-8 h-8 mx-auto rounded-full bg-blue-200 text-blue-600 flex items-center justify-center font-bold">2</div>
+              <div class="w-8 h-8 mx-auto rounded-full bg-white text-blue-600 flex items-center justify-center font-bold border-2 border-blue-600">2</div>
               <div class="mt-2 text-xs font-medium">Projekt</div>
             </div>
             <div class="flex-1 border-t-2 border-blue-200 mx-2"></div>
             <div class="flex-1 text-center">
-              <div class="w-8 h-8 mx-auto rounded-full bg-blue-200 text-blue-600 flex items-center justify-center font-bold">3</div>
+              <div class="w-8 h-8 mx-auto rounded-full bg-white text-blue-600 flex items-center justify-center font-bold border-2 border-blue-600">3</div>
               <div class="mt-2 text-xs font-medium">Absenden</div>
             </div>
           </div>
-          <div class="text-center text-gray-500 text-xs mb-4">(Interaktiver Stepper mit Framer Motion möglich – <b>npm i framer-motion</b> für React/JSX)</div>
+          <div class="text-center text-gray-400 text-xs mb-4">(Interaktiver Stepper mit Framer Motion möglich – <b>npm i framer-motion</b> für React/JSX)</div>
         </div>
         <!-- Kontaktformular Platzhalter -->
         <form>
