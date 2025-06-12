@@ -48,7 +48,7 @@ body {
 }
 
 .nav-logo h2 {
-    color: #000000;
+    color: #2563eb;
     font-weight: 700;
 }
 
@@ -85,7 +85,7 @@ body {
 
 /* Hero Section */
 .hero {
-    padding: 120px 0 80px;
+    padding: clamp(40px, 10vw, 120px) 0 clamp(24px, 6vw, 80px);
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     display: flex;
@@ -128,53 +128,81 @@ body {
 /* Mobile optimizations for Hero Section */
 @media (max-width: 768px) {
     .hero {
-        padding: 100px 0 60px;
-        background: linear-gradient(180deg, #667eea 0%, #764ba2 50%, #667eea 100%);
-        text-align: center;
+        padding: 80px 0 40px;
+        min-height: unset;
     }
-    
+
     .hero-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        text-align: center;
-        padding: 0 20px;
-    }
-    
-    .hero-content h1 {
-        font-size: 2.5rem;
-        text-align: center;
-    }
-    
-    .hero-content p {
-        font-size: 1.1rem;
-        text-align: center;
-        max-width: 600px;
-        margin: 0 auto 2rem;
-    }
-    
-    .hero-buttons {
-        justify-content: center;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 60px 1fr;
+        grid-template-rows: auto auto;
         align-items: center;
-        gap: 1rem;
+        justify-items: center;
+        gap: 0 1rem;
+        width: 100%;
+        padding: 0 10px;
+        text-align: center;
     }
-    
+
+    .hero-image {
+        grid-column: 1 / 3;
+        grid-row: 1 / 3;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 60px;
+        height: 100%;
+    }
+
+    .hero-visual {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+    }
+
+    .hero-visual i {
+        font-size: 2.2rem;
+    }
+
+    .hero-content h1,
+    .hero-content p,
+    .hero-buttons {
+        grid-column: 2 / 3;
+        text-align: left;
+        justify-self: start;
+    }
+
+    .hero-content h1 {
+        font-size: 1.7rem;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+        margin-bottom: 1.2rem;
+        max-width: 100%;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.7rem;
+        width: 100%;
+    }
+
     .hero-buttons .btn-primary,
     .hero-buttons .btn-secondary {
         width: 100%;
-        max-width: 280px;
+        max-width: 320px;
+        font-size: 1rem;
+        padding: 0.9rem 1.2rem;
+        margin: 0;
+        box-sizing: border-box;
         text-align: center;
-    }
-    
-    .hero-image {
-        order: -1;
-        margin-bottom: 1rem;
-    }
-    
-    .hero-visual {
-        width: 200px;
-        height: 200px;
-        margin: 0 auto;
     }
 }
 
