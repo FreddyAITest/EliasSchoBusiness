@@ -1,31 +1,66 @@
 // Mobile Navigation Toggle
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
-
-hamburger.addEventListener('click', () => {
+function toggleMobileMenu() {
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const hamburger = document.querySelector('.hamburger');
+    
+    mobileMenu.classList.toggle('hidden');
     hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
+    
+    // Animate hamburger bars
+    const bars = hamburger.querySelectorAll('.bar');
+    if (hamburger.classList.contains('active')) {
+        bars[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+        bars[1].style.opacity = '0';
+        bars[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+    } else {
+        bars[0].style.transform = 'none';
+        bars[1].style.opacity = '1';
+        bars[2].style.transform = 'none';
+    }
+}
 
 // Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
-}));
+document.querySelectorAll('.mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const hamburger = document.querySelector('.hamburger');
+        const bars = hamburger.querySelectorAll('.bar');
+        
+        mobileMenu.classList.add('hidden');
+        hamburger.classList.remove('active');
+        
+        bars[0].style.transform = 'none';
+        bars[1].style.opacity = '1';
+        bars[2].style.transform = 'none';
+    });
+});
 
 // Carousel functionality
 let currentSlideIndex = 0;
 const slides = document.querySelectorAll('.carousel-slide');
-const dots = document.querySelectorAll('.dot');
+const dots = document.querySelectorAll('.carousel-dots .dot');
 
 function showSlide(index) {
     // Hide all slides
-    slides.forEach(slide => slide.classList.remove('active'));
-    dots.forEach(dot => dot.classList.remove('active'));
+    slides.forEach(slide => {
+        slide.classList.add('hidden');
+        slide.classList.remove('active');
+    });
+    
+    // Update dots
+    dots.forEach((dot, i) => {
+        if (i === index) {
+            dot.classList.remove('bg-gray-300');
+            dot.classList.add('bg-blue-600');
+        } else {
+            dot.classList.remove('bg-blue-600');
+            dot.classList.add('bg-gray-300');
+        }
+    });
     
     // Show current slide
+    slides[index].classList.remove('hidden');
     slides[index].classList.add('active');
-    dots[index].classList.add('active');
 }
 
 function changeSlide(direction) {
