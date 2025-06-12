@@ -84,13 +84,11 @@ body {
 
 /* Hero Section */
 .hero {
-    padding: 120px 0 80px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    display: flex;
-    align-items: center;
-    min-height: 100vh;
-    width: 100%;
+    padding: 200px 0 100px;
+    text-align: center;
+    position: relative;
     overflow: hidden;
 }
 
@@ -175,6 +173,64 @@ body {
     opacity: 0.8;
 }
 
+/* Mobile Hintergrund-Anpassung für Hero Section */
+@media (max-width: 768px) {
+    .hero {
+        background: linear-gradient(180deg, #667eea 0%, #764ba2 50%, #667eea 100%);
+        padding: 150px 0 80px;
+    }
+    
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, 
+            rgba(102, 126, 234, 0.8) 0%, 
+            rgba(118, 75, 162, 0.9) 25%,
+            rgba(102, 126, 234, 0.8) 50%,
+            rgba(118, 75, 162, 0.9) 75%,
+            rgba(102, 126, 234, 0.8) 100%);
+        z-index: 1;
+    }
+    
+    .hero .container {
+        position: relative;
+        z-index: 2;
+    }
+}
+
+/* Zusätzliche mobile Optimierungen für Hintergründe */
+@media (max-width: 480px) {
+    .hero {
+        background: linear-gradient(170deg, 
+            #667eea 0%, 
+            #764ba2 30%, 
+            #667eea 60%,
+            #764ba2 100%);
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+    }
+    
+    @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    
+    .thank-you {
+        background: linear-gradient(170deg, 
+            #667eea 0%, 
+            #764ba2 30%, 
+            #667eea 60%,
+            #764ba2 100%);
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+    }
+}
+
 /* About Section */
 .about {
     padding: 100px 0;
@@ -205,40 +261,109 @@ body {
     color: #333;
 }
 
-.service-grid {
+/* Services Section - 2x2 Grid für Desktop */
+.services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
-    margin-top: 2rem;
+    margin-top: 3rem;
+}
+
+/* Desktop: 2x2 Grid für Services */
+@media (min-width: 992px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+        max-width: 900px;
+        margin: 3rem auto 0;
+    }
+}
+
+/* Tablet: 2 Spalten */
+@media (min-width: 768px) and (max-width: 991px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+    }
+}
+
+/* Mobile: 1 Spalte */
+@media (max-width: 767px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
 }
 
 .service-item {
     background: white;
-    padding: 2rem;
+    padding: 2.5rem 2rem;
     border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .service-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
 
 .service-item i {
     font-size: 3rem;
     color: #2563eb;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    display: block;
 }
 
-.service-item h4 {
-    font-size: 1.3rem;
+.service-item h3 {
+    font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: #333;
+    color: #1e293b;
+    font-weight: 600;
 }
 
 .service-item p {
-    color: #666;
-    margin: 0;
+    color: #64748b;
+    line-height: 1.6;
+    font-size: 1rem;
+    flex-grow: 1;
+}
+
+/* Bessere Service-Item Darstellung auf verschiedenen Geräten */
+@media (min-width: 768px) and (max-width: 991px) {
+    .service-item {
+        padding: 2rem 1.5rem;
+    }
+    
+    .service-item h3 {
+        font-size: 1.3rem;
+    }
+    
+    .service-item p {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .service-item {
+        padding: 2rem 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .service-item i {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .service-item h3 {
+        font-size: 1.4rem;
+        margin-bottom: 0.8rem;
+    }
 }
 
 /* Portfolio Section */
