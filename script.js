@@ -224,7 +224,13 @@ function handleSwipe() {
         }
     }
 }
+document.getElementById('contactForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    sendMail(); // Hier rufen Sie Ihre Funktion auf
+});
 function sendMail() {
+    event.preventDefault(); // Verhindert das Neuladen
+    alert("sendMail wurde aufgerufen!");
     // Function to send email using EmailJS
     let parms = {
         name: document.getElementById("name").value,
@@ -236,3 +242,5 @@ function sendMail() {
 
     EmailJSResponseStatus.send("service_yxqbkpc", "template_47lvydc", parms).then(alert("Nachricht gesendet!"))
 }
+
+//# sourceMappingURL=script.js.map
