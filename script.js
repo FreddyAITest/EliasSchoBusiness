@@ -2,10 +2,10 @@
 function toggleMobileMenu() {
     const mobileMenu = document.querySelector('.mobile-menu');
     const hamburger = document.querySelector('.hamburger');
-    
+
     mobileMenu.classList.toggle('hidden');
     hamburger.classList.toggle('active');
-    
+
     // Animate hamburger bars
     const bars = hamburger.querySelectorAll('.bar');
     if (hamburger.classList.contains('active')) {
@@ -25,10 +25,10 @@ document.querySelectorAll('.mobile-menu a').forEach(link => {
         const mobileMenu = document.querySelector('.mobile-menu');
         const hamburger = document.querySelector('.hamburger');
         const bars = hamburger.querySelectorAll('.bar');
-        
+
         mobileMenu.classList.add('hidden');
         hamburger.classList.remove('active');
-        
+
         bars[0].style.transform = 'none';
         bars[1].style.opacity = '1';
         bars[2].style.transform = 'none';
@@ -46,7 +46,7 @@ function showSlide(index) {
         slide.classList.add('hidden');
         slide.classList.remove('active');
     });
-    
+
     // Update dots
     dots.forEach((dot, i) => {
         if (i === index) {
@@ -57,7 +57,7 @@ function showSlide(index) {
             dot.classList.add('bg-gray-300');
         }
     });
-    
+
     // Show current slide
     slides[index].classList.remove('hidden');
     slides[index].classList.add('active');
@@ -65,13 +65,13 @@ function showSlide(index) {
 
 function changeSlide(direction) {
     currentSlideIndex += direction;
-    
+
     if (currentSlideIndex >= slides.length) {
         currentSlideIndex = 0;
     } else if (currentSlideIndex < 0) {
         currentSlideIndex = slides.length - 1;
     }
-    
+
     showSlide(currentSlideIndex);
 }
 
@@ -103,21 +103,21 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const contactForm = document.querySelector('form[name="contact"]');
 
 if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', function (e) {
         // Get form data
         const formData = new FormData(this);
         const data = {};
         for (let [key, value] of formData.entries()) {
             data[key] = value;
         }
-        
+
         // Simple form validation
         if (!data.name || !data.email || !data.message || !data.service) {
             e.preventDefault();
             alert('Bitte füllen Sie alle Pflichtfelder aus.');
             return;
         }
-        
+
         // Email validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(data.email)) {
@@ -125,14 +125,14 @@ if (contactForm) {
             alert('Bitte geben Sie eine gültige E-Mail-Adresse ein.');
             return;
         }
-        
+
         // Show loading state
         const submitButton = this.querySelector('button[type="submit"]');
         const originalText = submitButton.textContent;
-        
+
         submitButton.textContent = 'Wird gesendet...';
         submitButton.disabled = true;
-        
+
         // Let Netlify handle the actual form submission
         // The form will redirect to /thank-you.html automatically
     });
@@ -155,7 +155,7 @@ const observer = new IntersectionObserver((entries) => {
 // Add fade-in class to elements and observe them
 document.addEventListener('DOMContentLoaded', () => {
     const elementsToAnimate = document.querySelectorAll('.service-item, .project-card, .contact-info, .contact-form');
-    
+
     elementsToAnimate.forEach(el => {
         el.classList.add('fade-in');
         observer.observe(el);
@@ -178,17 +178,17 @@ window.addEventListener('scroll', () => {
 document.querySelectorAll('.form-group input, .form-group textarea').forEach(input => {
     // Set placeholder to empty initially for floating label effect
     input.placeholder = '';
-    
-    input.addEventListener('focus', function() {
+
+    input.addEventListener('focus', function () {
         this.parentElement.classList.add('focused');
     });
-    
-    input.addEventListener('blur', function() {
+
+    input.addEventListener('blur', function () {
         if (this.value === '') {
             this.parentElement.classList.remove('focused');
         }
     });
-    
+
     // Check if input has value on page load
     if (input.value !== '') {
         input.parentElement.classList.add('focused');
@@ -213,7 +213,7 @@ carousel.addEventListener('touchend', e => {
 function handleSwipe() {
     const swipeThreshold = 50;
     const diff = touchStartX - touchEndX;
-    
+
     if (Math.abs(diff) > swipeThreshold) {
         if (diff > 0) {
             // Swipe left - next slide
@@ -223,4 +223,16 @@ function handleSwipe() {
             changeSlide(-1);
         }
     }
+}
+function sendMail() {
+    // Function to send email using EmailJS
+    let parms = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        company: document.getElementById("company").value,
+        service: document.getElementById("service").value,
+        message: document.getElementById("message").value
+    }
+
+    EmailJSResponseStatus.send("service_yxqbkpc", "template_47lvydc", parms).then(alert("Nachricht gesendet!"))
 }

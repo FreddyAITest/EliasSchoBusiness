@@ -54,9 +54,20 @@
         "serviceType": "Webentwicklung",
         "areaServed": "Deutschland"
     }
+   </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
     </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "065QAi2V5pciGRXTD",
+            });
+        })();
+    </script>
+    <script src="script.js"></script>
 </head>
-<<body class="font-['Inter'] text-gray-800 antialiased">
+
+<body class="font-['Inter'] text-gray-800 antialiased">
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 bg-white shadow-lg z-50 transition-all duration-300">
         <div class="max-w-6xl mx-auto px-4">
@@ -400,7 +411,7 @@
                                 class="absolute left-4 -top-2 bg-white px-1 text-sm text-gray-600 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-600 transition-all duration-200">Ihre
                                 Nachricht</label>
                         </div>
-                    </div> <button type="submit" id="submitBtn"
+                    </div> <button type="submit" id="submitBtn" onclick="sendMail()"
                         class="w-full bg-blue-600 text-white font-semibold py-4 px-8 rounded-lg hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none">
                         <span id="submitText">Nachricht senden</span>
                         <span id="loadingText" class="hidden">
@@ -490,6 +501,6 @@
                 });
         });
     </script>
-    </body>
+</body>
 
 </html>
