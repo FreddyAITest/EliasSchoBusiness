@@ -229,7 +229,6 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
     sendMail(); // Hier rufen Sie Ihre Funktion auf
 });
 function sendMail() {
-    event.preventDefault(); // Verhindert das Neuladen
     alert("sendMail wurde aufgerufen!");
     // Function to send email using EmailJS
     let parms = {
