@@ -1,34 +1,39 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elias Scho - Webentwicklung für Kleinunternehmer | Professionelle Websites</title>
-    <meta name="description" content="Professionelle Webentwicklung für Kleinunternehmer. Moderne, responsive Websites die Kunden überzeugen und Umsatz steigern. Kostenloses Beratungsgespräch.">
-    <meta name="keywords" content="Webentwicklung, Website erstellen, Kleinunternehmer, Responsive Design, SEO, Online Marketing, Webdesign">
+    <meta name="description"
+        content="Professionelle Webentwicklung für Kleinunternehmer. Moderne, responsive Websites die Kunden überzeugen und Umsatz steigern. Kostenloses Beratungsgespräch.">
+    <meta name="keywords"
+        content="Webentwicklung, Website erstellen, Kleinunternehmer, Responsive Design, SEO, Online Marketing, Webdesign">
     <meta name="author" content="Elias Scho">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://eliasscho.de/">
     <meta property="og:title" content="Elias Scho - Webentwicklung für Kleinunternehmer">
-    <meta property="og:description" content="Professionelle Webentwicklung für Kleinunternehmer. Moderne, responsive Websites die Kunden überzeugen und Umsatz steigern.">
+    <meta property="og:description"
+        content="Professionelle Webentwicklung für Kleinunternehmer. Moderne, responsive Websites die Kunden überzeugen und Umsatz steigern.">
     <meta property="og:image" content="https://eliasscho.de/og-image.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://eliasscho.de/">
     <meta property="twitter:title" content="Elias Scho - Webentwicklung für Kleinunternehmer">
-    <meta property="twitter:description" content="Professionelle Webentwicklung für Kleinunternehmer. Moderne, responsive Websites die Kunden überzeugen und Umsatz steigern.">
+    <meta property="twitter:description"
+        content="Professionelle Webentwicklung für Kleinunternehmer. Moderne, responsive Websites die Kunden überzeugen und Umsatz steigern.">
     <meta property="twitter:image" content="https://eliasscho.de/og-image.png">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-      <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
@@ -57,13 +62,22 @@
                     <h2 class="text-2xl font-bold text-blue-600">Elias Scho</h2>
                 </div>
                 <ul class="hidden md:flex space-x-8">
-                    <li><a href="#home" class="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium">Home</a></li>
-                    <li><a href="#about" class="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium">Über mich</a></li>
-                    <li><a href="#portfolio" class="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium">Referenzen</a></li>
-                    <li><a href="#contact" class="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium">Kontakt</a></li>
+                    <li><a href="#home"
+                            class="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium">Home</a>
+                    </li>
+                    <li><a href="#about"
+                            class="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium">Über
+                            mich</a></li>
+                    <li><a href="#portfolio"
+                            class="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium">Referenzen</a>
+                    </li>
+                    <li><a href="#contact"
+                            class="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium">Kontakt</a>
+                    </li>
                 </ul>
                 <div class="md:hidden">
-                    <button class="hamburger flex flex-col justify-center items-center w-8 h-8 space-y-1" onclick="toggleMobileMenu()">
+                    <button class="hamburger flex flex-col justify-center items-center w-8 h-8 space-y-1"
+                        onclick="toggleMobileMenu()">
                         <span class="bar block w-6 h-0.5 bg-gray-700 transition-all duration-300"></span>
                         <span class="bar block w-6 h-0.5 bg-gray-700 transition-all duration-300"></span>
                         <span class="bar block w-6 h-0.5 bg-gray-700 transition-all duration-300"></span>
@@ -73,14 +87,19 @@
             <!-- Mobile Menu -->
             <div class="mobile-menu md:hidden hidden bg-white border-t border-gray-200">
                 <div class="px-2 pt-2 pb-3 space-y-1">
-                    <a href="#home" class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors">Home</a>
-                    <a href="#about" class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors">Über mich</a>
-                    <a href="#portfolio" class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors">Referenzen</a>
-                    <a href="#contact" class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors">Kontakt</a>
+                    <a href="#home"
+                        class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors">Home</a>
+                    <a href="#about"
+                        class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors">Über
+                        mich</a>
+                    <a href="#portfolio"
+                        class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors">Referenzen</a>
+                    <a href="#contact"
+                        class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors">Kontakt</a>
                 </div>
             </div>
         </div>
-    </nav>    <!-- Hero Section -->
+    </nav> <!-- Hero Section -->
     <section id="home" class="min-h-screen flex items-center bg-gradient-to-br from-blue-50 to-indigo-100 pt-16">
         <div class="max-w-6xl mx-auto px-4 py-12">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -89,61 +108,79 @@
                         Professionelle <span class="text-blue-600">Webentwicklung</span> für Kleinunternehmer
                     </h1>
                     <p class="text-xl text-gray-600 mb-8 leading-relaxed">
-                        Ich bringe Ihr Unternehmen ins digitale Zeitalter mit modernen, benutzerfreundlichen Websites, die Kunden überzeugen und Umsatz steigern.
+                        Ich bringe Ihr Unternehmen ins digitale Zeitalter mit modernen, benutzerfreundlichen Websites,
+                        die Kunden überzeugen und Umsatz steigern.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                        <a href="#contact"
+                            class="inline-flex items-center justify-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
                             Kostenloses Beratungsgespräch
                         </a>
-                        <a href="#portfolio" class="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg border-2 border-blue-600 hover:bg-blue-600 hover:text-white transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                        <a href="#portfolio"
+                            class="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg border-2 border-blue-600 hover:bg-blue-600 hover:text-white transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
                             Referenzen ansehen
                         </a>
                     </div>
                 </div>
                 <div class="flex justify-center lg:justify-end">
-                    <div class="w-64 h-64 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-full flex items-center justify-center shadow-2xl transform hover:scale-105 transition-transform duration-300">
+                    <div
+                        class="w-64 h-64 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-full flex items-center justify-center shadow-2xl transform hover:scale-105 transition-transform duration-300">
                         <i class="fas fa-code text-6xl text-white"></i>
                     </div>
                 </div>
             </div>
         </div>
-    </section>    <!-- About Section -->
+    </section> <!-- About Section -->
     <section id="about" class="py-20 bg-white">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Über mich</h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                    Hallo, ich bin Elias Scho, ein leidenschaftlicher Webentwickler mit Fokus auf Kleinunternehmer und Startups. Mit mehrjähriger Erfahrung in der Entwicklung von modernen, responsiven Websites helfe ich Ihnen dabei, online erfolgreich zu sein.
+                    Hallo, ich bin Elias Scho, ein leidenschaftlicher Webentwickler mit Fokus auf Kleinunternehmer und
+                    Startups. Mit mehrjähriger Erfahrung in der Entwicklung von modernen, responsiven Websites helfe ich
+                    Ihnen dabei, online erfolgreich zu sein.
                 </p>
             </div>
-            
+
             <div class="mb-12">
                 <h3 class="text-2xl font-bold text-gray-900 mb-8 text-center">Meine Leistungen:</h3>
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 hover:border-blue-200 text-center group">
-                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-600 transition-colors duration-300">
-                            <i class="fas fa-laptop-code text-2xl text-blue-600 group-hover:text-white transition-colors duration-300"></i>
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 hover:border-blue-200 text-center group">
+                        <div
+                            class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-600 transition-colors duration-300">
+                            <i
+                                class="fas fa-laptop-code text-2xl text-blue-600 group-hover:text-white transition-colors duration-300"></i>
                         </div>
                         <h4 class="text-xl font-semibold text-gray-900 mb-3">Responsive Webdesign</h4>
                         <p class="text-gray-600">Websites, die auf allen Geräten perfekt aussehen</p>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 hover:border-blue-200 text-center group">
-                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-600 transition-colors duration-300">
-                            <i class="fas fa-search text-2xl text-blue-600 group-hover:text-white transition-colors duration-300"></i>
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 hover:border-blue-200 text-center group">
+                        <div
+                            class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-600 transition-colors duration-300">
+                            <i
+                                class="fas fa-search text-2xl text-blue-600 group-hover:text-white transition-colors duration-300"></i>
                         </div>
                         <h4 class="text-xl font-semibold text-gray-900 mb-3">SEO-Optimierung</h4>
                         <p class="text-gray-600">Bessere Sichtbarkeit in Suchmaschinen</p>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 hover:border-blue-200 text-center group">
-                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-600 transition-colors duration-300">
-                            <i class="fas fa-rocket text-2xl text-blue-600 group-hover:text-white transition-colors duration-300"></i>
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 hover:border-blue-200 text-center group">
+                        <div
+                            class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-600 transition-colors duration-300">
+                            <i
+                                class="fas fa-rocket text-2xl text-blue-600 group-hover:text-white transition-colors duration-300"></i>
                         </div>
                         <h4 class="text-xl font-semibold text-gray-900 mb-3">Performance</h4>
                         <p class="text-gray-600">Schnelle Ladezeiten für bessere Nutzererfahrung</p>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 hover:border-blue-200 text-center group">
-                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-600 transition-colors duration-300">
-                            <i class="fas fa-headset text-2xl text-blue-600 group-hover:text-white transition-colors duration-300"></i>
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 hover:border-blue-200 text-center group">
+                        <div
+                            class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-600 transition-colors duration-300">
+                            <i
+                                class="fas fa-headset text-2xl text-blue-600 group-hover:text-white transition-colors duration-300"></i>
                         </div>
                         <h4 class="text-xl font-semibold text-gray-900 mb-3">Support</h4>
                         <p class="text-gray-600">Kontinuierliche Betreuung und Wartung</p>
@@ -151,106 +188,126 @@
                 </div>
             </div>
         </div>
-    </section>    <!-- Portfolio Section -->
+    </section> <!-- Portfolio Section -->
     <section id="portfolio" class="py-20 bg-gray-50">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Meine Referenzen</h2>
                 <p class="text-xl text-gray-600">Hier sind einige Projekte, die ich für meine Kunden realisiert habe</p>
             </div>
-            
+
             <div class="relative">
                 <div class="carousel overflow-hidden rounded-2xl shadow-2xl">
                     <div class="carousel-slide active bg-white">
                         <div class="grid lg:grid-cols-2 gap-8 p-8">
-                            <div class="flex items-center justify-center bg-gradient-to-br from-orange-400 to-red-500 rounded-xl h-64 lg:h-80">
+                            <div
+                                class="flex items-center justify-center bg-gradient-to-br from-orange-400 to-red-500 rounded-xl h-64 lg:h-80">
                                 <i class="fas fa-store text-6xl text-white"></i>
                             </div>
                             <div class="flex flex-col justify-center">
                                 <h3 class="text-2xl font-bold text-gray-900 mb-4">Müller Bäckerei</h3>
                                 <p class="text-gray-600 mb-6 leading-relaxed">
-                                    Moderne Website für eine traditionelle Bäckerei mit Online-Bestellsystem und Produktkatalog. Die Website steigerte die Online-Bestellungen um 150%.
+                                    Moderne Website für eine traditionelle Bäckerei mit Online-Bestellsystem und
+                                    Produktkatalog. Die Website steigerte die Online-Bestellungen um 150%.
                                 </p>
                                 <div class="flex flex-wrap gap-2">
-                                    <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">HTML5</span>
-                                    <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">CSS3</span>
-                                    <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm font-medium">JavaScript</span>
-                                    <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">PHP</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">HTML5</span>
+                                    <span
+                                        class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">CSS3</span>
+                                    <span
+                                        class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm font-medium">JavaScript</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="carousel-slide bg-white hidden">
                         <div class="grid lg:grid-cols-2 gap-8 p-8">
-                            <div class="flex items-center justify-center bg-gradient-to-br from-blue-400 to-indigo-600 rounded-xl h-64 lg:h-80">
+                            <div
+                                class="flex items-center justify-center bg-gradient-to-br from-blue-400 to-indigo-600 rounded-xl h-64 lg:h-80">
                                 <i class="fas fa-car text-6xl text-white"></i>
                             </div>
                             <div class="flex flex-col justify-center">
                                 <h3 class="text-2xl font-bold text-gray-900 mb-4">Schmidt Autowerkstatt</h3>
                                 <p class="text-gray-600 mb-6 leading-relaxed">
-                                    Professionelle Präsenz für eine Autowerkstatt mit Terminbuchungssystem und Serviceinformationen. Kundenanfragen stiegen um 80%.
+                                    Professionelle Präsenz für eine Autowerkstatt mit Terminbuchungssystem und
+                                    Serviceinformationen. Kundenanfragen stiegen um 80%.
                                 </p>
                                 <div class="flex flex-wrap gap-2">
-                                    <span class="px-3 py-1 bg-cyan-100 text-cyan-800 rounded-full text-sm font-medium">React</span>
-                                    <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">Node.js</span>
-                                    <span class="px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-sm font-medium">MongoDB</span>
-                                    <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">CSS3</span>
+                                    <span
+                                        class="px-3 py-1 bg-cyan-100 text-cyan-800 rounded-full text-sm font-medium">React</span>
+                                    <span
+                                        class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">Node.js</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="carousel-slide bg-white hidden">
                         <div class="grid lg:grid-cols-2 gap-8 p-8">
-                            <div class="flex items-center justify-center bg-gradient-to-br from-pink-400 to-rose-500 rounded-xl h-64 lg:h-80">
+                            <div
+                                class="flex items-center justify-center bg-gradient-to-br from-pink-400 to-rose-500 rounded-xl h-64 lg:h-80">
                                 <i class="fas fa-cut text-6xl text-white"></i>
                             </div>
                             <div class="flex flex-col justify-center">
                                 <h3 class="text-2xl font-bold text-gray-900 mb-4">Bella Hairstudio</h3>
                                 <p class="text-gray-600 mb-6 leading-relaxed">
-                                    Elegante Website für einen Friseursalon mit Online-Terminbuchung und Galerie. Die Online-Buchungen machten 60% aller Termine aus.
+                                    Elegante Website für einen Friseursalon mit Online-Terminbuchung und Galerie. Die
+                                    Online-Buchungen machten 60% aller Termine aus.
                                 </p>
                                 <div class="flex flex-wrap gap-2">
-                                    <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">Vue.js</span>
-                                    <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm font-medium">Firebase</span>
-                                    <span class="px-3 py-1 bg-pink-100 text-pink-800 rounded-full text-sm font-medium">SCSS</span>
-                                    <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm font-medium">PWA</span>
+                                    <span
+                                        class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">Vue.js</span>
+                                    <span
+                                        class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm font-medium">Firebase</span>
+                                    <span
+                                        class="px-3 py-1 bg-pink-100 text-pink-800 rounded-full text-sm font-medium">SCSS</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <button class="carousel-btn prev absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300 flex items-center justify-center text-gray-600 hover:text-blue-600" onclick="changeSlide(-1)">
+
+                <button
+                    class="carousel-btn prev absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300 flex items-center justify-center text-gray-600 hover:text-blue-600"
+                    onclick="changeSlide(-1)">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <button class="carousel-btn next absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300 flex items-center justify-center text-gray-600 hover:text-blue-600" onclick="changeSlide(1)">
+                <button
+                    class="carousel-btn next absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300 flex items-center justify-center text-gray-600 hover:text-blue-600"
+                    onclick="changeSlide(1)">
                     <i class="fas fa-chevron-right"></i>
                 </button>
-                
+
                 <div class="carousel-dots flex justify-center mt-8 space-x-3">
-                    <button class="dot w-3 h-3 rounded-full bg-blue-600 transition-colors duration-300" onclick="currentSlide(1)"></button>
-                    <button class="dot w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-colors duration-300" onclick="currentSlide(2)"></button>
-                    <button class="dot w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-colors duration-300" onclick="currentSlide(3)"></button>
+                    <button class="dot w-3 h-3 rounded-full bg-blue-600 transition-colors duration-300"
+                        onclick="currentSlide(1)"></button>
+                    <button
+                        class="dot w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-colors duration-300"
+                        onclick="currentSlide(2)"></button>
+                    <button
+                        class="dot w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 transition-colors duration-300"
+                        onclick="currentSlide(3)"></button>
                 </div>
             </div>
         </div>
-    </section>    <!-- Contact Section -->
+    </section> <!-- Contact Section -->
     <section id="contact" class="py-20 bg-white">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Kontakt aufnehmen</h2>
                 <p class="text-xl text-gray-600">Lassen Sie uns über Ihr Projekt sprechen</p>
             </div>
-            
+
             <div class="grid lg:grid-cols-2 gap-12">
                 <div class="bg-gradient-to-br from-blue-50 to-indigo-100 p-8 rounded-2xl">
                     <h3 class="text-2xl font-bold text-gray-900 mb-4">Bereit für Ihr nächstes Projekt?</h3>
                     <p class="text-gray-600 mb-8 leading-relaxed">
-                        Ich freue mich darauf, von Ihrem Projekt zu hören und gemeinsam eine Lösung zu entwickeln, die Ihre Geschäftsziele unterstützt.
+                        Ich freue mich darauf, von Ihrem Projekt zu hören und gemeinsam eine Lösung zu entwickeln, die
+                        Ihre Geschäftsziele unterstützt.
                     </p>
-                    
+
                     <div class="space-y-4">
                         <div class="flex items-center">
                             <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4">
@@ -272,33 +329,44 @@
                         </div>
                     </div>
                 </div>
-                
-                <form class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100" name="contact" method="POST" data-netlify="true" action="/thank-you.html">
+
+                <form class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100" name="contact" method="POST"
+                    data-netlify="true" action="/thank-you.html">
                     <input type="hidden" name="form-name" value="contact">
-                    
+
                     <div class="mb-6">
                         <div class="relative">
-                            <input type="text" id="name" name="name" required class="peer w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-600 focus:outline-none transition-all duration-200 placeholder-transparent">
-                            <label for="name" class="absolute left-4 -top-2 bg-white px-1 text-sm text-gray-600 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-600 transition-all duration-200">Ihr Name</label>
+                            <input type="text" id="name" name="name" required
+                                class="peer w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-600 focus:outline-none transition-all duration-200 placeholder-transparent">
+                            <label for="name"
+                                class="absolute left-4 -top-2 bg-white px-1 text-sm text-gray-600 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-600 transition-all duration-200">Ihr
+                                Name</label>
                         </div>
                     </div>
-                    
+
                     <div class="mb-6">
                         <div class="relative">
-                            <input type="email" id="email" name="email" required class="peer w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-600 focus:outline-none transition-all duration-200 placeholder-transparent">
-                            <label for="email" class="absolute left-4 -top-2 bg-white px-1 text-sm text-gray-600 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-600 transition-all duration-200">E-Mail Adresse</label>
+                            <input type="email" id="email" name="email" required
+                                class="peer w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-600 focus:outline-none transition-all duration-200 placeholder-transparent">
+                            <label for="email"
+                                class="absolute left-4 -top-2 bg-white px-1 text-sm text-gray-600 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-600 transition-all duration-200">E-Mail
+                                Adresse</label>
                         </div>
                     </div>
-                    
+
                     <div class="mb-6">
                         <div class="relative">
-                            <input type="text" id="company" name="company" class="peer w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-600 focus:outline-none transition-all duration-200 placeholder-transparent">
-                            <label for="company" class="absolute left-4 -top-2 bg-white px-1 text-sm text-gray-600 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-600 transition-all duration-200">Unternehmen (optional)</label>
+                            <input type="text" id="company" name="company"
+                                class="peer w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-600 focus:outline-none transition-all duration-200 placeholder-transparent">
+                            <label for="company"
+                                class="absolute left-4 -top-2 bg-white px-1 text-sm text-gray-600 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-600 transition-all duration-200">Unternehmen
+                                (optional)</label>
                         </div>
                     </div>
-                    
+
                     <div class="mb-6">
-                        <select id="service" name="service" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-600 focus:outline-none transition-all duration-200 bg-white text-gray-700">
+                        <select id="service" name="service" required
+                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-600 focus:outline-none transition-all duration-200 bg-white text-gray-700">
                             <option value="">Gewünschte Dienstleistung wählen</option>
                             <option value="neue-website">Neue Website erstellen</option>
                             <option value="redesign">Website Redesign</option>
@@ -307,21 +375,25 @@
                             <option value="beratung">Beratung</option>
                         </select>
                     </div>
-                    
+
                     <div class="mb-8">
                         <div class="relative">
-                            <textarea id="message" name="message" rows="5" required class="peer w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-600 focus:outline-none transition-all duration-200 placeholder-transparent resize-none"></textarea>
-                            <label for="message" class="absolute left-4 -top-2 bg-white px-1 text-sm text-gray-600 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-600 transition-all duration-200">Ihre Nachricht</label>
+                            <textarea id="message" name="message" rows="5" required
+                                class="peer w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-600 focus:outline-none transition-all duration-200 placeholder-transparent resize-none"></textarea>
+                            <label for="message"
+                                class="absolute left-4 -top-2 bg-white px-1 text-sm text-gray-600 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-600 transition-all duration-200">Ihre
+                                Nachricht</label>
                         </div>
                     </div>
-                    
-                    <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-4 px-8 rounded-lg hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+
+                    <button type="submit"
+                        class="w-full bg-blue-600 text-white font-semibold py-4 px-8 rounded-lg hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
                         Nachricht senden
                     </button>
                 </form>
             </div>
         </div>
-    </section>    <!-- Footer -->
+    </section> <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
         <div class="max-w-6xl mx-auto px-4">
             <div class="grid md:grid-cols-2 gap-8 items-center mb-8">
@@ -332,7 +404,8 @@
                 <div class="flex flex-wrap gap-6 md:justify-end">
                     <a href="#home" class="text-gray-400 hover:text-white transition-colors duration-200">Home</a>
                     <a href="#about" class="text-gray-400 hover:text-white transition-colors duration-200">Über mich</a>
-                    <a href="#portfolio" class="text-gray-400 hover:text-white transition-colors duration-200">Referenzen</a>
+                    <a href="#portfolio"
+                        class="text-gray-400 hover:text-white transition-colors duration-200">Referenzen</a>
                     <a href="#contact" class="text-gray-400 hover:text-white transition-colors duration-200">Kontakt</a>
                 </div>
             </div>
@@ -343,5 +416,6 @@
     </footer>
 
     <script src="script.js"></script>
-</body>
+    </body>
+
 </html>
