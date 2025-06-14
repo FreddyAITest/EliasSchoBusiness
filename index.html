@@ -34,6 +34,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
@@ -329,10 +332,23 @@
                         </div>
                     </div>
                 </div>
+                <form id="contactForm" class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                    <!-- Status Messages -->
+                    <div id="success-message"
+                        class="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg hidden">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle mr-2"></i>
+                            <span>Ihre Nachricht wurde erfolgreich gesendet! Ich melde mich bald bei Ihnen.</span>
+                        </div>
+                    </div>
 
-                <form class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100" name="contact" method="POST"
-                    data-netlify="true" action="/thank-you.html">
-                    <input type="hidden" name="form-name" value="contact">
+                    <div id="error-message"
+                        class="mb-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg hidden">
+                        <div class="flex items-center">
+                            <i class="fas fa-exclamation-circle mr-2"></i>
+                            <span>Fehler beim Senden der Nachricht. Bitte versuchen Sie es erneut.</span>
+                        </div>
+                    </div>
 
                     <div class="mb-6">
                         <div class="relative">
@@ -384,11 +400,13 @@
                                 class="absolute left-4 -top-2 bg-white px-1 text-sm text-gray-600 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-2 peer-focus:text-sm peer-focus:text-blue-600 transition-all duration-200">Ihre
                                 Nachricht</label>
                         </div>
-                    </div>
-
-                    <button type="submit"
-                        class="w-full bg-blue-600 text-white font-semibold py-4 px-8 rounded-lg hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
-                        Nachricht senden
+                    </div> <button type="submit" id="submitBtn"
+                        class="w-full bg-blue-600 text-white font-semibold py-4 px-8 rounded-lg hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none">
+                        <span id="submitText">Nachricht senden</span>
+                        <span id="loadingText" class="hidden">
+                            <i class="fas fa-spinner fa-spin mr-2"></i>
+                            Wird gesendet...
+                        </span>
                     </button>
                 </form>
             </div>
@@ -414,8 +432,64 @@
             </div>
         </div>
     </footer>
-
     <script src="script.js"></script>
+
+    <!-- EmailJS Configuration -->
+    <script>
+        // EmailJS Initialisierung
+        // WICHTIG: Ersetzen Sie "YOUR_PUBLIC_KEY" mit Ihrem echten EmailJS Public Key
+        emailjs.init("065QAi2V5pciGRXTD");
+
+        // Kontaktformular Handler
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // UI Updates
+            const submitBtn = document.getElementById('submitBtn');
+            const submitText = document.getElementById('submitText');
+            const loadingText = document.getElementById('loadingText');
+            const successMsg = document.getElementById('success-message');
+            const errorMsg = document.getElementById('error-message');
+
+            // Loading State aktivieren
+            submitBtn.disabled = true;
+            submitText.classList.add('hidden');
+            loadingText.classList.remove('hidden');
+
+            // Nachrichten verstecken
+            successMsg.classList.add('hidden');
+            errorMsg.classList.add('hidden');
+
+            // EmailJS senden
+            // WICHTIG: Ersetzen Sie "YOUR_SERVICE_ID" und "YOUR_TEMPLATE_ID" mit Ihren echten IDs
+            emailjs.sendForm('service_yxqbkpc', 'template_47lvydc', this)
+                .then(function (response) {
+                    console.log('SUCCESS!', response.status, response.text);
+
+                    // Erfolg anzeigen
+                    successMsg.classList.remove('hidden');
+
+                    // Formular zurücksetzen
+                    document.getElementById('contactForm').reset();
+
+                    // Nach oben scrollen, um die Erfolgsmeldung zu zeigen
+                    successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                }, function (error) {
+                    console.log('FAILED...', error);
+
+                    // Fehler anzeigen
+                    errorMsg.classList.remove('hidden');
+                    errorMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                })
+                .finally(function () {
+                    // Loading State deaktivieren
+                    submitBtn.disabled = false;
+                    submitText.classList.remove('hidden');
+                    loadingText.classList.add('hidden');
+                });
+        });
+    </script>
     </body>
 
 </html>
