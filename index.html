@@ -444,63 +444,6 @@
         </div>
     </footer>
     <script src="script.js"></script>
-
-    <!-- EmailJS Configuration -->
-    <script>
-        // EmailJS Initialisierung
-        // WICHTIG: Ersetzen Sie "YOUR_PUBLIC_KEY" mit Ihrem echten EmailJS Public Key
-        emailjs.init("065QAi2V5pciGRXTD");
-
-        // Kontaktformular Handler
-        document.getElementById('contactForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            // UI Updates
-            const submitBtn = document.getElementById('submitBtn');
-            const submitText = document.getElementById('submitText');
-            const loadingText = document.getElementById('loadingText');
-            const successMsg = document.getElementById('success-message');
-            const errorMsg = document.getElementById('error-message');
-
-            // Loading State aktivieren
-            submitBtn.disabled = true;
-            submitText.classList.add('hidden');
-            loadingText.classList.remove('hidden');
-
-            // Nachrichten verstecken
-            successMsg.classList.add('hidden');
-            errorMsg.classList.add('hidden');
-
-            // EmailJS senden
-            // WICHTIG: Ersetzen Sie "YOUR_SERVICE_ID" und "YOUR_TEMPLATE_ID" mit Ihren echten IDs
-            emailjs.sendForm('service_yxqbkpc', 'template_47lvydc', this)
-                .then(function (response) {
-                    console.log('SUCCESS!', response.status, response.text);
-
-                    // Erfolg anzeigen
-                    successMsg.classList.remove('hidden');
-
-                    // Formular zurücksetzen
-                    document.getElementById('contactForm').reset();
-
-                    // Nach oben scrollen, um die Erfolgsmeldung zu zeigen
-                    successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-                }, function (error) {
-                    console.log('FAILED...', error);
-
-                    // Fehler anzeigen
-                    errorMsg.classList.remove('hidden');
-                    errorMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                })
-                .finally(function () {
-                    // Loading State deaktivieren
-                    submitBtn.disabled = false;
-                    submitText.classList.remove('hidden');
-                    loadingText.classList.add('hidden');
-                });
-        });
-    </script>
 </body>
 
 </html>
