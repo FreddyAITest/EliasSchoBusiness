@@ -389,11 +389,11 @@ video {
     line-height: 1.625;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 4;
-    /* Limits to 4 lines */
+    -webkit-line-clamp: 3;
+    /* Limits to 3 lines for better consistency */
     -webkit-box-orient: vertical;
-    min-height: 6.5rem;
-    /* 4 lines × 1.625 line-height */
+    height: 4.875rem;
+    /* Fixed height: 3 lines × 1.625 line-height */
 }
 
 /* Tags container with consistent spacing */
@@ -411,10 +411,10 @@ video {
     }
 
     .carousel-slide .flex.flex-col.justify-center p {
-        -webkit-line-clamp: 5;
-        /* Allow one more line on mobile */
-        min-height: 8.125rem;
-        /* 5 lines × 1.625 line-height */
+        -webkit-line-clamp: 3;
+        /* Keep consistent 3 lines on mobile too */
+        height: 4.875rem;
+        /* Fixed height: 3 lines × 1.625 line-height */
     }
 }
 
