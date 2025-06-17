@@ -35,16 +35,17 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
-        }
-
-        /* Header */
+        }        /* Header */
         header {
-            background: #000;
+            background: linear-gradient(135deg, #1f2937 0%, #000 50%, #1f2937 100%);
             color: #fff;
             padding: 1rem 0;
-            position: static;
+            position: sticky;
+            top: 0;
             width: 100%;
             z-index: 1000;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
         nav {
@@ -54,8 +55,12 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
+            background: linear-gradient(135deg, #60a5fa, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .nav-links {
@@ -67,11 +72,62 @@
         .nav-links a {
             color: #fff;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
         }
 
         .nav-links a:hover {
-            color: #ccc;
+            color: #60a5fa;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #60a5fa, #a855f7);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-button {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu-button:hover {
+            color: #60a5fa;
+        }
+
+        .mobile-menu {
+            display: none;
+            background: #1f2937;
+            border-radius: 10px;
+            margin-top: 1rem;
+            padding: 1rem;
+        }
+
+        .mobile-menu a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            padding: 0.75rem 0;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            color: #60a5fa;
         }
 
         /* Hero Section */
@@ -289,10 +345,234 @@
             background: #f8d7da;
             color: #721c24;
             border: 1px solid #f5c6cb;
+        }        /* Portfolio Section */
+        .portfolio {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #fff 100%);
         }
 
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
+        .portfolio h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #000;
+        }
+
+        .portfolio-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .carousel-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .portfolio-carousel {
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            width: 100%;
+            flex-shrink: 0;
+        }
+
+        .project-card {
+            background: #fff;
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-image {
+            position: relative;
+            overflow: hidden;
+            height: 16rem;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #000;
+        }
+
+        .project-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tag {
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .tag-blue {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .tag-green {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .tag-purple {
+            background: #f3e8ff;
+            color: #7c3aed;
+        }
+
+        .tag-orange {
+            background: #fed7aa;
+            color: #c2410c;
+        }
+
+        .tag-pink {
+            background: #fce7f3;
+            color: #be185d;
+        }
+
+        .tag-yellow {
+            background: #fef3c7;
+            color: #a16207;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+
+        .project-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+        }
+
+        .project-link svg {
+            width: 1rem;
+            height: 1rem;
+            margin-left: 0.5rem;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 50%;
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-nav:hover {
+            background: #fff;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .carousel-prev {
+            left: 1rem;
+        }
+
+        .carousel-next {
+            right: 1rem;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .carousel-dot {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: #3b82f6;
+        }
+
+        .carousel-dot:not(.active) {
+            background: #d1d5db;
+        }
+
+        .carousel-dot:not(.active):hover {
+            background: #9ca3af;
+        }
             .nav-links {
                 display: none;
             }
@@ -322,6 +602,25 @@
 
             .container {
                 padding: 0 1rem;
+            }            .mobile-menu-button {
+                display: block;
+            }
+
+            .carousel-nav {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+
+            .carousel-prev {
+                left: 0.5rem;
+            }
+
+            .carousel-next {
+                right: 0.5rem;
+            }
+
+            .project-content {
+                padding: 1.5rem;
             }
 
             .section h2 {
@@ -332,17 +631,26 @@
 </head>
 
 <body>
-    <!-- Header -->
-    <header>
+    <!-- Header -->    <header>
         <nav class="container">
-            <div class="logo">Elias Scho</div>            <ul class="nav-links">
+            <div class="logo">Elias Scho</div>
+            <ul class="nav-links">
                 <li><a href="#about">Über</a></li>
                 <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#contact">Kontakt</a></li>
                 <li><a href="impressum.html">Impressum</a></li>
             </ul>
+            <button class="mobile-menu-button" id="mobile-menu-button">☰</button>
+            <div class="mobile-menu" id="mobile-menu">
+                <a href="#about">Über</a>
+                <a href="#services">Services</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#contact">Kontakt</a>
+                <a href="impressum.html">Impressum</a>
+            </div>
         </nav>
-    </header> <!-- Hero Section -->
+    </header><!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
@@ -386,7 +694,119 @@
                 </div>
             </div>
         </div>
-    </section>    <!-- Contact Section -->
+    </section>    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2>Meine Projekte</h2>
+            <p class="portfolio-subtitle">
+                Hier sind einige meiner erfolgreich realisierten Webprojekte. Jedes Projekt wurde mit modernsten Technologien und individuellen Lösungen entwickelt.
+            </p>
+
+            <div class="carousel-container">
+                <div class="portfolio-carousel">
+                    <div class="carousel-track" id="carousel-track">
+                        
+                        <!-- Project 1 -->
+                        <div class="carousel-slide">
+                            <div class="project-card">
+                                <div class="project-image">
+                                    <img src="https://via.placeholder.com/800x300/4f46e5/ffffff?text=E-Commerce+Website" alt="E-Commerce Website">
+                                    <div class="project-overlay"></div>
+                                </div>
+                                <div class="project-content">
+                                    <h3 class="project-title">Modern E-Commerce Platform</h3>
+                                    <p class="project-description">Eine vollständig responsive E-Commerce-Lösung mit modernem Design, Shopping Cart und Payment-Integration.</p>
+                                    <div class="project-tags">
+                                        <span class="project-tag tag-blue">React</span>
+                                        <span class="project-tag tag-green">Node.js</span>
+                                        <span class="project-tag tag-purple">Stripe</span>
+                                    </div>
+                                    <a href="https://example-ecommerce.com" target="_blank" rel="noopener noreferrer" class="project-link">
+                                        Website besuchen
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 2 -->
+                        <div class="carousel-slide">
+                            <div class="project-card">
+                                <div class="project-image">
+                                    <img src="https://via.placeholder.com/800x300/059669/ffffff?text=Business+Website" alt="Business Website">
+                                    <div class="project-overlay"></div>
+                                </div>
+                                <div class="project-content">
+                                    <h3 class="project-title">Corporate Business Website</h3>
+                                    <p class="project-description">Professionelle Unternehmenswebsite mit CMS, Kontaktformularen und SEO-Optimierung.</p>
+                                    <div class="project-tags">
+                                        <span class="project-tag tag-blue">WordPress</span>
+                                        <span class="project-tag tag-green">SEO</span>
+                                        <span class="project-tag tag-orange">Analytics</span>
+                                    </div>
+                                    <a href="https://example-business.com" target="_blank" rel="noopener noreferrer" class="project-link">
+                                        Website besuchen
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 3 -->
+                        <div class="carousel-slide">
+                            <div class="project-card">
+                                <div class="project-image">
+                                    <img src="https://via.placeholder.com/800x300/dc2626/ffffff?text=Portfolio+Website" alt="Portfolio Website">
+                                    <div class="project-overlay"></div>
+                                </div>
+                                <div class="project-content">
+                                    <h3 class="project-title">Creative Portfolio Website</h3>
+                                    <p class="project-description">Kreative Portfolio-Website für einen Künstler mit Galerie, Blog und Kontaktmöglichkeiten.</p>
+                                    <div class="project-tags">
+                                        <span class="project-tag tag-purple">Vue.js</span>
+                                        <span class="project-tag tag-pink">Design</span>
+                                        <span class="project-tag tag-yellow">Animation</span>
+                                    </div>
+                                    <a href="https://example-portfolio.com" target="_blank" rel="noopener noreferrer" class="project-link">
+                                        Website besuchen
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <button class="carousel-nav carousel-prev" id="carousel-prev">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+                <button class="carousel-nav carousel-next" id="carousel-next">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+
+                <!-- Dots Indicator -->
+                <div class="carousel-dots">
+                    <button class="carousel-dot active" data-slide="0"></button>
+                    <button class="carousel-dot" data-slide="1"></button>
+                    <button class="carousel-dot" data-slide="2"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
     <section id="contact" class="section">
         <div class="container">
             <h2>Kontakt</h2>
@@ -442,16 +862,78 @@
         <div class="container">            <div class="footer-links">
                 <a href="#about">Über</a>
                 <a href="#services">Services</a>
+                <a href="#portfolio">Portfolio</a>
                 <a href="#contact">Kontakt</a>
                 <a href="impressum.html">Impressum</a>
             </div>
             <p>&copy; 2025 Elias Scho. Alle Rechte vorbehalten.</p>
         </div>
     </footer>    <script>
-        // Netlify Forms - Native Formular-Handling
-        // Das Formular wird automatisch von Netlify verarbeitet
-        // Keine zusätzliche JavaScript-Konfiguration erforderlich
-        
+        // Portfolio Carousel Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.getElementById('carousel-track');
+            const slides = document.querySelectorAll('.carousel-slide');
+            const prevButton = document.getElementById('carousel-prev');
+            const nextButton = document.getElementById('carousel-next');
+            const dots = document.querySelectorAll('.carousel-dot');
+            
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            function updateCarousel() {
+                const translateX = -currentSlide * 100;
+                carousel.style.transform = `translateX(${translateX}%)`;
+                
+                // Update dots
+                dots.forEach((dot, index) => {
+                    if (index === currentSlide) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateCarousel();
+            }
+
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                updateCarousel();
+            }
+
+            // Event listeners
+            if (nextButton) nextButton.addEventListener('click', nextSlide);
+            if (prevButton) prevButton.addEventListener('click', prevSlide);
+
+            // Dot navigation
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentSlide = index;
+                    updateCarousel();
+                });
+            });
+
+            // Auto-play carousel
+            setInterval(nextSlide, 6000);
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    if (mobileMenu.style.display === 'block') {
+                        mobileMenu.style.display = 'none';
+                    } else {
+                        mobileMenu.style.display = 'block';
+                    }
+                });
+            }
+        });
+
         // Smooth scrolling for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
