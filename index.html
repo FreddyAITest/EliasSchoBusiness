@@ -9,13 +9,8 @@
     <meta name="author" content="Elias Scho">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-
-    <!-- Fonts -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- EmailJS -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
     <style>
         * {
@@ -391,13 +386,12 @@
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Contact Section -->
+    </section>    <!-- Contact Section -->
     <section id="contact" class="section">
         <div class="container">
             <h2>Kontakt</h2>
-            <form id="contactForm" class="contact-form">
+            <form id="contactForm" class="contact-form" name="contact" method="POST" data-netlify="true" action="/thank-you.html">
+                <input type="hidden" name="form-name" value="contact" />
                 <div id="success-message" class="message success">
                     Ihre Nachricht wurde erfolgreich gesendet!
                 </div>
@@ -453,63 +447,11 @@
             </div>
             <p>&copy; 2025 Elias Scho. Alle Rechte vorbehalten.</p>
         </div>
-    </footer>
-
-    <script>
-        // EmailJS Initialisierung
-        // WICHTIG: Ersetzen Sie "YOUR_PUBLIC_KEY" mit Ihrem echten EmailJS Public Key
-        emailjs.init("YOUR_PUBLIC_KEY");
-
-        // Kontaktformular Handler
-        document.getElementById('contactForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            // UI Updates
-            const submitBtn = document.getElementById('submitBtn');
-            const submitText = document.getElementById('submitText');
-            const loadingText = document.getElementById('loadingText');
-            const successMsg = document.getElementById('success-message');
-            const errorMsg = document.getElementById('error-message');
-
-            // Loading State aktivieren
-            submitBtn.disabled = true;
-            submitText.style.display = 'none';
-            loadingText.style.display = 'inline';
-
-            // Nachrichten verstecken
-            successMsg.style.display = 'none';
-            errorMsg.style.display = 'none';
-
-            // EmailJS senden
-            // WICHTIG: Ersetzen Sie "YOUR_SERVICE_ID" und "YOUR_TEMPLATE_ID" mit Ihren echten IDs
-            emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
-                .then(function (response) {
-                    console.log('SUCCESS!', response.status, response.text);
-
-                    // Erfolg anzeigen
-                    successMsg.style.display = 'block';
-
-                    // Formular zurücksetzen
-                    document.getElementById('contactForm').reset();
-
-                    // Nach oben scrollen
-                    successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-                }, function (error) {
-                    console.log('FAILED...', error);
-
-                    // Fehler anzeigen
-                    errorMsg.style.display = 'block';
-                    errorMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                })
-                .finally(function () {
-                    // Loading State deaktivieren
-                    submitBtn.disabled = false;
-                    submitText.style.display = 'inline';
-                    loadingText.style.display = 'none';
-                });
-        });
-
+    </footer>    <script>
+        // Netlify Forms - Native Formular-Handling
+        // Das Formular wird automatisch von Netlify verarbeitet
+        // Keine zusätzliche JavaScript-Konfiguration erforderlich
+        
         // Smooth scrolling for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
