@@ -29,13 +29,13 @@
             line-height: 1.6;
             color: #333;
             background-color: #fff;
-        }
-
-        .container {
+        }        .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
-        }        /* Header */
+        }
+
+        /* Header */
         header {
             background: rgba(0, 0, 0, 0.95);
             color: #fff;
@@ -52,28 +52,37 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
         }
 
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
             color: #fff;
+        }        .nav-links {
+            display: flex !important;
+            list-style: none !important;
+            gap: 2rem;
+            margin: 0 !important;
+            padding: 0 !important;
+            visibility: visible !important;
         }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
+        .nav-links li {
+            display: block !important;
+            visibility: visible !important;
         }
 
         .nav-links a {
-            color: #fff;
+            color: #fff !important;
             text-decoration: none;
             transition: all 0.3s ease;
             position: relative;
             padding: 0.5rem 1rem;
             border-radius: 6px;
             font-weight: 500;
+            display: block !important;
+            visibility: visible !important;
         }
 
         .nav-links a:hover {
@@ -432,56 +441,10 @@
             font-weight: 600;
             margin-bottom: 1rem;
             color: #000;
-        }
-
-        .project-description {
+        }        .project-description {
             color: #666;
             margin-bottom: 1.5rem;
             line-height: 1.6;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .project-tag {
-            padding: 0.25rem 0.75rem;
-            border-radius: 1rem;
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
-
-        .tag-blue {
-            background: #dbeafe;
-            color: #1e40af;
-        }
-
-        .tag-green {
-            background: #dcfce7;
-            color: #166534;
-        }
-
-        .tag-purple {
-            background: #f3e8ff;
-            color: #7c3aed;
-        }
-
-        .tag-orange {
-            background: #fed7aa;
-            color: #c2410c;
-        }
-
-        .tag-pink {
-            background: #fce7f3;
-            color: #be185d;
-        }
-
-        .tag-yellow {
-            background: #fef3c7;
-            color: #a16207;
         }
 
         .project-link {
@@ -580,27 +543,14 @@
 
             .hero .subtitle {
                 font-size: 1.2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-                margin-bottom: 2rem;
-            }
-
-            .cta-button {
-                padding: 1rem 2rem;
-                font-size: 1rem;
-            }
-
-            .container {
-                padding: 0 1rem;
-            }        @media (max-width: 768px) {
+            }        /* Mobile Responsive */
+        @media (max-width: 768px) {
             .nav-links {
-                display: none;
+                display: none !important;
             }
 
             .mobile-menu-button {
-                display: block;
+                display: block !important;
             }
 
             .carousel-nav {
@@ -651,6 +601,21 @@
                 font-size: 2rem;
             }
         }
+
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .cta-button {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 
@@ -674,7 +639,9 @@
             <a href="#contact">Kontakt</a>
             <a href="impressum.html">Impressum</a>
         </div>
-    </header><!-- Hero Section -->
+    </header>
+
+    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
@@ -736,15 +703,9 @@
                                 <div class="project-image">
                                     <img src="https://via.placeholder.com/800x300/4f46e5/ffffff?text=E-Commerce+Website" alt="E-Commerce Website">
                                     <div class="project-overlay"></div>
-                                </div>
-                                <div class="project-content">
+                                </div>                                <div class="project-content">
                                     <h3 class="project-title">Modern E-Commerce Platform</h3>
                                     <p class="project-description">Eine vollständig responsive E-Commerce-Lösung mit modernem Design, Shopping Cart und Payment-Integration.</p>
-                                    <div class="project-tags">
-                                        <span class="project-tag tag-blue">React</span>
-                                        <span class="project-tag tag-green">Node.js</span>
-                                        <span class="project-tag tag-purple">Stripe</span>
-                                    </div>
                                     <a href="https://example-ecommerce.com" target="_blank" rel="noopener noreferrer" class="project-link">
                                         Website besuchen
                                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -761,15 +722,9 @@
                                 <div class="project-image">
                                     <img src="https://via.placeholder.com/800x300/059669/ffffff?text=Business+Website" alt="Business Website">
                                     <div class="project-overlay"></div>
-                                </div>
-                                <div class="project-content">
+                                </div>                                <div class="project-content">
                                     <h3 class="project-title">Corporate Business Website</h3>
                                     <p class="project-description">Professionelle Unternehmenswebsite mit CMS, Kontaktformularen und SEO-Optimierung.</p>
-                                    <div class="project-tags">
-                                        <span class="project-tag tag-blue">WordPress</span>
-                                        <span class="project-tag tag-green">SEO</span>
-                                        <span class="project-tag tag-orange">Analytics</span>
-                                    </div>
                                     <a href="https://example-business.com" target="_blank" rel="noopener noreferrer" class="project-link">
                                         Website besuchen
                                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -786,15 +741,9 @@
                                 <div class="project-image">
                                     <img src="https://via.placeholder.com/800x300/dc2626/ffffff?text=Portfolio+Website" alt="Portfolio Website">
                                     <div class="project-overlay"></div>
-                                </div>
-                                <div class="project-content">
+                                </div>                                <div class="project-content">
                                     <h3 class="project-title">Creative Portfolio Website</h3>
                                     <p class="project-description">Kreative Portfolio-Website für einen Künstler mit Galerie, Blog und Kontaktmöglichkeiten.</p>
-                                    <div class="project-tags">
-                                        <span class="project-tag tag-purple">Vue.js</span>
-                                        <span class="project-tag tag-pink">Design</span>
-                                        <span class="project-tag tag-yellow">Animation</span>
-                                    </div>
                                     <a href="https://example-portfolio.com" target="_blank" rel="noopener noreferrer" class="project-link">
                                         Website besuchen
                                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -895,7 +844,7 @@
     </footer>    <script>
         // Portfolio Carousel Functionality
         document.addEventListener('DOMContentLoaded', function() {
-            const carousel = document.getElementById('carousel-track');
+            const carousel = document.querySelector('.carousel-track');
             const slides = document.querySelectorAll('.carousel-slide');
             const prevButton = document.getElementById('carousel-prev');
             const nextButton = document.getElementById('carousel-next');
@@ -903,6 +852,8 @@
             
             let currentSlide = 0;
             const totalSlides = slides.length;
+            let autoPlayInterval; // Variable für das Intervall
+            const autoPlayDelay = 5000; // 5 Sekunden
 
             function updateCarousel() {
                 const translateX = -currentSlide * 100;
@@ -911,9 +862,11 @@
                 // Update dots
                 dots.forEach((dot, index) => {
                     if (index === currentSlide) {
-                        dot.classList.add('active');
+                        dot.classList.remove('bg-gray-300');
+                        dot.classList.add('bg-blue-600');
                     } else {
-                        dot.classList.remove('active');
+                        dot.classList.remove('bg-blue-600');
+                        dot.classList.add('bg-gray-300');
                     }
                 });
             }
@@ -928,32 +881,61 @@
                 updateCarousel();
             }
 
-            // Event listeners
-            if (nextButton) nextButton.addEventListener('click', nextSlide);
-            if (prevButton) prevButton.addEventListener('click', prevSlide);
+            // Funktion zum Starten des Auto-Play
+            function startAutoPlay() {
+                autoPlayInterval = setInterval(nextSlide, autoPlayDelay);
+            }
 
-            // Dot navigation
+            // Funktion zum Stoppen des Auto-Play
+            function stopAutoPlay() {
+                if (autoPlayInterval) {
+                    clearInterval(autoPlayInterval);
+                }
+            }
+
+            // Funktion zum Neustarten des Auto-Play
+            function restartAutoPlay() {
+                stopAutoPlay();
+                startAutoPlay();
+            }
+
+            // Event listeners mit Timer-Reset
+            nextButton.addEventListener('click', () => {
+                nextSlide();
+                restartAutoPlay(); // Timer zurücksetzen
+            });
+
+            prevButton.addEventListener('click', () => {
+                prevSlide();
+                restartAutoPlay(); // Timer zurücksetzen
+            });
+
+            // Dot navigation mit Timer-Reset
             dots.forEach((dot, index) => {
                 dot.addEventListener('click', () => {
                     currentSlide = index;
                     updateCarousel();
+                    restartAutoPlay(); // Timer zurücksetzen
                 });
             });
 
-            // Auto-play carousel
-            setInterval(nextSlide, 6000);
+            // Auto-Play starten
+            startAutoPlay();
 
-            // Mobile menu toggle
+            // Optional: Auto-Play pausieren wenn Maus über Carousel ist
+            const carouselContainer = document.querySelector('.portfolio-carousel');
+            if (carouselContainer) {
+                carouselContainer.addEventListener('mouseenter', stopAutoPlay);
+                carouselContainer.addEventListener('mouseleave', startAutoPlay);
+            }
+
+            // Modern mobile menu toggle
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
 
             if (mobileMenuButton && mobileMenu) {
                 mobileMenuButton.addEventListener('click', () => {
-                    if (mobileMenu.style.display === 'block') {
-                        mobileMenu.style.display = 'none';
-                    } else {
-                        mobileMenu.style.display = 'block';
-                    }
+                    mobileMenu.classList.toggle('hidden');
                 });
             }
         });
