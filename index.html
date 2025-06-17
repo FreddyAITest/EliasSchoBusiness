@@ -46,24 +46,27 @@
             z-index: 1000;
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        nav {
+        }        nav {
             display: flex;
-            justify-content: space-between;
             align-items: center;
             position: relative;
+            padding: 0 2rem;
+            justify-content: flex-start;
         }
 
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
             color: #fff;
-        }        .nav-links {
+            position: absolute;
+            left: 2rem;
+        }
+
+        .nav-links {
             display: flex !important;
             list-style: none !important;
             gap: 2rem;
-            margin: 0 !important;
+            margin: 0 auto !important;
             padding: 0 !important;
             visibility: visible !important;
         }
@@ -451,7 +454,7 @@
             display: inline-flex;
             align-items: center;
             padding: 0.75rem 1.5rem;
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            background: linear-gradient(135deg, #919191, #6e6e6e);
             color: #fff;
             text-decoration: none;
             border-radius: 0.5rem;
@@ -462,7 +465,7 @@
 
         .project-link:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+            box-shadow: 0 10px 25px rgba(102, 102, 102, 0.6);
         }
 
         .project-link svg {
@@ -489,7 +492,7 @@
         }
 
         .carousel-nav:hover {
-            background: #fff;
+            background: #d4d4d4;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
         }
 
@@ -518,7 +521,7 @@
         }
 
         .carousel-dot.active {
-            background: #3b82f6;
+            background: #000000;
         }
 
         .carousel-dot:not(.active) {
@@ -526,7 +529,7 @@
         }
 
         .carousel-dot:not(.active):hover {
-            background: #9ca3af;
+            background: #494949;
         }
             .nav-links {
                 display: none;
@@ -645,7 +648,6 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="subtitle">Elias Scho</div>
                 <h1>Webentwicklung<br>für moderne<br>Unternehmen</h1>
                 <p>Ich entwickle professionelle, benutzerfreundliche Websites, die Ihre Marke stärken und Ihre
                     Geschäftsziele unterstützen. Von der Konzeption bis zur Umsetzung – alles aus einer Hand.</p>
@@ -701,7 +703,7 @@
                         <div class="carousel-slide">
                             <div class="project-card">
                                 <div class="project-image">
-                                    <img src="https://via.placeholder.com/800x300/4f46e5/ffffff?text=E-Commerce+Website" alt="E-Commerce Website">
+                                    <img src="Architect.png" alt="E-Commerce Website">
                                     <div class="project-overlay"></div>
                                 </div>                                <div class="project-content">
                                     <h3 class="project-title">Modern E-Commerce Platform</h3>
@@ -720,7 +722,7 @@
                         <div class="carousel-slide">
                             <div class="project-card">
                                 <div class="project-image">
-                                    <img src="https://via.placeholder.com/800x300/059669/ffffff?text=Business+Website" alt="Business Website">
+                                    <img src="Business.png" alt="Business Website">
                                     <div class="project-overlay"></div>
                                 </div>                                <div class="project-content">
                                     <h3 class="project-title">Corporate Business Website</h3>
@@ -739,7 +741,7 @@
                         <div class="carousel-slide">
                             <div class="project-card">
                                 <div class="project-image">
-                                    <img src="https://via.placeholder.com/800x300/dc2626/ffffff?text=Portfolio+Website" alt="Portfolio Website">
+                                    <img src="Creativeportfolio.png" alt="Portfolio Website">
                                     <div class="project-overlay"></div>
                                 </div>                                <div class="project-content">
                                     <h3 class="project-title">Creative Portfolio Website</h3>
@@ -841,118 +843,113 @@
             </div>
             <p>&copy; 2025 Elias Scho. Alle Rechte vorbehalten.</p>
         </div>
-    </footer>    <script>
-        // Portfolio Carousel Functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const carousel = document.querySelector('.carousel-track');
-            const slides = document.querySelectorAll('.carousel-slide');
-            const prevButton = document.getElementById('carousel-prev');
-            const nextButton = document.getElementById('carousel-next');
-            const dots = document.querySelectorAll('.carousel-dot');
-            
-            let currentSlide = 0;
-            const totalSlides = slides.length;
-            let autoPlayInterval; // Variable für das Intervall
-            const autoPlayDelay = 5000; // 5 Sekunden
+    </footer>    <script>        // Portfolio Carousel Functionality
 
-            function updateCarousel() {
-                const translateX = -currentSlide * 100;
-                carousel.style.transform = `translateX(${translateX}%)`;
-                
-                // Update dots
-                dots.forEach((dot, index) => {
-                    if (index === currentSlide) {
-                        dot.classList.remove('bg-gray-300');
-                        dot.classList.add('bg-blue-600');
-                    } else {
-                        dot.classList.remove('bg-blue-600');
-                        dot.classList.add('bg-gray-300');
-                    }
-                });
-            }
+document.addEventListener('DOMContentLoaded', function() {
+    const carousel = document.querySelector('.carousel-track');
+    const slides = document.querySelectorAll('.carousel-slide');
+    const prevButton = document.getElementById('carousel-prev');
+    const nextButton = document.getElementById('carousel-next');
+    const dots = document.querySelectorAll('.carousel-dot');
 
-            function nextSlide() {
-                currentSlide = (currentSlide + 1) % totalSlides;
-                updateCarousel();
-            }
+    if (!carousel || !prevButton || !nextButton || slides.length === 0) {
+        return;
+    }
 
-            function prevSlide() {
-                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-                updateCarousel();
-            }
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+    let autoPlayInterval;
+    const autoPlayDelay = 5000;
 
-            // Funktion zum Starten des Auto-Play
-            function startAutoPlay() {
-                autoPlayInterval = setInterval(nextSlide, autoPlayDelay);
-            }
-
-            // Funktion zum Stoppen des Auto-Play
-            function stopAutoPlay() {
-                if (autoPlayInterval) {
-                    clearInterval(autoPlayInterval);
-                }
-            }
-
-            // Funktion zum Neustarten des Auto-Play
-            function restartAutoPlay() {
-                stopAutoPlay();
-                startAutoPlay();
-            }
-
-            // Event listeners mit Timer-Reset
-            nextButton.addEventListener('click', () => {
-                nextSlide();
-                restartAutoPlay(); // Timer zurücksetzen
-            });
-
-            prevButton.addEventListener('click', () => {
-                prevSlide();
-                restartAutoPlay(); // Timer zurücksetzen
-            });
-
-            // Dot navigation mit Timer-Reset
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    currentSlide = index;
-                    updateCarousel();
-                    restartAutoPlay(); // Timer zurücksetzen
-                });
-            });
-
-            // Auto-Play starten
-            startAutoPlay();
-
-            // Optional: Auto-Play pausieren wenn Maus über Carousel ist
-            const carouselContainer = document.querySelector('.portfolio-carousel');
-            if (carouselContainer) {
-                carouselContainer.addEventListener('mouseenter', stopAutoPlay);
-                carouselContainer.addEventListener('mouseleave', startAutoPlay);
-            }
-
-            // Modern mobile menu toggle
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-
-            if (mobileMenuButton && mobileMenu) {
-                mobileMenuButton.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
-                });
+    function updateCarousel() {
+        const translateX = -currentSlide * 100;
+        carousel.style.transform = `translateX(${translateX}%)`;
+        dots.forEach((dot, index) => {
+            if (index === currentSlide) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
             }
         });
+    }
 
-        // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateCarousel();
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+    }
+
+    function startAutoPlay() {
+        autoPlayInterval = setInterval(nextSlide, autoPlayDelay);
+    }
+
+    function stopAutoPlay() {
+        if (autoPlayInterval) {
+            clearInterval(autoPlayInterval);
+        }
+    }
+
+    function restartAutoPlay() {
+        stopAutoPlay();
+        startAutoPlay();
+    }
+
+    nextButton.addEventListener('click', () => {
+        nextSlide();
+        restartAutoPlay();
+    });
+
+    prevButton.addEventListener('click', () => {
+        prevSlide();
+        restartAutoPlay();
+    });
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentSlide = index;
+            updateCarousel();
+            restartAutoPlay();
         });
+    });
+
+    startAutoPlay();
+    updateCarousel();
+
+    // Pause auto-play on hover
+    const carouselContainer = document.querySelector('.portfolio-carousel');
+    if (carouselContainer) {
+        carouselContainer.addEventListener('mouseenter', stopAutoPlay);
+        carouselContainer.addEventListener('mouseleave', startAutoPlay);
+    }
+
+    // Modern mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    }
+});
+
+// Smooth scrolling for navigation
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
     </script>
 </body>
 
