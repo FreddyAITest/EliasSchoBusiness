@@ -4,12 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impressum - Elias Scho Webentwicklung</title>
-    <meta name="description" content="Impressum und rechtliche Hinweise von Elias Scho Webentwicklung">
+    <title>Impressum - Elias Scho</title>
+    <meta name="description" content="Impressum und rechtliche Hinweise von Elias Scho - Persönliche Website">
     <meta name="author" content="Elias Scho">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="Logo.png">    <!-- Fonts -->
+    <link rel="icon" type="image/png" href="Logo.png">
+    
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
@@ -28,24 +30,28 @@
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #fff;
-        }        .container {
-            max-width: 1200px;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
         /* Header */
         header {
-            background: rgba(0, 0, 0, 0.95);
-            color: #fff;
+            background: rgba(255, 255, 255, 0.95);
+            color: #111;
             padding: 1rem 0;
             position: sticky;
             top: 0;
             width: 100%;
             z-index: 1000;
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);        }
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
 
         nav {
             display: flex;
@@ -58,9 +64,10 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
-            color: #fff;
+            color: #111;
             position: absolute;
             left: 2rem;
+            text-decoration: none;
         }
 
         .nav-links {
@@ -78,7 +85,7 @@
         }
 
         .nav-links a {
-            color: #fff !important;
+            color: #111 !important;
             text-decoration: none;
             transition: all 0.3s ease;
             position: relative;
@@ -90,15 +97,15 @@
         }
 
         .nav-links a:hover {
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff !important;
+            background: rgba(0, 0, 0, 0.05);
+            color: #000 !important;
         }
 
         .mobile-menu-button {
             display: none;
             background: none;
             border: none;
-            color: #fff;
+            color: #111;
             font-size: 1.2rem;
             cursor: pointer;
             padding: 0.5rem;
@@ -107,7 +114,7 @@
         }
 
         .mobile-menu-button:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.05);
         }
 
         .mobile-menu {
@@ -116,15 +123,16 @@
             top: 100%;
             left: 0;
             right: 0;
-            background: rgba(0, 0, 0, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
             padding: 1rem 0;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         .mobile-menu a {
             display: block;
-            color: #fff;
+            color: #111;
             text-decoration: none;
             padding: 0.75rem 2rem;
             transition: background 0.3s ease;
@@ -132,7 +140,118 @@
         }
 
         .mobile-menu a:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        /* Main Content */
+        main {
+            padding: 4rem 0;
+            min-height: 80vh;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #212529;
+            position: relative;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: #212529;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            color: #212529;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #495057;
+            line-height: 1.7;
+        }
+
+        a {
+            color: #212529;
+            text-decoration: underline;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #6c757d;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #212529;
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            background: #343a40;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: #212529;
+            color: #f8f9fa;
+            padding: 3rem 0 2rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: #f8f9fa;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: #ced4da;
+        }
+
+        .footer-text {
+            font-size: 0.9rem;
+            opacity: 0.8;
         }
 
         /* Mobile Responsive */
@@ -153,97 +272,18 @@
                 font-size: 2rem;
             }
         }
-
-        /* Main Content */
-        main {
-            padding: 4rem 0;
-            min-height: 80vh;
-        }
-
-        .content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin: 2rem 0 1rem;
-            color: #000;
-        }
-
-        p {
-            margin-bottom: 1rem;
-        }
-
-        a {
-            color: #000;
-            text-decoration: underline;
-        }
-
-        a:hover {
-            color: #333;
-        }
-
-        .back-link {
-            display: inline-block;
-            background: #000;
-            color: #fff;
-            padding: 0.75rem 1.5rem;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-bottom: 2rem;
-            transition: background 0.3s;
-        }
-
-        .back-link:hover {
-            background: #333;
-            color: #fff;
-        }
-
-        /* Footer */
-        footer {
-            background: #000;
-            color: #fff;
-            padding: 2rem 0;
-            text-align: center;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .footer-links a {
-            color: #fff;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: #ccc;
-        }
     </style>
 </head>
 
-<body>    <!-- Header -->
+<body>
+    <!-- Header -->
     <header>
         <nav class="container">
-            <div class="logo">Elias Scho</div>
+            <a href="index.html" class="logo">Elias Scho</a>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#about">Über</a></li>
-                <li><a href="index.html#services">Services</a></li>
-                <li><a href="index.html#portfolio">Portfolio</a></li>
+                <li><a href="index.html#about">Über mich</a></li>
+                <li><a href="index.html#projects">Projekte</a></li>
+                <li><a href="index.html#experience">Werdegang</a></li>
                 <li><a href="index.html#contact">Kontakt</a></li>
                 <li><a href="impressum.html">Impressum</a></li>
             </ul>
@@ -251,9 +291,9 @@
         </nav>
         <div class="mobile-menu" id="mobile-menu">
             <a href="index.html">Home</a>
-            <a href="index.html#about">Über</a>
-            <a href="index.html#services">Services</a>
-            <a href="index.html#portfolio">Portfolio</a>
+            <a href="index.html#about">Über mich</a>
+            <a href="index.html#projects">Projekte</a>
+            <a href="index.html#experience">Werdegang</a>
             <a href="index.html#contact">Kontakt</a>
             <a href="impressum.html">Impressum</a>
         </div>
@@ -263,14 +303,17 @@
     <main>
         <div class="container">
             <div class="content">
-                <a href="index.html" class="back-link">← Zurück zur Startseite</a>
+                <a href="index.html" class="back-link">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"></path>
+                    </svg>
+                    Zurück zur Startseite
+                </a>
 
                 <h1>Impressum</h1>
 
-                <h2>Angaben gemäß § 5 TMG</h2>
-                <p>
+                <h2>Angaben gemäß § 5 TMG</h2>                <p>
                     <strong>Elias Scho</strong><br>
-                    Webentwicklung<br>
                     Hochschulring 17<br>
                     15745 Wildau<br>
                     Deutschland
@@ -287,43 +330,25 @@
                     Elias Scho<br>
                     Hochschulring 17<br>
                     15745 Wildau
-                </p>
-
-                <h2>EU-Streitschlichtung</h2>
+                </p>                <h2>Hinweis zur EU-Streitschlichtung</h2>
                 <p>
-                    Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
-                    <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">
-                        https://ec.europa.eu/consumers/odr/
-                    </a><br>
-                    Unsere E-Mail-Adresse finden Sie oben im Impressum.
-                </p>
-
-                <h2>Verbraucher­streit­beilegung/Universal­schlichtungs­stelle</h2>
+                    Diese Website ist eine persönliche Website ohne kommerzielle Aktivitäten. Für Fragen und Anliegen
+                    stehen die oben genannten Kontaktmöglichkeiten zur Verfügung.
+                </p>                <h2>Haftung für Inhalte</h2>
                 <p>
-                    Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
-                    Verbraucherschlichtungsstelle teilzunehmen.
-                </p>
-
-                <h2>Haftung für Inhalte</h2>
-                <p>
-                    Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten
-                    nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als
-                    Diensteanbieter jedoch nicht unter der Verpflichtung, übermittelte oder gespeicherte
-                    fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine
-                    rechtswidrige Tätigkeit hinweisen.
-                </p>
-
-                <p>
+                    Als Betreiber dieser persönlichen Website bin ich gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten
+                    nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG bin ich jedoch nicht unter 
+                    der Verpflichtung, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach 
+                    Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+                </p>                <p>
                     Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den
                     allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch
                     erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei
-                    Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.
-                </p>
-
-                <h2>Haftung für Links</h2>
+                    Bekanntwerden von entsprechenden Rechtsverletzungen werde ich diese Inhalte umgehend entfernen.
+                </p>                <h2>Haftung für Links</h2>
                 <p>
-                    Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen
-                    Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.
+                    Diese Website enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen
+                    Einfluss habe. Deshalb kann ich für diese fremden Inhalte auch keine Gewähr übernehmen.
                     Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber
                     der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf
                     mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der
@@ -333,7 +358,7 @@
                 <p>
                     Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete
                     Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen
-                    werden wir derartige Links umgehend entfernen.
+                    werde ich derartige Links umgehend entfernen.
                 </p>
 
                 <h2>Urheberrecht</h2>
@@ -351,31 +376,18 @@
                     gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden,
                     bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen
                     werden wir derartige Inhalte umgehend entfernen.
-                </p>
-
-                <h2>Datenschutz</h2>
+                </p>                <h2>Datenschutz</h2>
                 <p>
-                    Diese Website erfasst keine personenbezogenen Daten durch Cookies oder Tracking-Tools.
+                    Diese persönliche Website erfasst keine personenbezogenen Daten durch Cookies oder Tracking-Tools.
                     Personenbezogene Daten werden nur dann erhoben, wenn Sie diese freiwillig über das
                     Kontaktformular übermitteln.
                 </p>
 
                 <p>
                     <strong>Kontaktformular:</strong><br>
-                    Die über das Kontaktformular übermittelten Daten (Name, E-Mail-Adresse, Unternehmen,
-                    gewünschte Dienstleistung und Nachricht) werden ausschließlich zur Bearbeitung Ihrer
-                    Anfrage verwendet und nicht an Dritte weitergegeben. Die Datenübertragung erfolgt über
-                    den Dienst EmailJS.
-                </p>
-
-                <p>
-                    <strong>EmailJS:</strong><br>
-                    Bei der Nutzung des Kontaktformulars werden Ihre Daten über den Dienst EmailJS verarbeitet.
-                    EmailJS ist ein Service zur E-Mail-Übertragung. Weitere Informationen zum Datenschutz
-                    bei EmailJS finden Sie unter:
-                    <a href="https://www.emailjs.com/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">
-                        https://www.emailjs.com/legal/privacy-policy/
-                    </a>
+                    Die über das Kontaktformular übermittelten Daten (Name, E-Mail-Adresse, Betreff
+                    und Nachricht) werden ausschließlich zur Bearbeitung Ihrer
+                    Anfrage verwendet und nicht an Dritte weitergegeben.
                 </p>
 
                 <p>
@@ -388,22 +400,24 @@
                 <p>
                     <strong>Beschwerderecht:</strong><br>
                     Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung
-                    Ihrer personenbezogenen Daten durch uns zu beschweren.
+                    Ihrer personenbezogenen Daten zu beschweren.
                 </p>
             </div>
         </div>
-    </main>    <!-- Footer -->
+    </main>
+
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-links">
                 <a href="index.html">Home</a>
-                <a href="index.html#about">Über</a>
-                <a href="index.html#services">Services</a>
-                <a href="index.html#portfolio">Portfolio</a>
+                <a href="index.html#about">Über mich</a>
+                <a href="index.html#projects">Projekte</a>
+                <a href="index.html#experience">Werdegang</a>
                 <a href="index.html#contact">Kontakt</a>
                 <a href="impressum.html">Impressum</a>
             </div>
-            <p>&copy; 2025 Elias Scho. Alle Rechte vorbehalten.</p>
+            <p class="footer-text">&copy; 2025 Elias Scho. Alle Rechte vorbehalten.</p>
         </div>
     </footer>
 
@@ -426,6 +440,12 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
+                
+                // Close mobile menu if open
+                if (mobileMenu && mobileMenu.style.display === 'block') {
+                    mobileMenu.style.display = 'none';
+                }
+                
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({
