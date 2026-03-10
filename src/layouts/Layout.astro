@@ -1,0 +1,264 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+}
+
+const { title, description = 'Elias Scho - Software-Entwickler & Technologie-Enthusiast aus Wildau. Professionelle Webentwicklung und digitale Lösungen.', canonical } = Astro.props;
+
+const siteUrl = 'https://eliasscho.de';
+const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl;
+---
+
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="author" content="Elias Scho" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={fullCanonical} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={fullCanonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${siteUrl}/og-image.jpg`} />
+    <meta property="og:locale" content="de_DE" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={fullCanonical} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={`${siteUrl}/og-image.jpg`} />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Google Fonts (Inter) - Self-hosted recommended for GDPR -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    
+    <title>{title}</title>
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Elias Scho",
+        "url": siteUrl,
+        "image": `${siteUrl}/logo.png`,
+        "sameAs": [
+          "https://github.com/FreddyAITest",
+          "https://www.linkedin.com/in/elias-scho"
+        ],
+        "jobTitle": "Software-Entwickler",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Elias Scho"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Hochschulring 17",
+          "addressLocality": "Wildau",
+          "postalCode": "15745",
+          "addressCountry": "DE"
+        },
+        "email": "mailto:kontakt@eliasscho.de",
+        "telephone": "+49 176 418 155 22"
+      })}
+    </script>
+  </head>
+  <body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
+    
+    <!-- Navigation -->
+    <nav class="nav" role="navigation" aria-label="Hauptnavigation">
+      <div class="nav-container">
+        <a href="/" class="nav-logo" aria-label="Elias Scho - Startseite">Elias Scho</a>
+        
+        <button 
+          class="mobile-menu-button" 
+          id="mobile-menu-toggle"
+          aria-label="Menü öffnen"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          ☰
+        </button>
+        
+        <ul class="nav-links">
+          <li><a href="/#about">Über mich</a></li>
+          <li><a href="/#services">Dienstleistungen</a></li>
+          <li><a href="/#projects">Projekte</a></li>
+          <li><a href="/#contact">Kontakt</a></li>
+          <li><a href="/impressum">Impressum</a></li>
+        </ul>
+      </div>
+      
+      <!-- Mobile Menu -->
+      <div class="mobile-menu" id="mobile-menu" role="menu">
+        <a href="/#about" role="menuitem">Über mich</a>
+        <a href="/#services" role="menuitem">Dienstleistungen</a>
+        <a href="/#projects" role="menuitem">Projekte</a>
+        <a href="/#contact" role="menuitem">Kontakt</a>
+        <a href="/impressum" role="menuitem">Impressum</a>
+      </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+      <slot />
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-grid">
+          <div class="footer-section">
+            <h3>Elias Scho</h3>
+            <p style="color: rgba(255,255,255,0.8); margin-bottom: 1rem;">
+              Software-Entwickler & Technologie-Enthusiast
+            </p>
+            <p style="color: rgba(255,255,255,0.6); font-size: 0.875rem;">
+              Hochschulring 17<br />
+              15745 Wildau<br />
+              Deutschland
+            </p>
+          </div>
+          
+          <div class="footer-section">
+            <h3>Navigation</h3>
+            <ul>
+              <li><a href="/#about">Über mich</a></li>
+              <li><a href="/#services">Dienstleistungen</a></li>
+              <li><a href="/#projects">Projekte</a></li>
+              <li><a href="/#contact">Kontakt</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h3>Rechtliches</h3>
+            <ul>
+              <li><a href="/impressum">Impressum</a></li>
+              <li><a href="/datenschutz">Datenschutzerklärung</a></li>
+              <li><a href="/cookie-einstellungen">Cookie-Einstellungen</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h3>Kontakt</h3>
+            <ul>
+              <li><a href="mailto:kontakt@eliasscho.de">kontakt@eliasscho.de</a></li>
+              <li><a href="tel:+4917641815522">+49 176 418 155 22</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <a href="/impressum">Impressum</a>
+          <a href="/datenschutz">Datenschutz</a>
+          <a href="/cookie-einstellungen">Cookies</a>
+        </div>
+        
+        <div class="footer-bottom">
+          <p>&copy; {new Date().getFullYear()} Elias Scho. Alle Rechte vorbehalten.</p>
+        </div>
+      </div>
+    </footer>
+    
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-labelledby="cookie-banner-title">
+      <div class="cookie-banner-content">
+        <p class="cookie-banner-text" id="cookie-banner-title">
+          Wir verwenden Cookies, um Ihnen die bestmögliche Erfahrung auf unserer Website zu bieten. 
+          Einige Cookies sind für den Betrieb der Website erforderlich, andere helfen uns, die Website 
+          zu verbessern und Ihnen personalisierte Inhalte anzuzeigen. Sie können entscheiden, welche 
+          Cookies Sie zulassen möchten. Weitere Informationen finden Sie in unserer 
+          <a href="/datenschutz">Datenschutzerklärung</a>.
+        </p>
+        <div class="cookie-banner-buttons">
+          <button class="btn btn-secondary" id="cookie-decline">Nur essentielle Cookies</button>
+          <button class="btn btn-primary" id="cookie-accept">Alle Cookies akzeptieren</button>
+          <a href="/cookie-einstellungen" class="btn btn-secondary">Einstellungen</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Cookie Consent Script -->
+    <script>
+      // Mobile Menu Toggle
+      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      if (mobileMenuToggle && mobileMenu) {
+        mobileMenuToggle.addEventListener('click', () => {
+          const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+          mobileMenuToggle.setAttribute('aria-expanded', (!isExpanded).toString());
+          mobileMenu.classList.toggle('show');
+        });
+        
+        // Close mobile menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.remove('show');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+      
+      // Cookie Consent
+      const cookieBanner = document.getElementById('cookie-banner');
+      const cookieAccept = document.getElementById('cookie-accept');
+      const cookieDecline = document.getElementById('cookie-decline');
+      
+      function checkCookieConsent() {
+        const consent = localStorage.getItem('cookie-consent');
+        if (!consent) {
+          cookieBanner.classList.add('show');
+        }
+      }
+      
+      function setCookieConsent(accepted) {
+        localStorage.setItem('cookie-consent', accepted ? 'all' : 'essential');
+        localStorage.setItem('cookie-consent-date', new Date().toISOString());
+        cookieBanner.classList.remove('show');
+        
+        // Load non-essential cookies only if accepted
+        if (accepted) {
+          loadNonEssentialCookies();
+        }
+      }
+      
+      function loadNonEssentialCookies() {
+        // Load analytics, marketing cookies here
+        console.log('Non-essential cookies loaded');
+      }
+      
+      if (cookieAccept) {
+        cookieAccept.addEventListener('click', () => setCookieConsent(true));
+      }
+      
+      if (cookieDecline) {
+        cookieDecline.addEventListener('click', () => setCookieConsent(false));
+      }
+      
+      // Check consent on page load
+      checkCookieConsent();
+    </script>
+  </body>
+</html>

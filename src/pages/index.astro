@@ -1,0 +1,357 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Elias Scho - Software-Entwickler & Technologie-Enthusiast">
+  <!-- Hero Section -->
+  <section class="section" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 6rem 0;">
+    <div class="container" style="text-align: center;">
+      <img 
+        src="/logo.png" 
+        alt="Elias Scho Portrait" 
+        style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; margin-bottom: 2rem; border: 3px solid white; box-shadow: 0 10px 25px rgba(0,0,0,0.1);"
+        loading="lazy"
+      />
+      <h1 style="font-size: 3rem; margin-bottom: 1rem;">Elias Scho</h1>
+      <p style="font-size: 1.5rem; color: #495057; margin-bottom: 1.5rem;">
+        Software-Entwickler & Technologie-Enthusiast
+      </p>
+      <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto 2rem; line-height: 1.7; color: #495057;">
+        Als leidenschaftlicher Entwickler gestalte ich digitale Lösungen, die nicht nur funktional, 
+        sondern auch ästhetisch ansprechend sind. Mein Fokus liegt auf modernen Technologien und 
+        benutzerfreundlichem Design.
+      </p>
+      
+      <!-- Social Links -->
+      <div style="display: flex; justify-content: center; gap: 1.5rem; margin-top: 2rem;">
+        <a 
+          href="https://github.com/FreddyAITest" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          aria-label="GitHub-Profil"
+          style="display: flex; align-items: center; justify-content: center; width: 45px; height: 45px; border-radius: 50%; background: white; color: #212529; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: all 0.3s ease; text-decoration: none;"
+          onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 15px rgba(0,0,0,0.15)'; this.style.background='#212529'; this.style.color='white';"
+          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)'; this.style.background='white'; this.style.color='#212529';"
+        >
+          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+        </a>
+        <a 
+          href="#" 
+          aria-label="LinkedIn-Profil"
+          style="display: flex; align-items: center; justify-content: center; width: 45px; height: 45px; border-radius: 50%; background: white; color: #212529; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: all 0.3s ease; text-decoration: none;"
+          onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 15px rgba(0,0,0,0.15)'; this.style.background='#212529'; this.style.color='white';"
+          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)'; this.style.background='white'; this.style.color='#212529';"
+        >
+          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+        </a>
+      </div>
+      
+      <div style="margin-top: 3rem;">
+        <a href="/#contact" class="btn btn-primary">Kontakt aufnehmen</a>
+        <a href="/#projects" class="btn btn-secondary" style="margin-left: 1rem;">Projekte ansehen</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Über mich</h2>
+        <p style="color: #6c757d; margin-top: 1rem;">Lernen Sie mich und meine Fachgebiete kennen</p>
+      </div>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; align-items: center;">
+        <div>
+          <img 
+            src="https://via.placeholder.com/500x600" 
+            alt="Elias Scho Portrait" 
+            style="width: 100%; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);"
+            loading="lazy"
+          />
+        </div>
+        
+        <div>
+          <h3>Hallo, ich bin Elias!</h3>
+          <p>
+            Mit über 5 Jahren Erfahrung in der Softwareentwicklung habe ich mich auf die Erstellung moderner 
+            Webanwendungen und benutzerfreundlicher Interfaces spezialisiert. Mein Weg führte mich durch 
+            verschiedene Projekte, von kleinen Startups bis hin zu größeren Unternehmen.
+          </p>
+          <p>
+            Mein Studium der Informatik an der Technischen Hochschule Wildau hat mir ein solides Fundament 
+            vermittelt, auf dem ich kontinuierlich aufbaue. Ich bin ein großer Befürworter des lebenslangen 
+            Lernens und erweitere stets mein technisches Know-how.
+          </p>
+          <p>
+            In meiner Freizeit beschäftige ich mich mit neuen Technologien, trage zu Open-Source-Projekten bei 
+            und teile mein Wissen in Tech-Communities. Die Verbindung von Kreativität und technischem Verständnis 
+            ist für mich der Schlüssel zu innovativen Lösungen.
+          </p>
+          
+          <div style="margin-top: 2rem;">
+            <h4 style="font-size: 1.2rem; margin-bottom: 1rem; color: #343a40;">Meine Fähigkeiten</h4>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem;">
+              <span style="background: #e9ecef; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.9rem; font-weight: 500; color: #495057;">JavaScript</span>
+              <span style="background: #e9ecef; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.9rem; font-weight: 500; color: #495057;">TypeScript</span>
+              <span style="background: #e9ecef; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.9rem; font-weight: 500; color: #495057;">React</span>
+              <span style="background: #e9ecef; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.9rem; font-weight: 500; color: #495057;">Node.js</span>
+              <span style="background: #e9ecef; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.9rem; font-weight: 500; color: #495057;">Python</span>
+              <span style="background: #e9ecef; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.9rem; font-weight: 500; color: #495057;">HTML/CSS</span>
+              <span style="background: #e9ecef; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.9rem; font-weight: 500; color: #495057;">REST APIs</span>
+              <span style="background: #e9ecef; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.9rem; font-weight: 500; color: #495057;">Git</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Services Section -->
+  <section id="services" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>Meine Dienstleistungen</h2>
+        <p style="color: #6c757d; margin-top: 1rem;">Professionelle Lösungen für Ihr digitales Projekt</p>
+      </div>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
+          <div style="width: 50px; height: 50px; background: #e9ecef; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 1.5rem;">💻</div>
+          <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Webentwicklung</h3>
+          <p style="color: #6c757d; margin-bottom: 1rem;">
+            Moderne, responsive Websites und Webanwendungen mit neuesten Technologien wie React, Next.js und Astro.
+          </p>
+          <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 0.5rem; color: #495057;">✓ Responsive Design</li>
+            <li style="margin-bottom: 0.5rem; color: #495057;">✓ Performance-Optimierung</li>
+            <li style="margin-bottom: 0.5rem; color: #495057;">✓ SEO-Freundlich</li>
+            <li style="margin-bottom: 0.5rem; color: #495057;">✓ DSGVO-Konform</li>
+          </ul>
+        </div>
+        
+        <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
+          <div style="width: 50px; height: 50px; background: #e9ecef; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 1.5rem;">🎨</div>
+          <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">UI/UX Design</h3>
+          <p style="color: #6c757d; margin-bottom: 1rem;">
+            Benutzerfreundliche Interfaces mit Fokus auf Accessibility und moderne Design-Prinzipien.
+          </p>
+          <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 0.5rem; color: #495057;">✓ Wireframing</li>
+            <li style="margin-bottom: 0.5rem; color: #495057;">✓ Prototyping</li>
+            <li style="margin-bottom: 0.5rem; color: #495057;">✓ Accessibility (BITV 2.0)</li>
+            <li style="margin-bottom: 0.5rem; color: #495057;">✓ Design Systems</li>
+          </ul>
+        </div>
+        
+        <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
+          <div style="width: 50px; height: 50px; background: #e9ecef; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 1.5rem;">🚀</div>
+          <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Beratung</h3>
+          <p style="color: #6c757d; margin-bottom: 1rem;">
+            Technische Beratung und Unterstützung bei der Auswahl der richtigen Technologien für Ihr Projekt.
+          </p>
+          <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 0.5rem; color: #495057;">✓ Technologie-Auswahl</li>
+            <li style="margin-bottom: 0.5rem; color: #495057;">✓ Architektur-Beratung</li>
+            <li style="margin-bottom: 0.5rem; color: #495057;">✓ Code Reviews</li>
+            <li style="margin-bottom: 0.5rem; color: #495057;">✓ Schulungen</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Meine Projekte</h2>
+        <p style="color: #6c757d; margin-top: 1rem;">Eine Auswahl meiner aktuellen Arbeiten</p>
+      </div>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
+          <div style="height: 200px; overflow: hidden;">
+            <img 
+              src="/creative-portfolio.png" 
+              alt="Portfolio Website Projekt" 
+              style="width: 100%; height: 100%; object-fit: cover;"
+              loading="lazy"
+            />
+          </div>
+          <div style="padding: 1.5rem;">
+            <h3 style="font-size: 1.3rem; margin-bottom: 0.8rem;">Portfolio-Website</h3>
+            <p style="color: #6c757d; margin-bottom: 1.2rem; font-size: 0.95rem;">
+              Eine moderne, responsive Portfolio-Website mit verschiedenen Animationen und interaktiven Elementen.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.2rem;">
+              <span style="background: #e9ecef; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; color: #495057;">HTML/CSS</span>
+              <span style="background: #e9ecef; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; color: #495057;">JavaScript</span>
+              <span style="background: #e9ecef; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; color: #495057;">Responsive</span>
+            </div>
+            <a href="#" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #212529; text-decoration: none; font-weight: 500; font-size: 0.95rem;">
+              Projekt ansehen
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
+          <div style="height: 200px; overflow: hidden;">
+            <img 
+              src="/business.png" 
+              alt="Task Management App Projekt" 
+              style="width: 100%; height: 100%; object-fit: cover;"
+              loading="lazy"
+            />
+          </div>
+          <div style="padding: 1.5rem;">
+            <h3 style="font-size: 1.3rem; margin-bottom: 0.8rem;">Task Management App</h3>
+            <p style="color: #6c757d; margin-bottom: 1.2rem; font-size: 0.95rem;">
+              Eine Web-App zur Organisation von Aufgaben mit Drag & Drop Funktionalität und Benachrichtigungen.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.2rem;">
+              <span style="background: #e9ecef; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; color: #495057;">React</span>
+              <span style="background: #e9ecef; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; color: #495057;">Node.js</span>
+              <span style="background: #e9ecef; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; color: #495057;">MongoDB</span>
+            </div>
+            <a href="#" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #212529; text-decoration: none; font-weight: 500; font-size: 0.95rem;">
+              Projekt ansehen
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <div style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: transform 0.3s ease;">
+          <div style="height: 200px; overflow: hidden;">
+            <img 
+              src="/architect.png" 
+              alt="Weather Dashboard Projekt" 
+              style="width: 100%; height: 100%; object-fit: cover;"
+              loading="lazy"
+            />
+          </div>
+          <div style="padding: 1.5rem;">
+            <h3 style="font-size: 1.3rem; margin-bottom: 0.8rem;">Weather Dashboard</h3>
+            <p style="color: #6c757d; margin-bottom: 1.2rem; font-size: 0.95rem;">
+              Eine App zur Anzeige von Wettervorhersagen mit Datenvisualisierungen und Standortsuche.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.2rem;">
+              <span style="background: #e9ecef; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; color: #495057;">JavaScript</span>
+              <span style="background: #e9ecef; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; color: #495057;">API Integration</span>
+              <span style="background: #e9ecef; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; color: #495057;">Chart.js</span>
+            </div>
+            <a href="#" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #212529; text-decoration: none; font-weight: 500; font-size: 0.95rem;">
+              Projekt ansehen
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Contact Section -->
+  <section id="contact" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>Kontakt</h2>
+        <p style="color: #6c757d; margin-top: 1rem;">Sie haben ein Projekt oder eine Frage? Kontaktieren Sie mich!</p>
+      </div>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
+        <div>
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <div style="width: 50px; height: 50px; background: #f8f9fa; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #212529; font-size: 1.2rem; flex-shrink: 0;">
+              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+              </svg>
+            </div>
+            <div>
+              <strong style="display: block; margin-bottom: 0.25rem;">Telefon</strong>
+              <a href="tel:+4917641815522" style="color: #495057; text-decoration: none;">+49 176 418 155 22</a>
+            </div>
+          </div>
+          
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <div style="width: 50px; height: 50px; background: #f8f9fa; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #212529; font-size: 1.2rem; flex-shrink: 0;">
+              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <div>
+              <strong style="display: block; margin-bottom: 0.25rem;">E-Mail</strong>
+              <a href="mailto:kontakt@eliasscho.de" style="color: #495057; text-decoration: none;">kontakt@eliasscho.de</a>
+            </div>
+          </div>
+          
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="width: 50px; height: 50px; background: #f8f9fa; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #212529; font-size: 1.2rem; flex-shrink: 0;">
+              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </div>
+            <div>
+              <strong style="display: block; margin-bottom: 0.25rem;">Standort</strong>
+              <span style="color: #495057;">Wildau, Brandenburg</span>
+            </div>
+          </div>
+        </div>
+        
+        <form 
+          name="contact" 
+          method="POST" 
+          data-netlify="true" 
+          action="/danke"
+          style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);"
+          netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          <p style="display: none;">
+            <label>Nicht ausfüllen: <input name="bot-field" /></label>
+          </p>
+          
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" required aria-required="true" />
+          </div>
+          
+          <div class="form-group">
+            <label for="email">E-Mail *</label>
+            <input type="email" id="email" name="email" required aria-required="true" />
+          </div>
+          
+          <div class="form-group">
+            <label for="subject">Betreff</label>
+            <input type="text" id="subject" name="subject" />
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Nachricht *</label>
+            <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
+          </div>
+          
+          <div class="form-group" style="font-size: 0.875rem; color: #6c757d;">
+            <label style="display: flex; align-items: flex-start; gap: 0.5rem; font-weight: normal;">
+              <input type="checkbox" name="privacy" required style="width: auto; margin-top: 0.25rem;" />
+              <span>Ich habe die <a href="/datenschutz" target="_blank">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu.</span>
+            </label>
+          </div>
+          
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Nachricht senden</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</Layout>

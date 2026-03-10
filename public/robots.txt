@@ -1,0 +1,59 @@
+# robots.txt für Elias Scho Website
+# https://eliasscho.de/robots.txt
+
+# Crawl-Delay für alle Crawler
+Crawl-delay: 1
+
+# Google Crawler
+User-agent: Googlebot
+Allow: /
+Disallow: /danke
+Disallow: /*?*
+
+# Google Mobile Crawler
+User-agent: Googlebot-Mobile
+Allow: /
+Disallow: /danke
+Disallow: /*?*
+
+# Bing Crawler
+User-agent: Bingbot
+Allow: /
+Disallow: /danke
+Disallow: /*?*
+
+# DuckDuckGo Crawler
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /danke
+Disallow: /*?*
+
+# Baiduspider (Chinese Search Engine)
+User-agent: Baiduspider
+Allow: /
+Disallow: /danke
+Disallow: /*?*
+
+# Yandex (Russian Search Engine)
+User-agent: YandexBot
+Allow: /
+Disallow: /danke
+Disallow: /*?*
+
+# Alle anderen Crawler
+User-agent: *
+Allow: /
+Disallow: /danke
+Disallow: /*?*
+
+# Sitemap location
+Sitemap: https://eliasscho.de/sitemap.xml
+
+# Host (optional - specify preferred domain)
+Host: https://eliasscho.de
+
+# Additional notes:
+# - /danke page is blocked from indexing (thank you page after form submission)
+# - Query strings are blocked to prevent duplicate content
+# - All legal pages (impressum, datenschutz) are explicitly allowed
+# - Crawl delay of 1 second to prevent server overload

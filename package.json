@@ -1,30 +1,19 @@
 {
-  "name": "eliasscho.de",
-  "version": "1.0.0",
-  "description": "Eine moderne, responsive Website für Webentwicklungs-Dienstleistungen, optimiert für Kleinunternehmer.",
-  "main": "script.js",
+  "name": "new-site",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build:css": "npx tailwindcss -i ./tailwind.css -o ./styles.css --minify"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/FreddyAITest/EliasSchoBusiness.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/FreddyAITest/EliasSchoBusiness/issues"
-  },
-  "homepage": "https://github.com/FreddyAITest/EliasSchoBusiness#readme",
-  "devDependencies": {
-    "autoprefixer": "^10.4.21",
-    "postcss": "^8.5.5",
-    "tailwindcss": "^3.4.17"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "@emailjs/browser": "^4.4.1"
+    "@tailwindcss/vite": "^4.2.1",
+    "astro": "^6.0.0",
+    "tailwindcss": "^4.2.1"
   }
 }

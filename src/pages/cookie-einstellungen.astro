@@ -1,0 +1,265 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Cookie-Einstellungen - Elias Scho" canonical="/cookie-einstellungen">
+  <section class="section">
+    <div class="container">
+      <div class="legal-content">
+        <h1>Cookie-Einstellungen</h1>
+        
+        <p>
+          Auf dieser Seite können Sie Ihre Cookie-Einstellungen verwalten und anpassen. 
+          Sie können entscheiden, welche Kategorien von Cookies Sie zulassen möchten.
+        </p>
+        
+        <h2>Was sind Cookies?</h2>
+        <p>
+          Cookies sind kleine Textdateien, die auf Ihrem Gerät gespeichert werden, wenn Sie 
+          unsere Website besuchen. Sie helfen uns, die Website funktionsfähig zu halten, 
+          die Benutzererfahrung zu verbessern und zu verstehen, wie unsere Website genutzt wird.
+        </p>
+        
+        <h2>Cookie-Kategorien</h2>
+        
+        <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 1.5rem;">
+          <h3 style="margin-top: 0;">1. Essentielle Cookies</h3>
+          <p>
+            <strong>Status:</strong> <span style="color: green;">✓ Immer aktiv</span>
+          </p>
+          <p>
+            Diese Cookies sind für die Grundfunktionen der Website erforderlich und können 
+            nicht deaktiviert werden. Ohne diese Cookies würden grundlegende Funktionen wie 
+            die Navigation zwischen Seiten oder der Zugriff auf sichere Bereiche nicht funktionieren.
+          </p>
+          <p>
+            <strong>Beispiele:</strong> Session-Cookies, Sicherheits-Cookies, Lastverteilung
+          </p>
+          <p>
+            <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse)
+          </p>
+        </div>
+        
+        <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 1.5rem;">
+          <h3 style="margin-top: 0;">2. Funktionale Cookies</h3>
+          <p>
+            <strong>Status:</strong> 
+            <span id="functional-status" style="color: orange;">⚠ Ihre Wahl erforderlich</span>
+          </p>
+          <p>
+            Diese Cookies ermöglichen es der Website, sich an Ihre Entscheidungen zu erinnern 
+            (z.B. Benutzername, Sprache oder Region) und verbesserte, persönlichere Funktionen 
+            bereitzustellen.
+          </p>
+          <p>
+            <strong>Beispiele:</strong> Spracheinstellungen, Benutzereinstellungen, Video-Player
+          </p>
+          <p>
+            <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung)
+          </p>
+          <div style="margin-top: 1rem;">
+            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+              <input type="checkbox" id="functional-toggle" style="width: 20px; height: 20px;" />
+              <span>Funktionale Cookies aktivieren</span>
+            </label>
+          </div>
+        </div>
+        
+        <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 1.5rem;">
+          <h3 style="margin-top: 0;">3. Analyse-Cookies</h3>
+          <p>
+            <strong>Status:</strong> 
+            <span id="analytics-status" style="color: orange;">⚠ Ihre Wahl erforderlich</span>
+          </p>
+          <p>
+            Diese Cookies helfen uns zu verstehen, wie Besucher mit unserer Website interagieren, 
+            indem Informationen anonym gesammelt und gemeldet werden. Dies hilft uns, die Website 
+            kontinuierlich zu verbessern.
+          </p>
+          <p>
+            <strong>Beispiele:</strong> Google Analytics, Matomo, Hotjar
+          </p>
+          <p>
+            <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung)
+          </p>
+          <div style="margin-top: 1rem;">
+            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+              <input type="checkbox" id="analytics-toggle" style="width: 20px; height: 20px;" />
+              <span>Analyse-Cookies aktivieren</span>
+            </label>
+          </div>
+        </div>
+        
+        <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 0.5rem; margin-bottom: 1.5rem;">
+          <h3 style="margin-top: 0;">4. Marketing-Cookies</h3>
+          <p>
+            <strong>Status:</strong> 
+            <span id="marketing-status" style="color: orange;">⚠ Ihre Wahl erforderlich</span>
+          </p>
+          <p>
+            Diese Cookies werden verwendet, um Besuchern auf Websites zu folgen und relevante 
+            Anzeigen zu zeigen, die für den einzelnen Benutzer ansprechender sind.
+          </p>
+          <p>
+            <strong>Beispiele:</strong> Google Ads, Facebook Pixel, LinkedIn Insights
+          </p>
+          <p>
+            <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung)
+          </p>
+          <div style="margin-top: 1rem;">
+            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+              <input type="checkbox" id="marketing-toggle" style="width: 20px; height: 20px;" />
+              <span>Marketing-Cookies aktivieren</span>
+            </label>
+          </div>
+        </div>
+        
+        <h2>Ihre aktuellen Einstellungen</h2>
+        <div id="current-settings" style="background: white; border: 1px solid #e5e7eb; padding: 1rem; border-radius: 0.5rem; margin-bottom: 1.5rem;">
+          <p style="margin-bottom: 0.5rem;">
+            <strong>Cookie-Consent:</strong> <span id="consent-status">Nicht gesetzt</span>
+          </p>
+          <p style="margin-bottom: 0.5rem;">
+            <strong>Datum der letzten Einstellung:</strong> <span id="consent-date">-</span>
+          </p>
+        </div>
+        
+        <h2>Cookie-Einstellungen speichern</h2>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <button id="save-settings" class="btn btn-primary">Einstellungen speichern</button>
+          <button id="accept-all" class="btn btn-primary">Alle akzeptieren</button>
+          <button id="decline-all" class="btn btn-secondary">Nur essentielle Cookies</button>
+        </div>
+        
+        <div id="success-message" style="display: none; background: #d4edda; color: #155724; border: 1px solid #c3e6cb; padding: 1rem; border-radius: 0.5rem; margin-top: 1rem;">
+          ✓ Ihre Cookie-Einstellungen wurden erfolgreich gespeichert!
+        </div>
+        
+        <h2 style="margin-top: 2rem;">Cookies im Browser verwalten</h2>
+        <p>
+          Sie können Cookies auch direkt in Ihrem Browser verwalten, blockieren oder löschen. 
+          Hier finden Sie Anleitungen für die gängigsten Browser:
+        </p>
+        <ul>
+          <li>
+            <a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer">
+              Google Chrome
+            </a>
+          </li>
+          <li>
+            <a href="https://support.mozilla.org/de/kb/cookies-und-website-daten-in-firefox-losen-und-blockieren" target="_blank" rel="noopener noreferrer">
+              Mozilla Firefox
+            </a>
+          </li>
+          <li>
+            <a href="https://support.apple.com/de-de/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer">
+              Safari (macOS)
+            </a>
+          </li>
+          <li>
+            <a href="https://support.microsoft.com/de-de/windows/l%C3%B6schen-und-verwalten-von-cookies-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" rel="noopener noreferrer">
+              Microsoft Edge
+            </a>
+          </li>
+        </ul>
+        
+        <h2 style="margin-top: 2rem;">Weitere Informationen</h2>
+        <p>
+          Weitere Informationen zum Datenschutz und zur Cookie-Nutzung finden Sie in unserer 
+          <a href="/datenschutz">Datenschutzerklärung</a>.
+        </p>
+        
+        <p style="margin-top: 2rem; font-size: 0.875rem; color: #6c757d;">
+          Letzte Aktualisierung: 10. März 2025
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <script>
+    // Load current settings
+    function loadSettings() {
+      const consent = localStorage.getItem('cookie-consent');
+      const consentDate = localStorage.getItem('cookie-consent-date');
+      const functional = localStorage.getItem('cookie-functional');
+      const analytics = localStorage.getItem('cookie-analytics');
+      const marketing = localStorage.getItem('cookie-marketing');
+      
+      document.getElementById('consent-status').textContent = consent || 'Nicht gesetzt';
+      document.getElementById('consent-date').textContent = consentDate ? new Date(consentDate).toLocaleDateString('de-DE') : '-';
+      
+      if (functional === 'true') {
+        document.getElementById('functional-toggle').checked = true;
+        document.getElementById('functional-status').textContent = '✓ Aktiviert';
+        document.getElementById('functional-status').style.color = 'green';
+      }
+      
+      if (analytics === 'true') {
+        document.getElementById('analytics-toggle').checked = true;
+        document.getElementById('analytics-status').textContent = '✓ Aktiviert';
+        document.getElementById('analytics-status').style.color = 'green';
+      }
+      
+      if (marketing === 'true') {
+        document.getElementById('marketing-toggle').checked = true;
+        document.getElementById('marketing-status').textContent = '✓ Aktiviert';
+        document.getElementById('marketing-status').style.color = 'green';
+      }
+    }
+    
+    // Save settings
+    function saveSettings() {
+      const functional = document.getElementById('functional-toggle').checked;
+      const analytics = document.getElementById('analytics-toggle').checked;
+      const marketing = document.getElementById('marketing-toggle').checked;
+      
+      localStorage.setItem('cookie-functional', functional);
+      localStorage.setItem('cookie-analytics', analytics);
+      localStorage.setItem('cookie-marketing', marketing);
+      localStorage.setItem('cookie-consent', 'custom');
+      localStorage.setItem('cookie-consent-date', new Date().toISOString());
+      
+      // Update status displays
+      document.getElementById('functional-status').textContent = functional ? '✓ Aktiviert' : '✗ Deaktiviert';
+      document.getElementById('functional-status').style.color = functional ? 'green' : 'red';
+      
+      document.getElementById('analytics-status').textContent = analytics ? '✓ Aktiviert' : '✗ Deaktiviert';
+      document.getElementById('analytics-status').style.color = analytics ? 'green' : 'red';
+      
+      document.getElementById('marketing-status').textContent = marketing ? '✓ Aktiviert' : '✗ Deaktiviert';
+      document.getElementById('marketing-status').style.color = marketing ? 'green' : 'red';
+      
+      document.getElementById('consent-status').textContent = 'Benutzerdefiniert';
+      document.getElementById('consent-date').textContent = new Date().toLocaleDateString('de-DE');
+      
+      // Show success message
+      const successMessage = document.getElementById('success-message');
+      successMessage.style.display = 'block';
+      setTimeout(() => {
+        successMessage.style.display = 'none';
+      }, 3000);
+    }
+    
+    // Accept all
+    document.getElementById('accept-all').addEventListener('click', () => {
+      document.getElementById('functional-toggle').checked = true;
+      document.getElementById('analytics-toggle').checked = true;
+      document.getElementById('marketing-toggle').checked = true;
+      saveSettings();
+    });
+    
+    // Decline all
+    document.getElementById('decline-all').addEventListener('click', () => {
+      document.getElementById('functional-toggle').checked = false;
+      document.getElementById('analytics-toggle').checked = false;
+      document.getElementById('marketing-toggle').checked = false;
+      saveSettings();
+    });
+    
+    // Save button
+    document.getElementById('save-settings').addEventListener('click', saveSettings);
+    
+    // Load settings on page load
+    loadSettings();
+  </script>
+</Layout>
