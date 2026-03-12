@@ -165,8 +165,62 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
   
+  <!-- Digital Products Section -->
+  <section id="produkte" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Digitale Produkte & Pakete</h2>
+        <p style="color: #6c757d; margin-top: 1rem;">Skalierbare Lösungen für Ihren digitalen Erfolg</p>
+      </div>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        <!-- Product 1: DSGVO Landing Page Template -->
+        <div class="project-card" style="display: flex; flex-direction: column;">
+          <div style="padding: 2rem; background: linear-gradient(135deg, #1f2937 0%, #000000 100%); color: white; text-align: center;">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">🚀</div>
+            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: white;">DSGVO Landing Page</h3>
+            <div style="font-size: 1.25rem; font-weight: bold; color: #60a5fa;">ab €99</div>
+          </div>
+          <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column;">
+            <p style="color: #6c757d; margin-bottom: 1.5rem;">
+              Ein hochperformantes, rechtssicheres Landing Page Template für den deutschen Markt. Optimiert für Conversion und SEO.
+            </p>
+            <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; flex-grow: 1;">
+              <li style="margin-bottom: 0.5rem; color: #495057;">✓ Astro & TailwindCSS</li>
+              <li style="margin-bottom: 0.5rem; color: #495057;">✓ Integriertes Cookie-Banner</li>
+              <li style="margin-bottom: 0.5rem; color: #495057;">✓ Impressum & Datenschutz Vorlagen</li>
+              <li style="margin-bottom: 0.5rem; color: #495057;">✓ 100% Lighthouse Score garantiert</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary" style="width: 100%; text-align: center;">Mehr erfahren</a>
+          </div>
+        </div>
+        
+        <!-- Product 2: Web Performance Audit -->
+        <div class="project-card" style="display: flex; flex-direction: column;">
+          <div style="padding: 2rem; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: white; text-align: center;">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">⚡</div>
+            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: white;">Performance Audit</h3>
+            <div style="font-size: 1.25rem; font-weight: bold; color: #93c5fd;">€299</div>
+          </div>
+          <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column;">
+            <p style="color: #6c757d; margin-bottom: 1.5rem;">
+              Umfassende technische Analyse Ihrer bestehenden Website mit konkreten Handlungsempfehlungen für schnellere Ladezeiten.
+            </p>
+            <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; flex-grow: 1;">
+              <li style="margin-bottom: 0.5rem; color: #495057;">✓ Core Web Vitals Analyse</li>
+              <li style="margin-bottom: 0.5rem; color: #495057;">✓ Code Review (Frontend & Backend)</li>
+              <li style="margin-bottom: 0.5rem; color: #495057;">✓ SEO-Technologie-Check</li>
+              <li style="margin-bottom: 0.5rem; color: #495057;">✓ Ausführlicher PDF-Report (48h)</li>
+            </ul>
+            <a href="#contact" class="btn btn-secondary" style="width: 100%; text-align: center;">Jetzt buchen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
   <!-- Projects Section -->
-  <section id="projects" class="section">
+  <section id="projects" class="section section-alt">
     <div class="container">
       <div class="section-header">
         <h2>Meine Projekte</h2>
@@ -193,8 +247,8 @@ import Layout from '../layouts/Layout.astro';
               <span style="background: #e9ecef; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; color: #495057;">JavaScript</span>
               <span style="background: #e9ecef; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; color: #495057;">Responsive</span>
             </div>
-            <a href="#" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #212529; text-decoration: none; font-weight: 500; font-size: 0.95rem;">
-              Projekt ansehen
+            <a href="#contact" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #212529; text-decoration: none; font-weight: 500; font-size: 0.95rem;" onclick="alert('Demo nicht verfügbar? Kontaktieren Sie mich, um mehr über dieses Projekt zu erfahren!');">
+              Projekt anfragen
               <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
               </svg>
@@ -221,8 +275,8 @@ import Layout from '../layouts/Layout.astro';
               <span style="background: #e9ecef; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; color: #495057;">Node.js</span>
               <span style="background: #e9ecef; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; color: #495057;">MongoDB</span>
             </div>
-            <a href="#" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #212529; text-decoration: none; font-weight: 500; font-size: 0.95rem;">
-              Projekt ansehen
+            <a href="#contact" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #212529; text-decoration: none; font-weight: 500; font-size: 0.95rem;" onclick="alert('Demo nicht verfügbar? Kontaktieren Sie mich, um mehr über dieses Projekt zu erfahren!');">
+              Projekt anfragen
               <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
               </svg>
@@ -249,8 +303,8 @@ import Layout from '../layouts/Layout.astro';
               <span style="background: #e9ecef; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; color: #495057;">API Integration</span>
               <span style="background: #e9ecef; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; color: #495057;">Chart.js</span>
             </div>
-            <a href="#" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #212529; text-decoration: none; font-weight: 500; font-size: 0.95rem;">
-              Projekt ansehen
+            <a href="#contact" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #212529; text-decoration: none; font-weight: 500; font-size: 0.95rem;" onclick="alert('Demo nicht verfügbar? Kontaktieren Sie mich, um mehr über dieses Projekt zu erfahren!');">
+              Projekt anfragen
               <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
               </svg>
@@ -261,8 +315,26 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
   
+  <!-- Lead Magnet Section -->
+  <section class="section" style="background: linear-gradient(135deg, #1f2937 0%, #000000 100%); color: white;">
+    <div class="container">
+      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <div style="font-size: 3rem; margin-bottom: 1rem;">🎁</div>
+        <h2 style="color: white; margin-bottom: 1rem;">Kostenlose Checkliste: 10 React Performance Tipps</h2>
+        <p style="color: #9ca3af; font-size: 1.1rem; margin-bottom: 2rem;">
+          Erfahren Sie, wie Sie Ihre Webanwendungen spürbar beschleunigen und die User Experience verbessern.
+          Tragen Sie sich ein und erhalten Sie den PDF-Guide direkt in Ihr Postfach.
+        </p>
+        <form style="display: flex; gap: 1rem; max-width: 500px; margin: 0 auto; flex-wrap: wrap;" onsubmit="event.preventDefault(); alert('Vielen Dank für Ihr Interesse! Dies ist eine Demo, in der finalen Version erfolgt hier der Download.');">
+          <input type="email" placeholder="Ihre E-Mail-Adresse" required style="flex-grow: 1; padding: 0.75rem 1rem; border-radius: 0.5rem; border: none; font-size: 1rem; color: #1f2937;" />
+          <button type="submit" class="btn btn-primary" style="background: #2563eb; color: white; border: none; flex-shrink: 0; cursor: pointer;">Kostenlos anfordern</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  
   <!-- Contact Section -->
-  <section id="contact" class="section section-alt">
+  <section id="contact" class="section">
     <div class="container">
       <div class="section-header">
         <h2>Kontakt</h2>
