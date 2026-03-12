@@ -49,7 +49,11 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     
     <!-- Google Fonts (Inter) - Self-hosted recommended for GDPR -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link data-type="text/css" data-name="google-fonts" data-rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    
+    <!-- Klaro Cookie Consent -->
+    <script defer type="application/javascript" src="/klaro-config.js"></script>
+    <script defer type="application/javascript" src="https://cdn.kiprotect.com/klaro/v0.7.11/klaro.js"></script>
     
     <title>{title}</title>
     
@@ -159,7 +163,7 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl;
             <ul>
               <li><a href="/impressum">Impressum</a></li>
               <li><a href="/datenschutz">Datenschutzerklärung</a></li>
-              <li><a href="/cookie-einstellungen">Cookie-Einstellungen</a></li>
+              <li><a href="javascript:void(0)" onclick="if(typeof klaro !== 'undefined') klaro.show();">Cookie-Einstellungen</a></li>
             </ul>
           </div>
           
@@ -184,25 +188,7 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl;
       </div>
     </footer>
     
-    <!-- Cookie Banner -->
-    <div class="cookie-banner" id="cookie-banner" role="dialog" aria-labelledby="cookie-banner-title">
-      <div class="cookie-banner-content">
-        <p class="cookie-banner-text" id="cookie-banner-title">
-          Wir verwenden Cookies, um Ihnen die bestmögliche Erfahrung auf unserer Website zu bieten. 
-          Einige Cookies sind für den Betrieb der Website erforderlich, andere helfen uns, die Website 
-          zu verbessern und Ihnen personalisierte Inhalte anzuzeigen. Sie können entscheiden, welche 
-          Cookies Sie zulassen möchten. Weitere Informationen finden Sie in unserer 
-          <a href="/datenschutz">Datenschutzerklärung</a>.
-        </p>
-        <div class="cookie-banner-buttons">
-          <button class="btn btn-secondary" id="cookie-decline">Nur essentielle Cookies</button>
-          <button class="btn btn-primary" id="cookie-accept">Alle Cookies akzeptieren</button>
-          <a href="/cookie-einstellungen" class="btn btn-secondary">Einstellungen</a>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Cookie Consent Script -->
+    <!-- Mobile Menu & Klaro Script -->
     <script>
       // Mobile Menu Toggle
       const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
@@ -223,45 +209,6 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl;
           });
         });
       }
-      
-      // Cookie Consent
-      const cookieBanner = document.getElementById('cookie-banner');
-      const cookieAccept = document.getElementById('cookie-accept');
-      const cookieDecline = document.getElementById('cookie-decline');
-      
-      function checkCookieConsent() {
-        const consent = localStorage.getItem('cookie-consent');
-        if (!consent) {
-          cookieBanner.classList.add('show');
-        }
-      }
-      
-      function setCookieConsent(accepted) {
-        localStorage.setItem('cookie-consent', accepted ? 'all' : 'essential');
-        localStorage.setItem('cookie-consent-date', new Date().toISOString());
-        cookieBanner.classList.remove('show');
-        
-        // Load non-essential cookies only if accepted
-        if (accepted) {
-          loadNonEssentialCookies();
-        }
-      }
-      
-      function loadNonEssentialCookies() {
-        // Load analytics, marketing cookies here
-        console.log('Non-essential cookies loaded');
-      }
-      
-      if (cookieAccept) {
-        cookieAccept.addEventListener('click', () => setCookieConsent(true));
-      }
-      
-      if (cookieDecline) {
-        cookieDecline.addEventListener('click', () => setCookieConsent(false));
-      }
-      
-      // Check consent on page load
-      checkCookieConsent();
     </script>
   </body>
 </html>
