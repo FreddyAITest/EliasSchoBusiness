@@ -1,6 +1,7 @@
 # Elias Scho Business Website - Redesign 2025
 
 **Modern, DSGVO-konforme Website für Elias Scho**
+[eliasscho.de](https://eliasscho.de)
 
 ---
 
