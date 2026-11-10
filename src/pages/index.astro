@@ -2,732 +2,138 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Elias Scho — Creative Development & Playground">
-  <!-- Top Subtle Banner -->
-  <div class="border-b border-[var(--border)] bg-[#f5f4ef] py-2 text-center text-xs font-mono text-neutral-500">
-    <span>[PROTOTYPE CANVAS]</span>
-    <span class="mx-2">·</span>
-    <span>No services or marketing funnels. Just frontend experiments & spatial mechanics.</span>
-  </div>
-
-  <!-- Hero Section with 3D Spatial Canvas -->
-  <section class="max-w-6xl mx-auto px-6 pt-16 pb-20 md:pt-24 md:pb-28">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-      
-      <!-- Left Column: Typography & Intent -->
-      <div class="lg:col-span-7 flex flex-col items-start">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[var(--border)] bg-neutral-100/70 text-xs font-mono text-neutral-600 mb-6">
-          <span class="w-1.5 h-1.5 rounded-full bg-neutral-800"></span>
-          <span>v2.0 · Spatial Lab</span>
-        </div>
-        
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900 leading-[1.15] mb-6">
-          Creative frontend engineering & spatial interface experiments.
-        </h1>
-        
-        <p class="text-base sm:text-lg text-neutral-600 leading-relaxed max-w-xl mb-8">
-          A quiet digital playground by Elias Scho. Built to explore what modern web technology can feel like — from scroll-driven 3D perspective to kinetic physics and tactile micro-interactions.
-        </p>
-
-        <!-- Action / Anchor Pills -->
-        <div class="flex flex-wrap items-center gap-3">
-          <a href="#playground" class="btn-tactile btn-tactile-primary">
-            <span>Playground erkunden</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
-          </a>
-          <a href="#about" class="btn-tactile">
-            <span>Über diesen Space</span>
-          </a>
-        </div>
-
-        <!-- Scroll Indicator Hint -->
-        <div class="mt-12 flex items-center gap-3 text-xs font-mono text-neutral-400">
-          <span class="inline-block animate-bounce">↓</span>
-          <span>Scroll down to test spatial 3D rotation & depth</span>
-        </div>
+<Layout title="Elias Scho">
+  <!-- Intro Hero -->
+  <section class="pt-16 pb-12 sm:pt-24 sm:pb-16 border-b border-neutral-200/70">
+    <div class="flex items-center gap-4 mb-6">
+      <img 
+        src="/Elias_Icon.png" 
+        alt="Elias Scho" 
+        class="w-14 h-14 rounded-full object-cover border border-neutral-200 shadow-xs" 
+        loading="eager"
+      />
+      <div>
+        <h1 class="text-xl sm:text-2xl font-semibold tracking-tight text-neutral-900">Elias Scho</h1>
+        <p class="text-xs sm:text-sm text-neutral-500">Software & Creative Development · Hamburg</p>
       </div>
-
-      <!-- Right Column: Interactive 3D Spatial Canvas -->
-      <div class="lg:col-span-5 w-full">
-        <div class="editorial-card p-4 sm:p-6 flex flex-col items-center relative overflow-hidden bg-white/80">
-          <!-- Canvas Container -->
-          <div class="relative w-full aspect-square max-w-[380px] flex items-center justify-center">
-            <canvas id="spatial-canvas" width="380" height="380" class="w-full h-full cursor-grab active:cursor-grabbing touch-none"></canvas>
-            
-            <!-- Subtle Watermark Corner -->
-            <div class="absolute top-2 left-2 text-[10px] font-mono uppercase text-neutral-400 pointer-events-none">
-              3D Matrix · XYZ
-            </div>
-            <div id="spatial-angle-readout" class="absolute bottom-2 right-2 text-[10px] font-mono text-neutral-400 pointer-events-none">
-              θ: 0° · ψ: 0°
-            </div>
-          </div>
-
-          <!-- Controls Bar -->
-          <div class="w-full pt-4 mt-2 border-t border-[var(--border)] flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-neutral-500">
-            <div class="flex items-center gap-1.5">
-              <button id="btn-geom-poly" class="px-2 py-1 rounded border border-neutral-300 bg-neutral-900 text-white text-[11px] hover:opacity-90 transition-opacity">Poly</button>
-              <button id="btn-geom-rings" class="px-2 py-1 rounded border border-[var(--border)] bg-neutral-100 hover:bg-neutral-200 text-neutral-700 text-[11px] transition-colors">Rings</button>
-              <button id="btn-geom-torus" class="px-2 py-1 rounded border border-[var(--border)] bg-neutral-100 hover:bg-neutral-200 text-neutral-700 text-[11px] transition-colors">Torus</button>
-            </div>
-            
-            <button id="btn-reset-view" class="text-[11px] hover:text-neutral-900 underline underline-offset-2">
-              Reset Orbit
-            </button>
-          </div>
-          
-          <p class="text-[11px] text-neutral-400 font-mono mt-2 text-center">
-            Maus ziehen zum Drehen · Scrollen dreht im Raum
-          </p>
-        </div>
-      </div>
-
     </div>
+
+    <p class="text-base sm:text-lg text-neutral-700 leading-relaxed max-w-2xl font-normal">
+      Hi, ich bin Elias. Ich entwickle Software und beschäftige mich gerne mit modernen Web-Technologien, Automatisierung und Interfaces.
+    </p>
+    <p class="text-sm sm:text-base text-neutral-500 leading-relaxed max-w-2xl mt-4">
+      Diese Seite ist meine persönliche Spielwiese — komplett befreit von Dienstleistungen oder Verkaufsangeboten. Ich nutze diesen Raum, um neue Frontend-Ideen, interaktive Spielereien und zukünftige Experimente auszuprobieren.
+    </p>
   </section>
 
-  <!-- Interactive Playground & Experiments Section -->
-  <section id="playground" class="border-t border-[var(--border)] bg-[#f5f4ef]/60 py-24">
-    <div class="max-w-6xl mx-auto px-6">
-      
-      <!-- Section Header -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-        <div>
-          <span class="font-mono-tag">01 // THE PLAYGROUND</span>
-          <h2 class="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight mt-2">
-            Interaktive Experimente & Spielereien
-          </h2>
+  <!-- Projects & Experiments -->
+  <section class="py-12 border-b border-neutral-200/70">
+    <div class="flex items-center justify-between mb-8">
+      <h2 class="text-xs font-mono tracking-wider uppercase text-neutral-400">Spielwiese & Projekte</h2>
+      <span class="text-xs font-mono text-neutral-400">01 / 03</span>
+    </div>
+
+    <div class="space-y-4">
+      <!-- Item 1: 3D Spatial Canvas -->
+      <div class="group p-5 rounded-xl border border-neutral-200/80 bg-white hover:border-neutral-300 transition-all">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <h3 class="font-medium text-neutral-900 text-sm sm:text-base">Spatial Scroll & 3D Lab</h3>
+              <span class="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full bg-neutral-100 text-neutral-600 border border-neutral-200">
+                In Arbeit
+              </span>
+            </div>
+            <p class="text-xs sm:text-sm text-neutral-500 leading-relaxed mt-1">
+              Scroll-gesteuerte 3D-Geometrien, Canvas-Shader und räumliche Interaktionen im Browser.
+            </p>
+          </div>
         </div>
-        <p class="text-sm text-neutral-500 max-w-md">
-          Live-Demos und Frontend-Mechaniken, die direkt im Browser gerechnet werden. Keine schweren Bibliotheken, purer Code.
-        </p>
       </div>
 
-      <!-- 4-Card Experiments Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="experiments">
-        
-        <!-- Experiment 01: 3D Perspective Card Tilt -->
-        <div class="editorial-card p-6 flex flex-col justify-between" id="tilt-card-demo">
+      <!-- Item 2: ApeUI -->
+      <div class="group p-5 rounded-xl border border-neutral-200/80 bg-white hover:border-neutral-300 transition-all">
+        <div class="flex items-start justify-between gap-4">
           <div>
-            <div class="flex items-center justify-between text-xs font-mono text-neutral-400 mb-3">
-              <span>EXP_01</span>
-              <span class="text-emerald-700 font-medium">● Interactive</span>
+            <div class="flex items-center gap-2 mb-1">
+              <h3 class="font-medium text-neutral-900 text-sm sm:text-base">ApeUI</h3>
+              <span class="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full bg-neutral-100 text-neutral-600 border border-neutral-200">
+                Interface
+              </span>
             </div>
-            <h3 class="text-lg font-semibold text-neutral-900 mb-1">3D Spatial Perspective Tilt</h3>
-            <p class="text-sm text-neutral-600 mb-6">
-              Reaktive 3D-Kartenneigung mit Tiefenverschiebung in Echtzeit basierend auf den Cursor-Koordinaten.
+            <p class="text-xs sm:text-sm text-neutral-500 leading-relaxed mt-1">
+              Komponenten-Design und Interface-Architektur für moderne Web-Tools.
             </p>
           </div>
-
-          <!-- Interactive Interactive Stage -->
-          <div class="perspective-container py-8 flex items-center justify-center bg-neutral-50/80 border border-[var(--border)] rounded-lg relative overflow-hidden" style="perspective: 700px;">
-            <div id="interactive-tilt-box" class="w-48 h-32 bg-white rounded-xl border border-neutral-300 shadow-md p-4 flex flex-col justify-between transition-transform duration-75 ease-out select-none cursor-pointer">
-              <div class="flex items-center justify-between">
-                <span class="w-3 h-3 rounded-full bg-neutral-900"></span>
-                <span class="text-[10px] font-mono text-neutral-400">DEPTH 3D</span>
-              </div>
-              <div>
-                <div class="text-xs font-semibold text-neutral-900">Spatial Depth</div>
-                <div class="text-[10px] text-neutral-500 font-mono">Move cursor over card</div>
-              </div>
-              <div class="h-1 w-full bg-neutral-100 rounded-full overflow-hidden">
-                <div id="tilt-progress" class="h-full bg-neutral-900 w-1/2"></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Controls for Experiment 01 -->
-          <div class="mt-4 pt-4 border-t border-[var(--border)] flex items-center justify-between text-xs font-mono text-neutral-500">
-            <span>Stärke:</span>
-            <input type="range" id="tilt-intensity" min="10" max="40" value="22" class="w-32 accent-neutral-900" />
-          </div>
         </div>
+      </div>
 
-        <!-- Experiment 02: Kinetic Magnetic Grid -->
-        <div class="editorial-card p-6 flex flex-col justify-between">
+      <!-- Item 3: ImmoGame -->
+      <div class="group p-5 rounded-xl border border-neutral-200/80 bg-white hover:border-neutral-300 transition-all">
+        <div class="flex items-start justify-between gap-4">
           <div>
-            <div class="flex items-center justify-between text-xs font-mono text-neutral-400 mb-3">
-              <span>EXP_02</span>
-              <span class="text-emerald-700 font-medium">● Physics</span>
+            <div class="flex items-center gap-2 mb-1">
+              <h3 class="font-medium text-neutral-900 text-sm sm:text-base">ImmoGame</h3>
+              <span class="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full bg-neutral-100 text-neutral-600 border border-neutral-200">
+                Simulation
+              </span>
             </div>
-            <h3 class="text-lg font-semibold text-neutral-900 mb-1">Kinetic Cursor Field</h3>
-            <p class="text-sm text-neutral-600 mb-6">
-              Ein Punkteraster, das bei Annäherung elastisch auf den Cursor reagiert und mit Dämpfung zurückfedert.
+            <p class="text-xs sm:text-sm text-neutral-500 leading-relaxed mt-1">
+              Interaktive Immobilien- und Wirtschafts-Simulation im Web.
             </p>
           </div>
-
-          <!-- Canvas Stage for Grid -->
-          <div class="py-4 flex items-center justify-center bg-neutral-50/80 border border-[var(--border)] rounded-lg">
-            <canvas id="dot-grid-canvas" width="340" height="160" class="w-full max-w-[340px] h-[160px] cursor-crosshair"></canvas>
-          </div>
-
-          <!-- Controls for Experiment 02 -->
-          <div class="mt-4 pt-4 border-t border-[var(--border)] flex items-center justify-between text-xs font-mono text-neutral-500">
-            <span>Modus:</span>
-            <div class="flex items-center gap-2">
-              <button id="btn-repel" class="px-2 py-0.5 rounded border border-neutral-900 bg-neutral-900 text-white text-[11px]">Repel</button>
-              <button id="btn-attract" class="px-2 py-0.5 rounded border border-[var(--border)] bg-white text-neutral-700 text-[11px]">Attract</button>
-            </div>
-          </div>
         </div>
-
-        <!-- Experiment 03: Generative Waveform Oscillator -->
-        <div class="editorial-card p-6 flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between text-xs font-mono text-neutral-400 mb-3">
-              <span>EXP_03</span>
-              <span class="text-emerald-700 font-medium">● Geometry</span>
-            </div>
-            <h3 class="text-lg font-semibold text-neutral-900 mb-1">Harmonic Waveform Oscillator</h3>
-            <p class="text-sm text-neutral-600 mb-6">
-              Harmonische Interferenzwellen mit mathematischer Sinus-Überlagerung und stufenloser Frequenzregelung.
-            </p>
-          </div>
-
-          <!-- Waveform Canvas -->
-          <div class="py-4 flex items-center justify-center bg-neutral-50/80 border border-[var(--border)] rounded-lg">
-            <canvas id="waveform-canvas" width="340" height="160" class="w-full max-w-[340px] h-[160px]"></canvas>
-          </div>
-
-          <!-- Controls for Experiment 03 -->
-          <div class="mt-4 pt-4 border-t border-[var(--border)] flex items-center justify-between text-xs font-mono text-neutral-500">
-            <span>Frequenz:</span>
-            <input type="range" id="wave-freq" min="1" max="6" value="2" step="0.1" class="w-32 accent-neutral-900" />
-          </div>
-        </div>
-
-        <!-- Experiment 04: Fluid Optical Typography -->
-        <div class="editorial-card p-6 flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between text-xs font-mono text-neutral-400 mb-3">
-              <span>EXP_04</span>
-              <span class="text-emerald-700 font-medium">● Typography</span>
-            </div>
-            <h3 class="text-lg font-semibold text-neutral-900 mb-1">Dynamic Optical Typography</h3>
-            <p class="text-sm text-neutral-600 mb-6">
-              Flüssige Schriftskalierung mit dynamischem Letter-Spacing und optischer Gewichtsinterpolation.
-            </p>
-          </div>
-
-          <!-- Type Box Stage -->
-          <div class="h-[160px] flex items-center justify-center bg-neutral-50/80 border border-[var(--border)] rounded-lg p-6 overflow-hidden select-none">
-            <div id="dynamic-type-preview" class="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight transition-all duration-100">
-              ELIAS SCHO
-            </div>
-          </div>
-
-          <!-- Controls for Experiment 04 -->
-          <div class="mt-4 pt-4 border-t border-[var(--border)] flex items-center justify-between text-xs font-mono text-neutral-500">
-            <span>Spationierung:</span>
-            <input type="range" id="type-spacing" min="-2" max="18" value="0" class="w-32 accent-neutral-900" />
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
 
-  <!-- About / Notes Section -->
-  <section id="about" class="max-w-6xl mx-auto px-6 py-24 border-t border-[var(--border)]">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
-      <div class="md:col-span-4">
-        <span class="font-mono-tag">02 // COLOPHON & BIO</span>
-        <h2 class="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight mt-2">
-          Über mich & dieses Lab
-        </h2>
-      </div>
+  <!-- Connect & Links -->
+  <section class="py-12">
+    <div class="flex items-center justify-between mb-8">
+      <h2 class="text-xs font-mono tracking-wider uppercase text-neutral-400">Netzwerk & Links</h2>
+      <span class="text-xs font-mono text-neutral-400">02 / 03</span>
+    </div>
 
-      <div class="md:col-span-8 flex flex-col gap-6 text-neutral-600 leading-relaxed text-base sm:text-lg">
-        <p>
-          Hi, ich bin Elias. Mein technischer Hintergrund liegt in der Automatisierungstechnik (TH Wildau) und moderner Softwareentwicklung. Mich fasziniert die Schnittstelle zwischen robustem Engineering und digitaler Ästhetik.
-        </p>
-        <p>
-          Diese Domain war früher als klassische Freelancer-Präsenz aufgebaut. Ich habe sie bewusst von allen Verkaufsangeboten, Stundensätzen und Marketing-Paketen befreit. Sie dient heute als mein <strong>offener Spielplatz</strong>: Ein Ort für Experimente mit 3D-Webgrafik, reaktiven Interfaces und den neuesten Browser-Möglichkeiten.
-        </p>
-        <p class="text-sm text-neutral-500 font-mono pt-4 border-t border-[var(--border)]">
-          Technologie-Stack: Astro 6, Tailwind CSS v4, Vanilla Canvas & Web-APIs, gehostet via Netlify CI/CD.
-        </p>
-      </div>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <a 
+        href="https://github.com/FreddyAITest" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="p-4 rounded-xl border border-neutral-200/80 bg-white hover:border-neutral-400 hover:bg-neutral-50/50 transition-all no-underline group block"
+      >
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-mono uppercase text-neutral-400">Code</span>
+          <span class="text-xs text-neutral-400 group-hover:text-neutral-900 transition-colors">↗</span>
+        </div>
+        <div class="text-sm font-medium text-neutral-900">GitHub</div>
+        <div class="text-xs text-neutral-500 mt-0.5">@FreddyAITest</div>
+      </a>
+
+      <a 
+        href="https://www.linkedin.com/in/elias-scho" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="p-4 rounded-xl border border-neutral-200/80 bg-white hover:border-neutral-400 hover:bg-neutral-50/50 transition-all no-underline group block"
+      >
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-mono uppercase text-neutral-400">Profil</span>
+          <span class="text-xs text-neutral-400 group-hover:text-neutral-900 transition-colors">↗</span>
+        </div>
+        <div class="text-sm font-medium text-neutral-900">LinkedIn</div>
+        <div class="text-xs text-neutral-500 mt-0.5">Elias Scho</div>
+      </a>
+
+      <a 
+        href="mailto:kontakt@eliasscho.de" 
+        class="p-4 rounded-xl border border-neutral-200/80 bg-white hover:border-neutral-400 hover:bg-neutral-50/50 transition-all no-underline group block"
+      >
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-mono uppercase text-neutral-400">Kontakt</span>
+          <span class="text-xs text-neutral-400 group-hover:text-neutral-900 transition-colors">↗</span>
+        </div>
+        <div class="text-sm font-medium text-neutral-900">E-Mail</div>
+        <div class="text-xs text-neutral-500 mt-0.5">kontakt@eliasscho.de</div>
+      </a>
     </div>
   </section>
-
-  <!-- Connect Section -->
-  <section id="connect" class="border-t border-[var(--border)] bg-[#f5f4ef]/60 py-24">
-    <div class="max-w-6xl mx-auto px-6">
-      <span class="font-mono-tag">03 // NETWORK</span>
-      <h2 class="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight mt-2 mb-10">
-        Verbinden & Code ansehen
-      </h2>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- GitHub Link -->
-        <a 
-          href="https://github.com/FreddyAITest" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          class="editorial-card p-6 flex flex-col justify-between group no-underline"
-        >
-          <div class="flex items-center justify-between text-xs font-mono text-neutral-400 mb-6">
-            <span>GITHUB</span>
-            <span class="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">↗</span>
-          </div>
-          <div>
-            <div class="font-semibold text-neutral-900 text-lg mb-1">FreddyAITest</div>
-            <p class="text-xs text-neutral-500">Quellcode, Repositories & Open-Source Projekte.</p>
-          </div>
-        </a>
-
-        <!-- LinkedIn Link -->
-        <a 
-          href="https://www.linkedin.com/in/elias-scho" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          class="editorial-card p-6 flex flex-col justify-between group no-underline"
-        >
-          <div class="flex items-center justify-between text-xs font-mono text-neutral-400 mb-6">
-            <span>LINKEDIN</span>
-            <span class="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">↗</span>
-          </div>
-          <div>
-            <div class="font-semibold text-neutral-900 text-lg mb-1">Elias Scho</div>
-            <p class="text-xs text-neutral-500">Beruflicher Werdegang und Netzwerk.</p>
-          </div>
-        </a>
-
-        <!-- Direct Email Link -->
-        <a 
-          href="mailto:kontakt@eliasscho.de" 
-          class="editorial-card p-6 flex flex-col justify-between group no-underline"
-        >
-          <div class="flex items-center justify-between text-xs font-mono text-neutral-400 mb-6">
-            <span>EMAIL</span>
-            <span class="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">↗</span>
-          </div>
-          <div>
-            <div class="font-semibold text-neutral-900 text-lg mb-1">kontakt@eliasscho.de</div>
-            <p class="text-xs text-neutral-500">Für Fragen, Ideen oder lockeren Austausch.</p>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Client-side Scripts for 3D Spatial Canvas and Interactive Mechanics -->
-  <script>
-    // -------------------------------------------------------------
-    // 1. HERO 3D SPATIAL CANVAS (Perspective + Scroll-linked rotation)
-    // -------------------------------------------------------------
-    (function initSpatialCanvas() {
-      const canvas = document.getElementById('spatial-canvas') as HTMLCanvasElement;
-      if (!canvas) return;
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return;
-
-      const readout = document.getElementById('spatial-angle-readout');
-
-      // Geometry definitions (3D vertices and edge pairs)
-      // A) Icosahedron (golden ratio based)
-      const phi = (1 + Math.sqrt(5)) / 2;
-      const icosaVertices = [
-        [-1,  phi,  0], [ 1,  phi,  0], [-1, -phi,  0], [ 1, -phi,  0],
-        [ 0, -1,  phi], [ 0,  1,  phi], [ 0, -1, -phi], [ 0,  1, -phi],
-        [ phi,  0, -1], [ phi,  0,  1], [-phi,  0, -1], [-phi,  0,  1]
-      ].map(v => {
-        const len = Math.hypot(v[0], v[1], v[2]);
-        return [v[0] / len * 110, v[1] / len * 110, v[2] / len * 110];
-      });
-
-      // Construct edges for icosahedron (connect pairs with distance close to ~2)
-      const icosaEdges: [number, number][] = [];
-      for (let i = 0; i < icosaVertices.length; i++) {
-        for (let j = i + 1; j < icosaVertices.length; j++) {
-          const d = Math.hypot(
-            icosaVertices[i][0] - icosaVertices[j][0],
-            icosaVertices[i][1] - icosaVertices[j][1],
-            icosaVertices[i][2] - icosaVertices[j][2]
-          );
-          if (d < 135) icosaEdges.push([i, j]);
-        }
-      }
-
-      // B) Concentric Rings geometry
-      const ringsVertices: [number, number, number][] = [];
-      const ringsEdges: [number, number][] = [];
-      const ringCount = 3;
-      const pointsPerRing = 24;
-      for (let r = 0; r < ringCount; r++) {
-        const radius = 55 + r * 30;
-        const offset = ringsVertices.length;
-        for (let p = 0; p < pointsPerRing; p++) {
-          const angle = (p / pointsPerRing) * Math.PI * 2;
-          if (r === 0) ringsVertices.push([Math.cos(angle) * radius, Math.sin(angle) * radius, 0]);
-          if (r === 1) ringsVertices.push([Math.cos(angle) * radius, 0, Math.sin(angle) * radius]);
-          if (r === 2) ringsVertices.push([0, Math.cos(angle) * radius, Math.sin(angle) * radius]);
-          ringsEdges.push([offset + p, offset + ((p + 1) % pointsPerRing)]);
-        }
-      }
-
-      // C) Torus / Mobius ring
-      const torusVertices: [number, number, number][] = [];
-      const torusEdges: [number, number][] = [];
-      const R = 85, tubeR = 30;
-      const segU = 16, segV = 8;
-      for (let u = 0; u < segU; u++) {
-        const theta = (u / segU) * Math.PI * 2;
-        for (let v = 0; v < segV; v++) {
-          const phiVal = (v / segV) * Math.PI * 2;
-          const x = (R + tubeR * Math.cos(phiVal)) * Math.cos(theta);
-          const y = (R + tubeR * Math.cos(phiVal)) * Math.sin(theta);
-          const z = tubeR * Math.sin(phiVal);
-          torusVertices.push([x, y, z]);
-          const current = u * segV + v;
-          const nextV = u * segV + ((v + 1) % segV);
-          const nextU = ((u + 1) % segU) * segV + v;
-          torusEdges.push([current, nextV]);
-          torusEdges.push([current, nextU]);
-        }
-      }
-
-      let activeGeom = 'poly';
-      function getActiveMesh() {
-        if (activeGeom === 'rings') return { v: ringsVertices, e: ringsEdges };
-        if (activeGeom === 'torus') return { v: torusVertices, e: torusEdges };
-        return { v: icosaVertices, e: icosaEdges };
-      }
-
-      // Buttons for geometry
-      const btnPoly = document.getElementById('btn-geom-poly');
-      const btnRings = document.getElementById('btn-geom-rings');
-      const btnTorus = document.getElementById('btn-geom-torus');
-      const btnReset = document.getElementById('btn-reset-view');
-
-      function updateActiveBtn(active: string) {
-        [btnPoly, btnRings, btnTorus].forEach(b => {
-          if (!b) return;
-          b.className = 'px-2 py-1 rounded border border-[var(--border)] bg-neutral-100 hover:bg-neutral-200 text-neutral-700 text-[11px] transition-colors';
-        });
-        if (active === 'poly' && btnPoly) btnPoly.className = 'px-2 py-1 rounded border border-neutral-900 bg-neutral-900 text-white text-[11px]';
-        if (active === 'rings' && btnRings) btnRings.className = 'px-2 py-1 rounded border border-neutral-900 bg-neutral-900 text-white text-[11px]';
-        if (active === 'torus' && btnTorus) btnTorus.className = 'px-2 py-1 rounded border border-neutral-900 bg-neutral-900 text-white text-[11px]';
-      }
-
-      btnPoly?.addEventListener('click', () => { activeGeom = 'poly'; updateActiveBtn('poly'); });
-      btnRings?.addEventListener('click', () => { activeGeom = 'rings'; updateActiveBtn('rings'); });
-      btnTorus?.addEventListener('click', () => { activeGeom = 'torus'; updateActiveBtn('torus'); });
-
-      // Rotation angles & inertia
-      let rotX = 0.4;
-      let rotY = 0.6;
-      let targetRotX = rotX;
-      let targetRotY = rotY;
-      let scrollInfluence = 0;
-
-      // Mouse drag rotation
-      let isDragging = false;
-      let prevMouseX = 0;
-      let prevMouseY = 0;
-
-      canvas.addEventListener('pointerdown', (e) => {
-        isDragging = true;
-        prevMouseX = e.clientX;
-        prevMouseY = e.clientY;
-        canvas.setPointerCapture(e.pointerId);
-      });
-
-      canvas.addEventListener('pointermove', (e) => {
-        if (!isDragging) return;
-        const dx = e.clientX - prevMouseX;
-        const dy = e.clientY - prevMouseY;
-        prevMouseX = e.clientX;
-        prevMouseY = e.clientY;
-        targetRotY += dx * 0.01;
-        targetRotX += dy * 0.01;
-      });
-
-      const stopDrag = () => { isDragging = false; };
-      canvas.addEventListener('pointerup', stopDrag);
-      canvas.addEventListener('pointercancel', stopDrag);
-
-      btnReset?.addEventListener('click', () => {
-        targetRotX = 0.4;
-        targetRotY = 0.6;
-      });
-
-      // Scroll-linked 3D rotation!
-      window.addEventListener('scroll', () => {
-        const scrolled = window.scrollY;
-        scrollInfluence = scrolled * 0.0035;
-      }, { passive: true });
-
-      // Render Loop
-      function render() {
-        if (!ctx) return;
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        // Constant gentle background rotation
-        if (!isDragging) {
-          targetRotY += 0.003;
-          targetRotX += 0.001;
-        }
-
-        // Smooth damping (lerp)
-        rotX += (targetRotX - rotX) * 0.1;
-        rotY += (targetRotY - rotY) * 0.1;
-
-        const effectiveX = rotX + scrollInfluence * 0.7;
-        const effectiveY = rotY + scrollInfluence * 1.2;
-
-        if (readout) {
-          readout.textContent = `θ: ${(effectiveX % (Math.PI * 2) * 57.3).toFixed(0)}° · ψ: ${(effectiveY % (Math.PI * 2) * 57.3).toFixed(0)}°`;
-        }
-
-        const cosX = Math.cos(effectiveX), sinX = Math.sin(effectiveX);
-        const cosY = Math.cos(effectiveY), sinY = Math.sin(effectiveY);
-
-        const mesh = getActiveMesh();
-        const projected: [number, number, number][] = [];
-        const fov = 340;
-        const cx = canvas.width / 2;
-        const cy = canvas.height / 2;
-
-        // Project vertices
-        for (let i = 0; i < mesh.v.length; i++) {
-          const [vx, vy, vz] = mesh.v[i];
-          // Rotate Y
-          const x1 = vx * cosY + vz * sinY;
-          const y1 = vy;
-          const z1 = -vx * sinY + vz * cosY;
-          // Rotate X
-          const x2 = x1;
-          const y2 = y1 * cosX - z1 * sinX;
-          const z2 = y1 * sinX + z1 * cosX + 320;
-
-          const scale = fov / z2;
-          projected.push([cx + x2 * scale, cy + y2 * scale, z2]);
-        }
-
-        // Draw edges with depth cue (clean charcoal strokes, no glow)
-        ctx.lineWidth = 1.15;
-        for (let i = 0; i < mesh.e.length; i++) {
-          const [p1Idx, p2Idx] = mesh.e[i];
-          const p1 = projected[p1Idx];
-          const p2 = projected[p2Idx];
-
-          const avgZ = (p1[2] + p2[2]) / 2;
-          // Depth fading: closer is darker, farther is lighter
-          const alpha = Math.max(0.12, Math.min(0.65, 1 - (avgZ - 200) / 280));
-          ctx.strokeStyle = `rgba(20, 20, 19, ${alpha})`;
-
-          ctx.beginPath();
-          ctx.moveTo(p1[0], p1[1]);
-          ctx.lineTo(p2[0], p2[1]);
-          ctx.stroke();
-        }
-
-        // Draw vertex nodes
-        for (let i = 0; i < projected.length; i++) {
-          const p = projected[i];
-          const alpha = Math.max(0.2, Math.min(0.85, 1 - (p[2] - 200) / 280));
-          ctx.fillStyle = `rgba(20, 20, 19, ${alpha})`;
-          ctx.beginPath();
-          ctx.arc(p[0], p[1], 1.8, 0, Math.PI * 2);
-          ctx.fill();
-        }
-
-        requestAnimationFrame(render);
-      }
-
-      render();
-    })();
-
-    // -------------------------------------------------------------
-    // 2. EXP 01: 3D CARD TILT MECHANICS
-    // -------------------------------------------------------------
-    (function initTiltDemo() {
-      const stage = document.getElementById('tilt-card-demo');
-      const box = document.getElementById('interactive-tilt-box');
-      const intensityInput = document.getElementById('tilt-intensity') as HTMLInputElement;
-      const progress = document.getElementById('tilt-progress');
-      if (!stage || !box) return;
-
-      stage.addEventListener('mousemove', (e) => {
-        const rect = stage.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width - 0.5;
-        const y = (e.clientY - rect.top) / rect.height - 0.5;
-        const maxDeg = intensityInput ? parseFloat(intensityInput.value) : 22;
-
-        const rotX = -y * maxDeg;
-        const rotY = x * maxDeg;
-
-        box.style.transform = `rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg) translateZ(12px)`;
-        if (progress) {
-          const pct = Math.min(100, Math.max(10, ((x + 0.5) * 100)));
-          progress.style.width = `${pct}%`;
-        }
-      });
-
-      stage.addEventListener('mouseleave', () => {
-        box.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0px)';
-      });
-    })();
-
-    // -------------------------------------------------------------
-    // 3. EXP 02: KINETIC DOT GRID (Repel / Attract)
-    // -------------------------------------------------------------
-    (function initDotGrid() {
-      const canvas = document.getElementById('dot-grid-canvas') as HTMLCanvasElement;
-      if (!canvas) return;
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return;
-
-      let mode: 'repel' | 'attract' = 'repel';
-      const btnRepel = document.getElementById('btn-repel');
-      const btnAttract = document.getElementById('btn-attract');
-
-      btnRepel?.addEventListener('click', () => {
-        mode = 'repel';
-        btnRepel.className = 'px-2 py-0.5 rounded border border-neutral-900 bg-neutral-900 text-white text-[11px]';
-        if (btnAttract) btnAttract.className = 'px-2 py-0.5 rounded border border-[var(--border)] bg-white text-neutral-700 text-[11px]';
-      });
-
-      btnAttract?.addEventListener('click', () => {
-        mode = 'attract';
-        btnAttract.className = 'px-2 py-0.5 rounded border border-neutral-900 bg-neutral-900 text-white text-[11px]';
-        if (btnRepel) btnRepel.className = 'px-2 py-0.5 rounded border border-[var(--border)] bg-white text-neutral-700 text-[11px]';
-      });
-
-      const cols = 15;
-      const rows = 7;
-      const gapX = canvas.width / (cols + 1);
-      const gapY = canvas.height / (rows + 1);
-
-      interface Dot {
-        ox: number; oy: number;
-        x: number; y: number;
-        vx: number; vy: number;
-      }
-
-      const dots: Dot[] = [];
-      for (let r = 1; r <= rows; r++) {
-        for (let c = 1; c <= cols; c++) {
-          dots.push({
-            ox: c * gapX, oy: r * gapY,
-            x: c * gapX, y: r * gapY,
-            vx: 0, vy: 0
-          });
-        }
-      }
-
-      let mouseX = -999, mouseY = -999;
-      canvas.addEventListener('mousemove', (e) => {
-        const rect = canvas.getBoundingClientRect();
-        mouseX = (e.clientX - rect.left) * (canvas.width / rect.width);
-        mouseY = (e.clientY - rect.top) * (canvas.height / rect.height);
-      });
-
-      canvas.addEventListener('mouseleave', () => {
-        mouseX = -999; mouseY = -999;
-      });
-
-      function loop() {
-        if (!ctx) return;
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        for (let i = 0; i < dots.length; i++) {
-          const d = dots[i];
-          const dx = mouseX - d.x;
-          const dy = mouseY - d.y;
-          const dist = Math.hypot(dx, dy);
-
-          // Force calculation
-          if (dist < 75 && dist > 0) {
-            const force = (1 - dist / 75) * 6;
-            const sign = mode === 'repel' ? -1 : 1;
-            d.vx += (dx / dist) * force * sign;
-            d.vy += (dy / dist) * force * sign;
-          }
-
-          // Spring return to origin
-          const spring = 0.08;
-          const damping = 0.85;
-          d.vx += (d.ox - d.x) * spring;
-          d.vy += (d.oy - d.y) * spring;
-          d.vx *= damping;
-          d.vy *= damping;
-          d.x += d.vx;
-          d.y += d.vy;
-
-          ctx.fillStyle = '#141413';
-          ctx.beginPath();
-          ctx.arc(d.x, d.y, 1.8, 0, Math.PI * 2);
-          ctx.fill();
-        }
-
-        requestAnimationFrame(loop);
-      }
-      loop();
-    })();
-
-    // -------------------------------------------------------------
-    // 4. EXP 03: WAVEFORM OSCILLATOR
-    // -------------------------------------------------------------
-    (function initWaveform() {
-      const canvas = document.getElementById('waveform-canvas') as HTMLCanvasElement;
-      if (!canvas) return;
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return;
-      const freqInput = document.getElementById('wave-freq') as HTMLInputElement;
-
-      let step = 0;
-      function loop() {
-        if (!ctx) return;
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        step += 0.035;
-
-        const freq = freqInput ? parseFloat(freqInput.value) : 2;
-        const cy = canvas.height / 2;
-
-        ctx.strokeStyle = '#141413';
-        ctx.lineWidth = 1.35;
-        ctx.beginPath();
-
-        for (let x = 0; x < canvas.width; x++) {
-          const normX = (x / canvas.width) * Math.PI * 2;
-          const y1 = Math.sin(normX * freq + step) * 28;
-          const y2 = Math.sin(normX * (freq * 1.5) - step * 0.8) * 14;
-          const y = cy + y1 + y2;
-
-          if (x === 0) ctx.moveTo(x, y);
-          else ctx.lineTo(x, y);
-        }
-        ctx.stroke();
-
-        // Subtle guide baseline
-        ctx.strokeStyle = 'rgba(20,20,19,0.1)';
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(0, cy);
-        ctx.lineTo(canvas.width, cy);
-        ctx.stroke();
-
-        requestAnimationFrame(loop);
-      }
-      loop();
-    })();
-
-    // -------------------------------------------------------------
-    // 5. EXP 04: FLUID OPTICAL TYPE SLIDER
-    // -------------------------------------------------------------
-    (function initTypePreview() {
-      const preview = document.getElementById('dynamic-type-preview');
-      const spacingInput = document.getElementById('type-spacing') as HTMLInputElement;
-      if (!preview || !spacingInput) return;
-
-      spacingInput.addEventListener('input', () => {
-        const val = parseFloat(spacingInput.value);
-        preview.style.letterSpacing = `${val}px`;
-      });
-    })();
-  </script>
 </Layout>
