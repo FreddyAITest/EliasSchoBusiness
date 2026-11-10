@@ -2,457 +2,732 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Elias Scho - Software-Entwickler & Technologie-Enthusiast">
-  <!-- Hero Section -->
-  <section class="section" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 6rem 0;">
-    <div class="container" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
-      <img 
-        src="/Elias_Icon.png?v=2" 
-        alt="Elias Scho Icon" 
-        style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; margin-bottom: 2rem; border: 3px solid white; box-shadow: 0 10px 25px rgba(0,0,0,0.1); display: block; margin-left: auto; margin-right: auto;"
-        loading="lazy"
-      />
-      <h1 style="font-size: 3rem; margin-bottom: 1rem;">Elias Scho</h1>
-      <p style="font-size: 1.5rem; color: #495057; margin-bottom: 1.5rem;">
-        Software-Entwickler & Technologie-Enthusiast
-      </p>
-      <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto 2rem; line-height: 1.7; color: #495057;">
-        Als leidenschaftlicher Entwickler gestalte ich digitale Lösungen, die nicht nur funktional, 
-        sondern auch ästhetisch ansprechend sind. Mein Fokus liegt auf modernen Technologien und 
-        benutzerfreundlichem Design.
-      </p>
+<Layout title="Elias Scho — Creative Development & Playground">
+  <!-- Top Subtle Banner -->
+  <div class="border-b border-[var(--border)] bg-[#f5f4ef] py-2 text-center text-xs font-mono text-neutral-500">
+    <span>[PROTOTYPE CANVAS]</span>
+    <span class="mx-2">·</span>
+    <span>No services or marketing funnels. Just frontend experiments & spatial mechanics.</span>
+  </div>
+
+  <!-- Hero Section with 3D Spatial Canvas -->
+  <section class="max-w-6xl mx-auto px-6 pt-16 pb-20 md:pt-24 md:pb-28">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
       
-      <!-- Social Links -->
-      <div style="display: flex; justify-content: center; gap: 1.5rem; margin-top: 2rem;">
+      <!-- Left Column: Typography & Intent -->
+      <div class="lg:col-span-7 flex flex-col items-start">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[var(--border)] bg-neutral-100/70 text-xs font-mono text-neutral-600 mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-neutral-800"></span>
+          <span>v2.0 · Spatial Lab</span>
+        </div>
+        
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900 leading-[1.15] mb-6">
+          Creative frontend engineering & spatial interface experiments.
+        </h1>
+        
+        <p class="text-base sm:text-lg text-neutral-600 leading-relaxed max-w-xl mb-8">
+          A quiet digital playground by Elias Scho. Built to explore what modern web technology can feel like — from scroll-driven 3D perspective to kinetic physics and tactile micro-interactions.
+        </p>
+
+        <!-- Action / Anchor Pills -->
+        <div class="flex flex-wrap items-center gap-3">
+          <a href="#playground" class="btn-tactile btn-tactile-primary">
+            <span>Playground erkunden</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+          </a>
+          <a href="#about" class="btn-tactile">
+            <span>Über diesen Space</span>
+          </a>
+        </div>
+
+        <!-- Scroll Indicator Hint -->
+        <div class="mt-12 flex items-center gap-3 text-xs font-mono text-neutral-400">
+          <span class="inline-block animate-bounce">↓</span>
+          <span>Scroll down to test spatial 3D rotation & depth</span>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive 3D Spatial Canvas -->
+      <div class="lg:col-span-5 w-full">
+        <div class="editorial-card p-4 sm:p-6 flex flex-col items-center relative overflow-hidden bg-white/80">
+          <!-- Canvas Container -->
+          <div class="relative w-full aspect-square max-w-[380px] flex items-center justify-center">
+            <canvas id="spatial-canvas" width="380" height="380" class="w-full h-full cursor-grab active:cursor-grabbing touch-none"></canvas>
+            
+            <!-- Subtle Watermark Corner -->
+            <div class="absolute top-2 left-2 text-[10px] font-mono uppercase text-neutral-400 pointer-events-none">
+              3D Matrix · XYZ
+            </div>
+            <div id="spatial-angle-readout" class="absolute bottom-2 right-2 text-[10px] font-mono text-neutral-400 pointer-events-none">
+              θ: 0° · ψ: 0°
+            </div>
+          </div>
+
+          <!-- Controls Bar -->
+          <div class="w-full pt-4 mt-2 border-t border-[var(--border)] flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-neutral-500">
+            <div class="flex items-center gap-1.5">
+              <button id="btn-geom-poly" class="px-2 py-1 rounded border border-neutral-300 bg-neutral-900 text-white text-[11px] hover:opacity-90 transition-opacity">Poly</button>
+              <button id="btn-geom-rings" class="px-2 py-1 rounded border border-[var(--border)] bg-neutral-100 hover:bg-neutral-200 text-neutral-700 text-[11px] transition-colors">Rings</button>
+              <button id="btn-geom-torus" class="px-2 py-1 rounded border border-[var(--border)] bg-neutral-100 hover:bg-neutral-200 text-neutral-700 text-[11px] transition-colors">Torus</button>
+            </div>
+            
+            <button id="btn-reset-view" class="text-[11px] hover:text-neutral-900 underline underline-offset-2">
+              Reset Orbit
+            </button>
+          </div>
+          
+          <p class="text-[11px] text-neutral-400 font-mono mt-2 text-center">
+            Maus ziehen zum Drehen · Scrollen dreht im Raum
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive Playground & Experiments Section -->
+  <section id="playground" class="border-t border-[var(--border)] bg-[#f5f4ef]/60 py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+        <div>
+          <span class="font-mono-tag">01 // THE PLAYGROUND</span>
+          <h2 class="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight mt-2">
+            Interaktive Experimente & Spielereien
+          </h2>
+        </div>
+        <p class="text-sm text-neutral-500 max-w-md">
+          Live-Demos und Frontend-Mechaniken, die direkt im Browser gerechnet werden. Keine schweren Bibliotheken, purer Code.
+        </p>
+      </div>
+
+      <!-- 4-Card Experiments Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="experiments">
+        
+        <!-- Experiment 01: 3D Perspective Card Tilt -->
+        <div class="editorial-card p-6 flex flex-col justify-between" id="tilt-card-demo">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono text-neutral-400 mb-3">
+              <span>EXP_01</span>
+              <span class="text-emerald-700 font-medium">● Interactive</span>
+            </div>
+            <h3 class="text-lg font-semibold text-neutral-900 mb-1">3D Spatial Perspective Tilt</h3>
+            <p class="text-sm text-neutral-600 mb-6">
+              Reaktive 3D-Kartenneigung mit Tiefenverschiebung in Echtzeit basierend auf den Cursor-Koordinaten.
+            </p>
+          </div>
+
+          <!-- Interactive Interactive Stage -->
+          <div class="perspective-container py-8 flex items-center justify-center bg-neutral-50/80 border border-[var(--border)] rounded-lg relative overflow-hidden" style="perspective: 700px;">
+            <div id="interactive-tilt-box" class="w-48 h-32 bg-white rounded-xl border border-neutral-300 shadow-md p-4 flex flex-col justify-between transition-transform duration-75 ease-out select-none cursor-pointer">
+              <div class="flex items-center justify-between">
+                <span class="w-3 h-3 rounded-full bg-neutral-900"></span>
+                <span class="text-[10px] font-mono text-neutral-400">DEPTH 3D</span>
+              </div>
+              <div>
+                <div class="text-xs font-semibold text-neutral-900">Spatial Depth</div>
+                <div class="text-[10px] text-neutral-500 font-mono">Move cursor over card</div>
+              </div>
+              <div class="h-1 w-full bg-neutral-100 rounded-full overflow-hidden">
+                <div id="tilt-progress" class="h-full bg-neutral-900 w-1/2"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controls for Experiment 01 -->
+          <div class="mt-4 pt-4 border-t border-[var(--border)] flex items-center justify-between text-xs font-mono text-neutral-500">
+            <span>Stärke:</span>
+            <input type="range" id="tilt-intensity" min="10" max="40" value="22" class="w-32 accent-neutral-900" />
+          </div>
+        </div>
+
+        <!-- Experiment 02: Kinetic Magnetic Grid -->
+        <div class="editorial-card p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono text-neutral-400 mb-3">
+              <span>EXP_02</span>
+              <span class="text-emerald-700 font-medium">● Physics</span>
+            </div>
+            <h3 class="text-lg font-semibold text-neutral-900 mb-1">Kinetic Cursor Field</h3>
+            <p class="text-sm text-neutral-600 mb-6">
+              Ein Punkteraster, das bei Annäherung elastisch auf den Cursor reagiert und mit Dämpfung zurückfedert.
+            </p>
+          </div>
+
+          <!-- Canvas Stage for Grid -->
+          <div class="py-4 flex items-center justify-center bg-neutral-50/80 border border-[var(--border)] rounded-lg">
+            <canvas id="dot-grid-canvas" width="340" height="160" class="w-full max-w-[340px] h-[160px] cursor-crosshair"></canvas>
+          </div>
+
+          <!-- Controls for Experiment 02 -->
+          <div class="mt-4 pt-4 border-t border-[var(--border)] flex items-center justify-between text-xs font-mono text-neutral-500">
+            <span>Modus:</span>
+            <div class="flex items-center gap-2">
+              <button id="btn-repel" class="px-2 py-0.5 rounded border border-neutral-900 bg-neutral-900 text-white text-[11px]">Repel</button>
+              <button id="btn-attract" class="px-2 py-0.5 rounded border border-[var(--border)] bg-white text-neutral-700 text-[11px]">Attract</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experiment 03: Generative Waveform Oscillator -->
+        <div class="editorial-card p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono text-neutral-400 mb-3">
+              <span>EXP_03</span>
+              <span class="text-emerald-700 font-medium">● Geometry</span>
+            </div>
+            <h3 class="text-lg font-semibold text-neutral-900 mb-1">Harmonic Waveform Oscillator</h3>
+            <p class="text-sm text-neutral-600 mb-6">
+              Harmonische Interferenzwellen mit mathematischer Sinus-Überlagerung und stufenloser Frequenzregelung.
+            </p>
+          </div>
+
+          <!-- Waveform Canvas -->
+          <div class="py-4 flex items-center justify-center bg-neutral-50/80 border border-[var(--border)] rounded-lg">
+            <canvas id="waveform-canvas" width="340" height="160" class="w-full max-w-[340px] h-[160px]"></canvas>
+          </div>
+
+          <!-- Controls for Experiment 03 -->
+          <div class="mt-4 pt-4 border-t border-[var(--border)] flex items-center justify-between text-xs font-mono text-neutral-500">
+            <span>Frequenz:</span>
+            <input type="range" id="wave-freq" min="1" max="6" value="2" step="0.1" class="w-32 accent-neutral-900" />
+          </div>
+        </div>
+
+        <!-- Experiment 04: Fluid Optical Typography -->
+        <div class="editorial-card p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between text-xs font-mono text-neutral-400 mb-3">
+              <span>EXP_04</span>
+              <span class="text-emerald-700 font-medium">● Typography</span>
+            </div>
+            <h3 class="text-lg font-semibold text-neutral-900 mb-1">Dynamic Optical Typography</h3>
+            <p class="text-sm text-neutral-600 mb-6">
+              Flüssige Schriftskalierung mit dynamischem Letter-Spacing und optischer Gewichtsinterpolation.
+            </p>
+          </div>
+
+          <!-- Type Box Stage -->
+          <div class="h-[160px] flex items-center justify-center bg-neutral-50/80 border border-[var(--border)] rounded-lg p-6 overflow-hidden select-none">
+            <div id="dynamic-type-preview" class="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight transition-all duration-100">
+              ELIAS SCHO
+            </div>
+          </div>
+
+          <!-- Controls for Experiment 04 -->
+          <div class="mt-4 pt-4 border-t border-[var(--border)] flex items-center justify-between text-xs font-mono text-neutral-500">
+            <span>Spationierung:</span>
+            <input type="range" id="type-spacing" min="-2" max="18" value="0" class="w-32 accent-neutral-900" />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- About / Notes Section -->
+  <section id="about" class="max-w-6xl mx-auto px-6 py-24 border-t border-[var(--border)]">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+      <div class="md:col-span-4">
+        <span class="font-mono-tag">02 // COLOPHON & BIO</span>
+        <h2 class="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight mt-2">
+          Über mich & dieses Lab
+        </h2>
+      </div>
+
+      <div class="md:col-span-8 flex flex-col gap-6 text-neutral-600 leading-relaxed text-base sm:text-lg">
+        <p>
+          Hi, ich bin Elias. Mein technischer Hintergrund liegt in der Automatisierungstechnik (TH Wildau) und moderner Softwareentwicklung. Mich fasziniert die Schnittstelle zwischen robustem Engineering und digitaler Ästhetik.
+        </p>
+        <p>
+          Diese Domain war früher als klassische Freelancer-Präsenz aufgebaut. Ich habe sie bewusst von allen Verkaufsangeboten, Stundensätzen und Marketing-Paketen befreit. Sie dient heute als mein <strong>offener Spielplatz</strong>: Ein Ort für Experimente mit 3D-Webgrafik, reaktiven Interfaces und den neuesten Browser-Möglichkeiten.
+        </p>
+        <p class="text-sm text-neutral-500 font-mono pt-4 border-t border-[var(--border)]">
+          Technologie-Stack: Astro 6, Tailwind CSS v4, Vanilla Canvas & Web-APIs, gehostet via Netlify CI/CD.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Connect Section -->
+  <section id="connect" class="border-t border-[var(--border)] bg-[#f5f4ef]/60 py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <span class="font-mono-tag">03 // NETWORK</span>
+      <h2 class="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight mt-2 mb-10">
+        Verbinden & Code ansehen
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- GitHub Link -->
         <a 
           href="https://github.com/FreddyAITest" 
           target="_blank" 
           rel="noopener noreferrer"
-          aria-label="GitHub-Profil"
-          style="display: flex; align-items: center; justify-content: center; width: 45px; height: 45px; border-radius: 50%; background: white; color: #212529; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: all 0.3s ease; text-decoration: none;"
-          onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 15px rgba(0,0,0,0.15)'; this.style.background='#212529'; this.style.color='white';"
-          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)'; this.style.background='white'; this.style.color='#212529';"
+          class="editorial-card p-6 flex flex-col justify-between group no-underline"
         >
-          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-          </svg>
+          <div class="flex items-center justify-between text-xs font-mono text-neutral-400 mb-6">
+            <span>GITHUB</span>
+            <span class="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">↗</span>
+          </div>
+          <div>
+            <div class="font-semibold text-neutral-900 text-lg mb-1">FreddyAITest</div>
+            <p class="text-xs text-neutral-500">Quellcode, Repositories & Open-Source Projekte.</p>
+          </div>
         </a>
+
+        <!-- LinkedIn Link -->
         <a 
-          href="#" 
-          aria-label="LinkedIn-Profil"
-          style="display: flex; align-items: center; justify-content: center; width: 45px; height: 45px; border-radius: 50%; background: white; color: #212529; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: all 0.3s ease; text-decoration: none;"
-          onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 15px rgba(0,0,0,0.15)'; this.style.background='#212529'; this.style.color='white';"
-          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 10px rgba(0,0,0,0.1)'; this.style.background='white'; this.style.color='#212529';"
+          href="https://www.linkedin.com/in/elias-scho" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="editorial-card p-6 flex flex-col justify-between group no-underline"
         >
-          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-          </svg>
+          <div class="flex items-center justify-between text-xs font-mono text-neutral-400 mb-6">
+            <span>LINKEDIN</span>
+            <span class="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">↗</span>
+          </div>
+          <div>
+            <div class="font-semibold text-neutral-900 text-lg mb-1">Elias Scho</div>
+            <p class="text-xs text-neutral-500">Beruflicher Werdegang und Netzwerk.</p>
+          </div>
+        </a>
+
+        <!-- Direct Email Link -->
+        <a 
+          href="mailto:kontakt@eliasscho.de" 
+          class="editorial-card p-6 flex flex-col justify-between group no-underline"
+        >
+          <div class="flex items-center justify-between text-xs font-mono text-neutral-400 mb-6">
+            <span>EMAIL</span>
+            <span class="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">↗</span>
+          </div>
+          <div>
+            <div class="font-semibold text-neutral-900 text-lg mb-1">kontakt@eliasscho.de</div>
+            <p class="text-xs text-neutral-500">Für Fragen, Ideen oder lockeren Austausch.</p>
+          </div>
         </a>
       </div>
-      
-      <div style="margin-top: 3rem;">
-        <a href="/#contact" class="btn btn-primary">Kontakt aufnehmen</a>
-        <a href="/#projects" class="btn btn-secondary" style="margin-left: 1rem;">Projekte ansehen</a>
-      </div>
     </div>
   </section>
-  
-  <!-- About Section -->
-  <section id="about" class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2>Über mich</h2>
-        <p style="color: #6c757d; margin-top: 1rem;">Lernen Sie mich und meine Fachgebiete kennen</p>
-      </div>
-      
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; align-items: center;">
-        <div>
-          <img 
-            src="/Elias_Icon.png" 
-            alt="Elias Scho Portrait" 
-            style="width: 100%; max-width: 500px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);"
-            loading="lazy"
-          />
-        </div>
-        
-        <div>
-          <h3>Hallo, ich bin Elias!</h3>
-          <p>
-            Mit über 5 Jahren Erfahrung in der Softwareentwicklung habe ich mich auf die Erstellung moderner 
-            Webanwendungen und benutzerfreundlicher Interfaces spezialisiert. Mein Weg führte mich durch 
-            verschiedene Projekte, von kleinen Startups bis hin zu größeren Unternehmen.
-          </p>
-          <p>
-            Mein Studium der Automatisierungstechnik an der Technischen Hochschule Wildau hat mir ein solides Fundament 
-            vermittelt, auf dem ich kontinuierlich aufbaue. Ich bin ein großer Befürworter des lebenslangen 
-            Lernens und erweitere stets mein technisches Know-how.
-          </p>
-          <p>
-            In meiner Freizeit beschäftige ich mich mit neuen Technologien, trage zu Open-Source-Projekten bei 
-            und teile mein Wissen in Tech-Communities. Die Verbindung von Kreativität und technischem Verständnis 
-            ist für mich der Schlüssel zu innovativen Lösungen.
-          </p>
-          
-          <div style="margin-top: 2rem;">
-            <h4 style="font-size: 1.2rem; margin-bottom: 1rem; color: #343a40;">Meine Fähigkeiten</h4>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.8rem;">
-              <span style="background: #e9ecef; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.9rem; font-weight: 500; color: #495057;">JavaScript</span>
-              <span style="background: #e9ecef; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.9rem; font-weight: 500; color: #495057;">TypeScript</span>
-              <span style="background: #e9ecef; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.9rem; font-weight: 500; color: #495057;">React</span>
-              <span style="background: #e9ecef; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.9rem; font-weight: 500; color: #495057;">Node.js</span>
-              <span style="background: #e9ecef; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.9rem; font-weight: 500; color: #495057;">Python</span>
-              <span style="background: #e9ecef; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.9rem; font-weight: 500; color: #495057;">HTML/CSS</span>
-              <span style="background: #e9ecef; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.9rem; font-weight: 500; color: #495057;">REST APIs</span>
-              <span style="background: #e9ecef; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.9rem; font-weight: 500; color: #495057;">Git</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Services Section -->
-  <section id="services" class="section section-alt">
-    <div class="container">
-      <div class="section-header">
-        <h2>Meine Dienstleistungen</h2>
-        <p style="color: #6c757d; margin-top: 1rem;">Professionelle Lösungen für Ihr digitales Projekt</p>
-      </div>
-      
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-        <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
-          <div style="width: 50px; height: 50px; background: #e9ecef; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 1.5rem;">💻</div>
-          <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Webentwicklung</h3>
-          <p style="color: #6c757d; margin-bottom: 1rem;">
-            Moderne, responsive Websites und Webanwendungen mit neuesten Technologien wie React, Next.js und Astro.
-          </p>
-          <ul style="list-style: none; padding: 0;">
-            <li style="margin-bottom: 0.5rem; color: #495057;">✓ Responsive Design</li>
-            <li style="margin-bottom: 0.5rem; color: #495057;">✓ Performance-Optimierung</li>
-            <li style="margin-bottom: 0.5rem; color: #495057;">✓ SEO-Freundlich</li>
-            <li style="margin-bottom: 0.5rem; color: #495057;">✓ DSGVO-Konform</li>
-          </ul>
-        </div>
-        
-        <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
-          <div style="width: 50px; height: 50px; background: #e9ecef; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 1.5rem;">🎨</div>
-          <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">UI/UX Design</h3>
-          <p style="color: #6c757d; margin-bottom: 1rem;">
-            Benutzerfreundliche Interfaces mit Fokus auf Accessibility und moderne Design-Prinzipien.
-          </p>
-          <ul style="list-style: none; padding: 0;">
-            <li style="margin-bottom: 0.5rem; color: #495057;">✓ Wireframing</li>
-            <li style="margin-bottom: 0.5rem; color: #495057;">✓ Prototyping</li>
-            <li style="margin-bottom: 0.5rem; color: #495057;">✓ Accessibility (BITV 2.0)</li>
-            <li style="margin-bottom: 0.5rem; color: #495057;">✓ Design Systems</li>
-          </ul>
-        </div>
-        
-        <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
-          <div style="width: 50px; height: 50px; background: #e9ecef; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 1.5rem;">🚀</div>
-          <h3 style="font-size: 1.3rem; margin-bottom: 1rem;">Beratung</h3>
-          <p style="color: #6c757d; margin-bottom: 1rem;">
-            Technische Beratung und Unterstützung bei der Auswahl der richtigen Technologien für Ihr Projekt.
-          </p>
-          <ul style="list-style: none; padding: 0;">
-            <li style="margin-bottom: 0.5rem; color: #495057;">✓ Technologie-Auswahl</li>
-            <li style="margin-bottom: 0.5rem; color: #495057;">✓ Architektur-Beratung</li>
-            <li style="margin-bottom: 0.5rem; color: #495057;">✓ Code Reviews</li>
-            <li style="margin-bottom: 0.5rem; color: #495057;">✓ Schulungen</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Digital Products Section -->
-  <section id="produkte" class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2>Digitale Produkte & Pakete</h2>
-        <p style="color: #6c757d; margin-top: 1rem;">Skalierbare Lösungen für Ihren digitalen Erfolg</p>
-      </div>
-      
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-        <!-- Product 1: DSGVO Landing Page Template -->
-        <div class="project-card" style="display: flex; flex-direction: column;">
-          <div style="padding: 2rem; background: linear-gradient(135deg, #1f2937 0%, #000000 100%); color: white; text-align: center;">
-            <div style="font-size: 3rem; margin-bottom: 1rem;">🚀</div>
-            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: white;">DSGVO Landing Page</h3>
-            <div style="font-size: 1.25rem; font-weight: bold; color: #60a5fa;">ab €99</div>
-          </div>
-          <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column;">
-            <p style="color: #6c757d; margin-bottom: 1.5rem;">
-              Ein hochperformantes, rechtssicheres Landing Page Template für den deutschen Markt. Optimiert für Conversion und SEO.
-            </p>
-            <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; flex-grow: 1;">
-              <li style="margin-bottom: 0.5rem; color: #495057;">✓ Astro & TailwindCSS</li>
-              <li style="margin-bottom: 0.5rem; color: #495057;">✓ Integriertes Cookie-Banner</li>
-              <li style="margin-bottom: 0.5rem; color: #495057;">✓ Impressum & Datenschutz Vorlagen</li>
-              <li style="margin-bottom: 0.5rem; color: #495057;">✓ 100% Lighthouse Score garantiert</li>
-            </ul>
-            <a href="#contact" class="btn btn-primary" style="width: 100%; text-align: center;">Mehr erfahren</a>
-          </div>
-        </div>
-        
-        <!-- Product 2: Web Performance Audit -->
-        <div class="project-card" style="display: flex; flex-direction: column;">
-          <div style="padding: 2rem; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: white; text-align: center;">
-            <div style="font-size: 3rem; margin-bottom: 1rem;">⚡</div>
-            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: white;">Performance Audit</h3>
-            <div style="font-size: 1.25rem; font-weight: bold; color: #93c5fd;">€299</div>
-          </div>
-          <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column;">
-            <p style="color: #6c757d; margin-bottom: 1.5rem;">
-              Umfassende technische Analyse Ihrer bestehenden Website mit konkreten Handlungsempfehlungen für schnellere Ladezeiten.
-            </p>
-            <ul style="list-style: none; padding: 0; margin-bottom: 1.5rem; flex-grow: 1;">
-              <li style="margin-bottom: 0.5rem; color: #495057;">✓ Core Web Vitals Analyse</li>
-              <li style="margin-bottom: 0.5rem; color: #495057;">✓ Code Review (Frontend & Backend)</li>
-              <li style="margin-bottom: 0.5rem; color: #495057;">✓ SEO-Technologie-Check</li>
-              <li style="margin-bottom: 0.5rem; color: #495057;">✓ Ausführlicher PDF-Report (48h)</li>
-            </ul>
-            <a href="#contact" class="btn btn-secondary" style="width: 100%; text-align: center;">Jetzt buchen</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Projects Section -->
-  <section id="projects" class="section section-alt">
-    <div class="container">
-      <div class="section-header">
-        <h2>Meine Projekte</h2>
-        <p style="color: #6c757d; margin-top: 1rem;">Eine Auswahl meiner aktuellen Arbeiten</p>
-      </div>
-      
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-        <div class="project-card">
-          <div style="height: 200px; overflow: hidden;">
-            <img 
-              src="/Creativeportfolio.png" 
-              alt="Portfolio Website Projekt" 
-              style="width: 100%; height: 100%; object-fit: cover;"
-              loading="lazy"
-            />
-          </div>
-          <div style="padding: 1.5rem;">
-            <h3 style="font-size: 1.3rem; margin-bottom: 0.8rem;">Portfolio-Website</h3>
-            <p style="color: #6c757d; margin-bottom: 1.2rem; font-size: 0.95rem;">
-              Eine moderne, responsive Portfolio-Website mit verschiedenen Animationen und interaktiven Elementen.
-            </p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.2rem;">
-              <span style="background: #e9ecef; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; color: #495057;">HTML/CSS</span>
-              <span style="background: #e9ecef; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; color: #495057;">JavaScript</span>
-              <span style="background: #e9ecef; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; color: #495057;">Responsive</span>
-            </div>
-            <a href="#contact" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #212529; text-decoration: none; font-weight: 500; font-size: 0.95rem;" onclick="alert('Demo nicht verfügbar? Kontaktieren Sie mich, um mehr über dieses Projekt zu erfahren!');">
-              Projekt anfragen
-              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-        
-        <div class="project-card">
-          <div style="height: 200px; overflow: hidden;">
-            <img 
-              src="/Business.png" 
-              alt="Task Management App Projekt" 
-              style="width: 100%; height: 100%; object-fit: cover;"
-              loading="lazy"
-            />
-          </div>
-          <div style="padding: 1.5rem;">
-            <h3 style="font-size: 1.3rem; margin-bottom: 0.8rem;">Task Management App</h3>
-            <p style="color: #6c757d; margin-bottom: 1.2rem; font-size: 0.95rem;">
-              Eine Web-App zur Organisation von Aufgaben mit Drag & Drop Funktionalität und Benachrichtigungen.
-            </p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.2rem;">
-              <span style="background: #e9ecef; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; color: #495057;">React</span>
-              <span style="background: #e9ecef; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; color: #495057;">Node.js</span>
-              <span style="background: #e9ecef; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; color: #495057;">MongoDB</span>
-            </div>
-            <a href="#contact" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #212529; text-decoration: none; font-weight: 500; font-size: 0.95rem;" onclick="alert('Demo nicht verfügbar? Kontaktieren Sie mich, um mehr über dieses Projekt zu erfahren!');">
-              Projekt anfragen
-              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-        
-        <div class="project-card">
-          <div style="height: 200px; overflow: hidden;">
-            <img 
-              src="/Architect.png" 
-              alt="Weather Dashboard Projekt" 
-              style="width: 100%; height: 100%; object-fit: cover;"
-              loading="lazy"
-            />
-          </div>
-          <div style="padding: 1.5rem;">
-            <h3 style="font-size: 1.3rem; margin-bottom: 0.8rem;">Weather Dashboard</h3>
-            <p style="color: #6c757d; margin-bottom: 1.2rem; font-size: 0.95rem;">
-              Eine App zur Anzeige von Wettervorhersagen mit Datenvisualisierungen und Standortsuche.
-            </p>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.2rem;">
-              <span style="background: #e9ecef; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; color: #495057;">JavaScript</span>
-              <span style="background: #e9ecef; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; color: #495057;">API Integration</span>
-              <span style="background: #e9ecef; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; color: #495057;">Chart.js</span>
-            </div>
-            <a href="#contact" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #212529; text-decoration: none; font-weight: 500; font-size: 0.95rem;" onclick="alert('Demo nicht verfügbar? Kontaktieren Sie mich, um mehr über dieses Projekt zu erfahren!');">
-              Projekt anfragen
-              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Lead Magnet Section -->
-  <section class="section" style="background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%); color: white;">
-    <div class="container">
-      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-        <div style="font-size: 3rem; margin-bottom: 1rem;">🎁</div>
-        <h2 style="color: white; margin-bottom: 1rem;">Kostenlose Checkliste: 10 React Performance Tipps</h2>
-        <p style="color: #e0e7ff; font-size: 1.1rem; margin-bottom: 2rem; line-height: 1.7;">
-          Erfahren Sie, wie Sie Ihre Webanwendungen spürbar beschleunigen und die User Experience verbessern.
-          Tragen Sie sich ein und erhalten Sie den PDF-Guide direkt in Ihr Postfach.
-        </p>
-        <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
-        <form
-          action="https://app.kit.com/forms/9200222/subscriptions"
-          class="seva-form formkit-form"
-          method="post"
-          data-sv-form="9200222"
-          data-uid="8e046f9a92"
-          data-format="inline"
-          data-version="5"
-          style="display: flex; gap: 1rem; max-width: 500px; margin: 0 auto; flex-wrap: wrap;"
-        >
-          <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
-          <div data-element="fields" data-stacked="false" style="display: flex; gap: 1rem; width: 100%; flex-wrap: wrap;">
-            <div class="formkit-field" style="flex-grow: 1;">
-              <input
-                class="formkit-input"
-                name="email_address"
-                aria-label="E-Mail-Adresse"
-                placeholder="Ihre E-Mail-Adresse"
-                required
-                type="email"
-                style="width: 100%; padding: 0.75rem 1rem; border-radius: 0.5rem; border: 2px solid rgba(255,255,255,0.3); font-size: 1rem; color: #1f2937; background: white; outline-color: #93c5fd;"
-              />
-            </div>
-            <button data-element="submit" class="formkit-submit btn" type="submit" style="background: white; color: #1e40af; border: none; flex-shrink: 0; cursor: pointer; font-weight: 700; padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-size: 1rem;">
-              <div class="formkit-spinner" style="display: none;"><div></div><div></div><div></div></div>
-              <span>Kostenlos anfordern</span>
-            </button>
-          </div>
-        </form>
-        <p style="color: rgba(255,255,255,0.6); font-size: 0.8rem; margin-top: 1rem;">
-          Mit der Anmeldung stimmen Sie zu, E-Mails zu erhalten. Sie können sich jederzeit abmelden.
-        </p>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Contact Section -->
-  <section id="contact" class="section">
-    <div class="container">
-      <div class="section-header">
-        <h2>Kontakt</h2>
-        <p style="color: #6c757d; margin-top: 1rem;">Sie haben ein Projekt oder eine Frage? Kontaktieren Sie mich!</p>
-      </div>
-      
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
-        <div>
-          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-            <div style="width: 50px; height: 50px; background: #f8f9fa; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #212529; font-size: 1.2rem; flex-shrink: 0;">
-              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-              </svg>
-            </div>
-            <div>
-              <strong style="display: block; margin-bottom: 0.25rem;">Telefon</strong>
-              <a href="tel:+4917641815522" style="color: #495057; text-decoration: none;">+49 176 418 155 22</a>
-            </div>
-          </div>
-          
-          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-            <div style="width: 50px; height: 50px; background: #f8f9fa; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #212529; font-size: 1.2rem; flex-shrink: 0;">
-              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-              </svg>
-            </div>
-            <div>
-              <strong style="display: block; margin-bottom: 0.25rem;">E-Mail</strong>
-              <a href="mailto:kontakt@eliasscho.de" style="color: #495057; text-decoration: none;">kontakt@eliasscho.de</a>
-            </div>
-          </div>
-          
-          <div style="display: flex; align-items: center; gap: 1rem;">
-            <div style="width: 50px; height: 50px; background: #f8f9fa; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #212529; font-size: 1.2rem; flex-shrink: 0;">
-              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-              </svg>
-            </div>
-            <div>
-              <strong style="display: block; margin-bottom: 0.25rem;">Standort</strong>
-              <span style="color: #495057;">Hamburg</span>
-            </div>
-          </div>
-        </div>
-        
-        <form 
-          name="contact" 
-          method="POST" 
-          data-netlify="true" 
-          action="/danke"
-          style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);"
-          netlify-honeypot="bot-field"
-        >
-          <input type="hidden" name="form-name" value="contact" />
-          <p style="display: none;">
-            <label>Nicht ausfüllen: <input name="bot-field" /></label>
-          </p>
-          
-          <div class="form-group">
-            <label for="name">Name *</label>
-            <input type="text" id="name" name="name" required aria-required="true" />
-          </div>
-          
-          <div class="form-group">
-            <label for="email">E-Mail *</label>
-            <input type="email" id="email" name="email" required aria-required="true" />
-          </div>
-          
-          <div class="form-group">
-            <label for="subject">Betreff</label>
-            <input type="text" id="subject" name="subject" />
-          </div>
-          
-          <div class="form-group">
-            <label for="message">Nachricht *</label>
-            <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
-          </div>
-          
-          <div class="form-group" style="font-size: 0.875rem; color: #6c757d;">
-            <label style="display: flex; align-items: flex-start; gap: 0.5rem; font-weight: normal;">
-              <input type="checkbox" name="privacy" required style="width: auto; margin-top: 0.25rem;" />
-              <span>Ich habe die <a href="/datenschutz" target="_blank">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu.</span>
-            </label>
-          </div>
-          
-          <button type="submit" class="btn btn-primary" style="width: 100%;">Nachricht senden</button>
-        </form>
-      </div>
-    </div>
-  </section>
+
+  <!-- Client-side Scripts for 3D Spatial Canvas and Interactive Mechanics -->
+  <script>
+    // -------------------------------------------------------------
+    // 1. HERO 3D SPATIAL CANVAS (Perspective + Scroll-linked rotation)
+    // -------------------------------------------------------------
+    (function initSpatialCanvas() {
+      const canvas = document.getElementById('spatial-canvas') as HTMLCanvasElement;
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      const readout = document.getElementById('spatial-angle-readout');
+
+      // Geometry definitions (3D vertices and edge pairs)
+      // A) Icosahedron (golden ratio based)
+      const phi = (1 + Math.sqrt(5)) / 2;
+      const icosaVertices = [
+        [-1,  phi,  0], [ 1,  phi,  0], [-1, -phi,  0], [ 1, -phi,  0],
+        [ 0, -1,  phi], [ 0,  1,  phi], [ 0, -1, -phi], [ 0,  1, -phi],
+        [ phi,  0, -1], [ phi,  0,  1], [-phi,  0, -1], [-phi,  0,  1]
+      ].map(v => {
+        const len = Math.hypot(v[0], v[1], v[2]);
+        return [v[0] / len * 110, v[1] / len * 110, v[2] / len * 110];
+      });
+
+      // Construct edges for icosahedron (connect pairs with distance close to ~2)
+      const icosaEdges: [number, number][] = [];
+      for (let i = 0; i < icosaVertices.length; i++) {
+        for (let j = i + 1; j < icosaVertices.length; j++) {
+          const d = Math.hypot(
+            icosaVertices[i][0] - icosaVertices[j][0],
+            icosaVertices[i][1] - icosaVertices[j][1],
+            icosaVertices[i][2] - icosaVertices[j][2]
+          );
+          if (d < 135) icosaEdges.push([i, j]);
+        }
+      }
+
+      // B) Concentric Rings geometry
+      const ringsVertices: [number, number, number][] = [];
+      const ringsEdges: [number, number][] = [];
+      const ringCount = 3;
+      const pointsPerRing = 24;
+      for (let r = 0; r < ringCount; r++) {
+        const radius = 55 + r * 30;
+        const offset = ringsVertices.length;
+        for (let p = 0; p < pointsPerRing; p++) {
+          const angle = (p / pointsPerRing) * Math.PI * 2;
+          if (r === 0) ringsVertices.push([Math.cos(angle) * radius, Math.sin(angle) * radius, 0]);
+          if (r === 1) ringsVertices.push([Math.cos(angle) * radius, 0, Math.sin(angle) * radius]);
+          if (r === 2) ringsVertices.push([0, Math.cos(angle) * radius, Math.sin(angle) * radius]);
+          ringsEdges.push([offset + p, offset + ((p + 1) % pointsPerRing)]);
+        }
+      }
+
+      // C) Torus / Mobius ring
+      const torusVertices: [number, number, number][] = [];
+      const torusEdges: [number, number][] = [];
+      const R = 85, tubeR = 30;
+      const segU = 16, segV = 8;
+      for (let u = 0; u < segU; u++) {
+        const theta = (u / segU) * Math.PI * 2;
+        for (let v = 0; v < segV; v++) {
+          const phiVal = (v / segV) * Math.PI * 2;
+          const x = (R + tubeR * Math.cos(phiVal)) * Math.cos(theta);
+          const y = (R + tubeR * Math.cos(phiVal)) * Math.sin(theta);
+          const z = tubeR * Math.sin(phiVal);
+          torusVertices.push([x, y, z]);
+          const current = u * segV + v;
+          const nextV = u * segV + ((v + 1) % segV);
+          const nextU = ((u + 1) % segU) * segV + v;
+          torusEdges.push([current, nextV]);
+          torusEdges.push([current, nextU]);
+        }
+      }
+
+      let activeGeom = 'poly';
+      function getActiveMesh() {
+        if (activeGeom === 'rings') return { v: ringsVertices, e: ringsEdges };
+        if (activeGeom === 'torus') return { v: torusVertices, e: torusEdges };
+        return { v: icosaVertices, e: icosaEdges };
+      }
+
+      // Buttons for geometry
+      const btnPoly = document.getElementById('btn-geom-poly');
+      const btnRings = document.getElementById('btn-geom-rings');
+      const btnTorus = document.getElementById('btn-geom-torus');
+      const btnReset = document.getElementById('btn-reset-view');
+
+      function updateActiveBtn(active: string) {
+        [btnPoly, btnRings, btnTorus].forEach(b => {
+          if (!b) return;
+          b.className = 'px-2 py-1 rounded border border-[var(--border)] bg-neutral-100 hover:bg-neutral-200 text-neutral-700 text-[11px] transition-colors';
+        });
+        if (active === 'poly' && btnPoly) btnPoly.className = 'px-2 py-1 rounded border border-neutral-900 bg-neutral-900 text-white text-[11px]';
+        if (active === 'rings' && btnRings) btnRings.className = 'px-2 py-1 rounded border border-neutral-900 bg-neutral-900 text-white text-[11px]';
+        if (active === 'torus' && btnTorus) btnTorus.className = 'px-2 py-1 rounded border border-neutral-900 bg-neutral-900 text-white text-[11px]';
+      }
+
+      btnPoly?.addEventListener('click', () => { activeGeom = 'poly'; updateActiveBtn('poly'); });
+      btnRings?.addEventListener('click', () => { activeGeom = 'rings'; updateActiveBtn('rings'); });
+      btnTorus?.addEventListener('click', () => { activeGeom = 'torus'; updateActiveBtn('torus'); });
+
+      // Rotation angles & inertia
+      let rotX = 0.4;
+      let rotY = 0.6;
+      let targetRotX = rotX;
+      let targetRotY = rotY;
+      let scrollInfluence = 0;
+
+      // Mouse drag rotation
+      let isDragging = false;
+      let prevMouseX = 0;
+      let prevMouseY = 0;
+
+      canvas.addEventListener('pointerdown', (e) => {
+        isDragging = true;
+        prevMouseX = e.clientX;
+        prevMouseY = e.clientY;
+        canvas.setPointerCapture(e.pointerId);
+      });
+
+      canvas.addEventListener('pointermove', (e) => {
+        if (!isDragging) return;
+        const dx = e.clientX - prevMouseX;
+        const dy = e.clientY - prevMouseY;
+        prevMouseX = e.clientX;
+        prevMouseY = e.clientY;
+        targetRotY += dx * 0.01;
+        targetRotX += dy * 0.01;
+      });
+
+      const stopDrag = () => { isDragging = false; };
+      canvas.addEventListener('pointerup', stopDrag);
+      canvas.addEventListener('pointercancel', stopDrag);
+
+      btnReset?.addEventListener('click', () => {
+        targetRotX = 0.4;
+        targetRotY = 0.6;
+      });
+
+      // Scroll-linked 3D rotation!
+      window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY;
+        scrollInfluence = scrolled * 0.0035;
+      }, { passive: true });
+
+      // Render Loop
+      function render() {
+        if (!ctx) return;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Constant gentle background rotation
+        if (!isDragging) {
+          targetRotY += 0.003;
+          targetRotX += 0.001;
+        }
+
+        // Smooth damping (lerp)
+        rotX += (targetRotX - rotX) * 0.1;
+        rotY += (targetRotY - rotY) * 0.1;
+
+        const effectiveX = rotX + scrollInfluence * 0.7;
+        const effectiveY = rotY + scrollInfluence * 1.2;
+
+        if (readout) {
+          readout.textContent = `θ: ${(effectiveX % (Math.PI * 2) * 57.3).toFixed(0)}° · ψ: ${(effectiveY % (Math.PI * 2) * 57.3).toFixed(0)}°`;
+        }
+
+        const cosX = Math.cos(effectiveX), sinX = Math.sin(effectiveX);
+        const cosY = Math.cos(effectiveY), sinY = Math.sin(effectiveY);
+
+        const mesh = getActiveMesh();
+        const projected: [number, number, number][] = [];
+        const fov = 340;
+        const cx = canvas.width / 2;
+        const cy = canvas.height / 2;
+
+        // Project vertices
+        for (let i = 0; i < mesh.v.length; i++) {
+          const [vx, vy, vz] = mesh.v[i];
+          // Rotate Y
+          const x1 = vx * cosY + vz * sinY;
+          const y1 = vy;
+          const z1 = -vx * sinY + vz * cosY;
+          // Rotate X
+          const x2 = x1;
+          const y2 = y1 * cosX - z1 * sinX;
+          const z2 = y1 * sinX + z1 * cosX + 320;
+
+          const scale = fov / z2;
+          projected.push([cx + x2 * scale, cy + y2 * scale, z2]);
+        }
+
+        // Draw edges with depth cue (clean charcoal strokes, no glow)
+        ctx.lineWidth = 1.15;
+        for (let i = 0; i < mesh.e.length; i++) {
+          const [p1Idx, p2Idx] = mesh.e[i];
+          const p1 = projected[p1Idx];
+          const p2 = projected[p2Idx];
+
+          const avgZ = (p1[2] + p2[2]) / 2;
+          // Depth fading: closer is darker, farther is lighter
+          const alpha = Math.max(0.12, Math.min(0.65, 1 - (avgZ - 200) / 280));
+          ctx.strokeStyle = `rgba(20, 20, 19, ${alpha})`;
+
+          ctx.beginPath();
+          ctx.moveTo(p1[0], p1[1]);
+          ctx.lineTo(p2[0], p2[1]);
+          ctx.stroke();
+        }
+
+        // Draw vertex nodes
+        for (let i = 0; i < projected.length; i++) {
+          const p = projected[i];
+          const alpha = Math.max(0.2, Math.min(0.85, 1 - (p[2] - 200) / 280));
+          ctx.fillStyle = `rgba(20, 20, 19, ${alpha})`;
+          ctx.beginPath();
+          ctx.arc(p[0], p[1], 1.8, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        requestAnimationFrame(render);
+      }
+
+      render();
+    })();
+
+    // -------------------------------------------------------------
+    // 2. EXP 01: 3D CARD TILT MECHANICS
+    // -------------------------------------------------------------
+    (function initTiltDemo() {
+      const stage = document.getElementById('tilt-card-demo');
+      const box = document.getElementById('interactive-tilt-box');
+      const intensityInput = document.getElementById('tilt-intensity') as HTMLInputElement;
+      const progress = document.getElementById('tilt-progress');
+      if (!stage || !box) return;
+
+      stage.addEventListener('mousemove', (e) => {
+        const rect = stage.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        const maxDeg = intensityInput ? parseFloat(intensityInput.value) : 22;
+
+        const rotX = -y * maxDeg;
+        const rotY = x * maxDeg;
+
+        box.style.transform = `rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg) translateZ(12px)`;
+        if (progress) {
+          const pct = Math.min(100, Math.max(10, ((x + 0.5) * 100)));
+          progress.style.width = `${pct}%`;
+        }
+      });
+
+      stage.addEventListener('mouseleave', () => {
+        box.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0px)';
+      });
+    })();
+
+    // -------------------------------------------------------------
+    // 3. EXP 02: KINETIC DOT GRID (Repel / Attract)
+    // -------------------------------------------------------------
+    (function initDotGrid() {
+      const canvas = document.getElementById('dot-grid-canvas') as HTMLCanvasElement;
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      let mode: 'repel' | 'attract' = 'repel';
+      const btnRepel = document.getElementById('btn-repel');
+      const btnAttract = document.getElementById('btn-attract');
+
+      btnRepel?.addEventListener('click', () => {
+        mode = 'repel';
+        btnRepel.className = 'px-2 py-0.5 rounded border border-neutral-900 bg-neutral-900 text-white text-[11px]';
+        if (btnAttract) btnAttract.className = 'px-2 py-0.5 rounded border border-[var(--border)] bg-white text-neutral-700 text-[11px]';
+      });
+
+      btnAttract?.addEventListener('click', () => {
+        mode = 'attract';
+        btnAttract.className = 'px-2 py-0.5 rounded border border-neutral-900 bg-neutral-900 text-white text-[11px]';
+        if (btnRepel) btnRepel.className = 'px-2 py-0.5 rounded border border-[var(--border)] bg-white text-neutral-700 text-[11px]';
+      });
+
+      const cols = 15;
+      const rows = 7;
+      const gapX = canvas.width / (cols + 1);
+      const gapY = canvas.height / (rows + 1);
+
+      interface Dot {
+        ox: number; oy: number;
+        x: number; y: number;
+        vx: number; vy: number;
+      }
+
+      const dots: Dot[] = [];
+      for (let r = 1; r <= rows; r++) {
+        for (let c = 1; c <= cols; c++) {
+          dots.push({
+            ox: c * gapX, oy: r * gapY,
+            x: c * gapX, y: r * gapY,
+            vx: 0, vy: 0
+          });
+        }
+      }
+
+      let mouseX = -999, mouseY = -999;
+      canvas.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        mouseX = (e.clientX - rect.left) * (canvas.width / rect.width);
+        mouseY = (e.clientY - rect.top) * (canvas.height / rect.height);
+      });
+
+      canvas.addEventListener('mouseleave', () => {
+        mouseX = -999; mouseY = -999;
+      });
+
+      function loop() {
+        if (!ctx) return;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        for (let i = 0; i < dots.length; i++) {
+          const d = dots[i];
+          const dx = mouseX - d.x;
+          const dy = mouseY - d.y;
+          const dist = Math.hypot(dx, dy);
+
+          // Force calculation
+          if (dist < 75 && dist > 0) {
+            const force = (1 - dist / 75) * 6;
+            const sign = mode === 'repel' ? -1 : 1;
+            d.vx += (dx / dist) * force * sign;
+            d.vy += (dy / dist) * force * sign;
+          }
+
+          // Spring return to origin
+          const spring = 0.08;
+          const damping = 0.85;
+          d.vx += (d.ox - d.x) * spring;
+          d.vy += (d.oy - d.y) * spring;
+          d.vx *= damping;
+          d.vy *= damping;
+          d.x += d.vx;
+          d.y += d.vy;
+
+          ctx.fillStyle = '#141413';
+          ctx.beginPath();
+          ctx.arc(d.x, d.y, 1.8, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        requestAnimationFrame(loop);
+      }
+      loop();
+    })();
+
+    // -------------------------------------------------------------
+    // 4. EXP 03: WAVEFORM OSCILLATOR
+    // -------------------------------------------------------------
+    (function initWaveform() {
+      const canvas = document.getElementById('waveform-canvas') as HTMLCanvasElement;
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+      const freqInput = document.getElementById('wave-freq') as HTMLInputElement;
+
+      let step = 0;
+      function loop() {
+        if (!ctx) return;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        step += 0.035;
+
+        const freq = freqInput ? parseFloat(freqInput.value) : 2;
+        const cy = canvas.height / 2;
+
+        ctx.strokeStyle = '#141413';
+        ctx.lineWidth = 1.35;
+        ctx.beginPath();
+
+        for (let x = 0; x < canvas.width; x++) {
+          const normX = (x / canvas.width) * Math.PI * 2;
+          const y1 = Math.sin(normX * freq + step) * 28;
+          const y2 = Math.sin(normX * (freq * 1.5) - step * 0.8) * 14;
+          const y = cy + y1 + y2;
+
+          if (x === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+
+        // Subtle guide baseline
+        ctx.strokeStyle = 'rgba(20,20,19,0.1)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(0, cy);
+        ctx.lineTo(canvas.width, cy);
+        ctx.stroke();
+
+        requestAnimationFrame(loop);
+      }
+      loop();
+    })();
+
+    // -------------------------------------------------------------
+    // 5. EXP 04: FLUID OPTICAL TYPE SLIDER
+    // -------------------------------------------------------------
+    (function initTypePreview() {
+      const preview = document.getElementById('dynamic-type-preview');
+      const spacingInput = document.getElementById('type-spacing') as HTMLInputElement;
+      if (!preview || !spacingInput) return;
+
+      spacingInput.addEventListener('input', () => {
+        const val = parseFloat(spacingInput.value);
+        preview.style.letterSpacing = `${val}px`;
+      });
+    })();
+  </script>
 </Layout>

@@ -2,12 +2,16 @@
 import '../styles/global.css';
 
 interface Props {
-  title: string;
+  title?: string;
   description?: string;
   canonical?: string;
 }
 
-const { title, description = 'Elias Scho - Software-Entwickler & Technologie-Enthusiast aus Wildau. Professionelle Webentwicklung und digitale Lösungen.', canonical } = Astro.props;
+const {
+  title = 'Elias Scho — Creative Development & Playground',
+  description = 'Personal playground and creative development laboratory by Elias Scho. Experimental frontend mechanics, spatial UI, and interactive prototypes.',
+  canonical
+} = Astro.props;
 
 const siteUrl = 'https://eliasscho.de';
 const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl;
@@ -25,187 +29,113 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl;
     <!-- Canonical URL -->
     <link rel="canonical" href={fullCanonical} />
     
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph / Meta -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={fullCanonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={`${siteUrl}/Elias_Icon.png`} />
     <meta property="og:locale" content="de_DE" />
     
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={fullCanonical} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={`${siteUrl}/Elias_Icon.png`} />
-    
     <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" href="/Logo.png" />
-    <link rel="apple-touch-icon" href="/Logo.png" />
     
-    <!-- Preconnect to external domains -->
+    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    
-    <!-- Google Fonts (Inter) - Self-hosted recommended for GDPR -->
-    <link data-type="text/css" data-name="google-fonts" data-rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-    
-    <!-- Klaro Cookie Consent -->
-    <script defer type="application/javascript" src="/klaro-config.js"></script>
-    <script defer type="application/javascript" src="https://cdn.kiprotect.com/klaro/v0.7.11/klaro.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
     
     <title>{title}</title>
-    
-    <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
-      {JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Elias Scho",
-        "url": siteUrl,
-        "image": `${siteUrl}/Elias_Icon.png`,
-        "sameAs": [
-          "https://github.com/FreddyAITest",
-          "https://www.linkedin.com/in/elias-scho"
-        ],
-        "jobTitle": "Software-Entwickler",
-        "worksFor": {
-          "@type": "Organization",
-          "name": "Elias Scho"
-        },
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Woellmerstr. 28",
-          "addressLocality": "Hamburg",
-          "postalCode": "21075",
-          "addressCountry": "DE"
-        },
-        "email": "mailto:kontakt@eliasscho.de",
-        "telephone": "+49 176 418 155 22"
-      })}
-    </script>
   </head>
-  <body>
-    <!-- Skip Link for Accessibility -->
-    <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
+  <body class="selection:bg-neutral-900 selection:text-neutral-50 antialiased">
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
     
-    <!-- Navigation -->
-    <nav class="nav" role="navigation" aria-label="Hauptnavigation">
-      <div class="nav-container">
-        <a href="/" class="nav-logo" aria-label="Elias Scho - Startseite">Elias Scho</a>
+    <!-- Minimalist Header -->
+    <header class="sticky top-0 z-50 w-full border-b border-[var(--border)] bg-[#fbfaf8]/85 backdrop-blur-md transition-all">
+      <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-3 group text-decoration-none">
+          <span class="font-semibold text-neutral-900 tracking-tight text-base group-hover:text-neutral-600 transition-colors">elias scho</span>
+          <span class="font-mono text-[10px] tracking-wider uppercase px-2 py-0.5 rounded-full border border-[var(--border)] bg-neutral-100 text-neutral-600">
+            lab
+          </span>
+        </a>
         
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-neutral-600" aria-label="Hauptnavigation">
+          <a href="/#playground" class="hover:text-neutral-950 transition-colors">Playground</a>
+          <a href="/#experiments" class="hover:text-neutral-950 transition-colors">Experiments</a>
+          <a href="/#about" class="hover:text-neutral-950 transition-colors">About</a>
+          <a href="/#connect" class="hover:text-neutral-950 transition-colors">Connect</a>
+        </nav>
+        
+        <!-- Status Indicator -->
+        <div class="hidden sm:flex items-center gap-2 text-xs font-mono text-neutral-500">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>Hamburg, DE</span>
+        </div>
+        
+        <!-- Mobile Menu Toggle Button -->
         <button 
-          class="mobile-menu-button" 
-          id="mobile-menu-toggle"
+          id="mobile-nav-toggle"
+          class="md:hidden p-2 text-neutral-700 hover:text-neutral-950 focus:outline-none"
           aria-label="Menü öffnen"
           aria-expanded="false"
-          aria-controls="mobile-menu"
         >
-          ☰
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
         </button>
-        
-        <ul class="nav-links">
-          <li><a href="/#about">Über mich</a></li>
-          <li><a href="/#services">Dienstleistungen</a></li>
-          <li><a href="/#produkte">Produkte</a></li>
-          <li><a href="/#projects">Projekte</a></li>
-          <li><a href="/#contact">Kontakt</a></li>
-          <li><a href="/impressum">Impressum</a></li>
-        </ul>
       </div>
       
-      <!-- Mobile Menu -->
-      <div class="mobile-menu" id="mobile-menu" role="menu">
-        <a href="/#about" role="menuitem">Über mich</a>
-        <a href="/#services" role="menuitem">Dienstleistungen</a>
-        <a href="/#produkte" role="menuitem">Produkte</a>
-        <a href="/#projects" role="menuitem">Projekte</a>
-        <a href="/#contact" role="menuitem">Kontakt</a>
-        <a href="/impressum" role="menuitem">Impressum</a>
+      <!-- Mobile Dropdown -->
+      <div id="mobile-nav-menu" class="hidden md:hidden border-b border-[var(--border)] bg-[#fbfaf8] px-6 py-4 flex flex-col gap-3 text-sm font-medium text-neutral-700">
+        <a href="/#playground" class="py-1 hover:text-neutral-950">Playground</a>
+        <a href="/#experiments" class="py-1 hover:text-neutral-950">Experiments</a>
+        <a href="/#about" class="py-1 hover:text-neutral-950">About</a>
+        <a href="/#connect" class="py-1 hover:text-neutral-950">Connect</a>
+        <div class="pt-3 border-t border-[var(--border)] text-xs font-mono text-neutral-500 flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+          <span>Hamburg, DE · 53.55° N</span>
+        </div>
       </div>
-    </nav>
+    </header>
     
-    <!-- Main Content -->
+    <!-- Main Content Slot -->
     <main id="main-content">
       <slot />
     </main>
     
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-container">
-        <div class="footer-grid">
-          <div class="footer-section">
-            <h3>Elias Scho</h3>
-            <p style="color: rgba(255,255,255,0.8); margin-bottom: 1rem;">
-              Software-Entwickler & Technologie-Enthusiast
-            </p>
-            <p style="color: rgba(255,255,255,0.6); font-size: 0.875rem;">
-              Woellmerstr. 28<br />
-              21075 Hamburg<br />
-              Deutschland
-            </p>
-          </div>
-          
-          <div class="footer-section">
-            <h3>Navigation</h3>
-            <ul>
-              <li><a href="/#about">Über mich</a></li>
-              <li><a href="/#services">Dienstleistungen</a></li>
-              <li><a href="/#produkte">Produkte</a></li>
-              <li><a href="/#projects">Projekte</a></li>
-              <li><a href="/#contact">Kontakt</a></li>
-            </ul>
-          </div>
-          
-          <div class="footer-section">
-            <h3>Rechtliches</h3>
-            <ul>
-              <li><a href="/impressum">Impressum</a></li>
-              <li><a href="/datenschutz">Datenschutzerklärung</a></li>
-              <li><a href="javascript:void(0)" onclick="if(typeof klaro !== 'undefined') klaro.show();">Cookie-Einstellungen</a></li>
-            </ul>
-          </div>
-          
-          <div class="footer-section">
-            <h3>Kontakt</h3>
-            <ul>
-              <li><a href="mailto:kontakt@eliasscho.de">kontakt@eliasscho.de</a></li>
-              <li><a href="tel:+4917641815522">+49 176 418 155 22</a></li>
-            </ul>
-          </div>
+    <!-- Quiet Minimalist Footer -->
+    <footer class="border-t border-[var(--border)] bg-[#f5f4ef] mt-24 py-12 text-sm text-neutral-500">
+      <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-3">
+          <span class="font-mono text-xs text-neutral-400">© {new Date().getFullYear()}</span>
+          <span class="text-neutral-700 font-medium">Elias Scho</span>
+          <span class="text-neutral-400 text-xs">— Creative Development Lab</span>
         </div>
         
-        <div class="footer-links">
-          <a href="/impressum">Impressum</a>
-          <a href="/datenschutz">Datenschutz</a>
-          <a href="/cookie-einstellungen">Cookies</a>
-        </div>
-        
-        <div class="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} Elias Scho. Alle Rechte vorbehalten.</p>
+        <div class="flex items-center gap-6 text-xs text-neutral-500">
+          <a href="/impressum" class="hover:text-neutral-900 transition-colors">Impressum</a>
+          <a href="/datenschutz" class="hover:text-neutral-900 transition-colors">Datenschutz</a>
+          <a href="/cookie-einstellungen" class="hover:text-neutral-900 transition-colors">Cookies</a>
         </div>
       </div>
     </footer>
     
-    <!-- Mobile Menu & Klaro Script -->
     <script>
-      // Mobile Menu Toggle
-      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-      const mobileMenu = document.getElementById('mobile-menu');
-      
-      if (mobileMenuToggle && mobileMenu) {
-        mobileMenuToggle.addEventListener('click', () => {
-          const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
-          mobileMenuToggle.setAttribute('aria-expanded', (!isExpanded).toString());
-          mobileMenu.classList.toggle('show');
+      const toggle = document.getElementById('mobile-nav-toggle');
+      const menu = document.getElementById('mobile-nav-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', () => {
+          const isOpen = !menu.classList.contains('hidden');
+          menu.classList.toggle('hidden');
+          toggle.setAttribute('aria-expanded', (!isOpen).toString());
         });
-        
-        // Close mobile menu when clicking a link
-        mobileMenu.querySelectorAll('a').forEach(link => {
+        menu.querySelectorAll('a').forEach(link => {
           link.addEventListener('click', () => {
-            mobileMenu.classList.remove('show');
-            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            menu.classList.add('hidden');
+            toggle.setAttribute('aria-expanded', 'false');
           });
         });
       }
